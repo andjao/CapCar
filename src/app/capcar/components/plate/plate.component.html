@@ -9,7 +9,7 @@
             <div id="stateCountyRes">BRASIL</div>
             <div class="rivet rivetR"></div>
         </div>
-        <input id="plate" placeholder="Digite a placa aqui" value="" inputmode="text">
+        <input id="plate" placeholder="Digite a placa aqui" value="" inputmode="text" (keydown.enter)="consulta($event)">
     </div>
     <div class="screwHolesBottom">
         <div class="screwHole screwHoleL"></div>

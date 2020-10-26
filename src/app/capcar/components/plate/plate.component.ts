@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+import { Plate, PlateResponse } from '../../models'
+import { PlateRequestService } from '../../services';
 
 @Component({
   selector: 'app-plate',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlateComponent implements OnInit {
 
-  constructor() { }
+  private plate: Plate;
+  private plateResponse: PlateResponse;
+
+  @ViewChild("plateForm", { static: true }) plateForm: NgForm;
+
+  constructor(
+    private plateRequestService:PlateRequestService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  consulta(event){
+    alert(event.target.value);
   }
 
 }
