@@ -1,0 +1,4 @@
+<div class="loadingBg" *ngIf="loadingService.loading"
+    [ngStyle]="{'background-color':changeBackground(loadingService.loadingOpacity)}">
+    <p class="loadingText">{{loadingService.loadingText}}</p>
+</div>
