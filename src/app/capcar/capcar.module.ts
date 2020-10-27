@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LoadingComponent } from './components/loading/loading.component';
-import { PlateComponent } from './components';
+import { BackgroundComponent, LoadingComponent, PlateComponent } from './components';
 import { PlateRequestService } from './services';
 
 @NgModule({
-  declarations: [
-    LoadingComponent,
-    PlateComponent,
-  ],
   imports: [
     CommonModule,
   ],
+  declarations: [
+    BackgroundComponent,
+    LoadingComponent,
+    PlateComponent
+  ],
   exports: [
+    BackgroundComponent,
     LoadingComponent,
     PlateComponent
   ],

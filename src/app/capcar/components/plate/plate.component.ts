@@ -17,13 +17,13 @@ export class PlateComponent implements OnInit {
   @ViewChild("plateForm", { static: true }) plateForm: NgForm;
 
   constructor(
-    private plateRequestService:PlateRequestService
+    private plateRequestService: PlateRequestService
   ) { }
 
   ngOnInit(): void {
   }
 
-  consulta(event){
+  consulta(event): void {
     alert(event.target.value);
   }
 
