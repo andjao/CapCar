@@ -1,8 +1,6 @@
 .loadingBg {
   font-family: Traffic;
   font-size: 10vw;
-  background-color: #000;
-  color: #fff;
   position: absolute;
   z-index: 1000;
   width: 100%;
@@ -12,4 +10,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.loadingText {
+  color: #fff;
+  text-shadow: 3px 3px 5px #000;
 }

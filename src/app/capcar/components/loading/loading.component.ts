@@ -17,4 +17,8 @@ export class LoadingComponent implements OnInit {
 
   }
 
+  changeBackground(opacity){
+    return `rgba(0, 0, 0, ${opacity})`;
+  }
+
 }

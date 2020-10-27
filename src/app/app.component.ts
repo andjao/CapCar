@@ -17,6 +17,6 @@ export class AppComponent {
   ){}
 
   ngOnInit(): void {
-    this.loadingService.loadingM(true, "Carregando");
+    this.loadingService.loadingM(true, ".5");
   }
 }
