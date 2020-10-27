@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: Mandatory;
+  src: url(assets/fonts/mandatory.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Traffic;
+  src: url(assets/fonts/traffic3.ttf) format('truetype');
+}
+
+* {
+  outline: none;
+}
