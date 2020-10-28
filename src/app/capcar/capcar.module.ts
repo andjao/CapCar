@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BackgroundComponent, LoadingComponent, PlateComponent } from './components';
-import { PlateRequestService } from './services';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import {
+  BackgroundComponent,
+  LoadingComponent,
+  ToolbarComponent,
+  PlateComponent,
+  PlateReponseComponent
+} from './components';
+import { LoadingService, PlateRequestService } from './services';
 
 @NgModule({
   imports: [
@@ -13,15 +18,18 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     BackgroundComponent,
     LoadingComponent,
     ToolbarComponent,
-    PlateComponent
+    PlateComponent,
+    PlateReponseComponent
   ],
   exports: [
     BackgroundComponent,
     LoadingComponent,
     ToolbarComponent,
-    PlateComponent
+    PlateComponent,
+    PlateReponseComponent
   ],
-  providers:[
+  providers: [
+    LoadingService,
     PlateRequestService
   ]
 })
