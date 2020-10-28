@@ -1,0 +1,40 @@
+@keyframes bouncingLoader {
+  0% {
+    opacity: 0;
+    transform: perspective(100vw) translate3d(0, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: perspective(100vw) translate3d(0, 0, 20vw);
+  }
+}
+
+.loadingBg {
+  font-family: Traffic;
+  font-size: 10vw;
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$time: 2;
+
+.loadingText {
+  color: #fff;
+  text-shadow: 3px 3px 5px #000;
+  animation: bouncingLoader #{$time}s infinite alternate;
+  opacity: 0;
+}
+
+@for $i from 0 through 20 {
+  .loadingText:nth-child(#{$i}) {
+    animation-delay: $i * 0.25s;
+  }
+}

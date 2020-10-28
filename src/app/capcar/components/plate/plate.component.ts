@@ -7,7 +7,7 @@ import { PlateRequestService } from '../../services';
 @Component({
   selector: 'app-plate',
   templateUrl: './plate.component.html',
-  styleUrls: ['./plate.component.css']
+  styleUrls: ['./plate.component.scss']
 })
 export class PlateComponent implements OnInit {
 

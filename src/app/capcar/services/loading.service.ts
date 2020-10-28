@@ -13,7 +13,7 @@ export class LoadingService {
 
   constructor() { }
 
-  loadingM(loading, opacity = "1", text = "Carregando"){
+  loadingM(loading, opacity = "1", text = "Carregando..."){
     if(loading){
       this.loadingOpacity = opacity;
       this.loadingText = text;

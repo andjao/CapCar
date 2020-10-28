@@ -1,4 +1,4 @@
 <div class="loadingBg" *ngIf="loadingService.loading"
-    [ngStyle]="{'background-color':changeBackground(loadingService.loadingOpacity)}">
-    <p class="loadingText">{{loadingService.loadingText}}</p>
+  [ngStyle]="{'background-color':changeBackground(loadingService.loadingOpacity)}">
+  <p class="loadingText" *ngFor="let letter of letterSeparator(loadingService.loadingText)">{{letter}}</p>
 </div>
