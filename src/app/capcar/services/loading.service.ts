@@ -19,9 +19,12 @@ export class LoadingService {
       this.loadingText = text;
       this.loading = loading;
     }else{
-      this.loadingOpacity = opacity;
-      this.loadingText = null;
-      this.loading = loading;
+      setTimeout(() => {
+        this.loadingOpacity = opacity;
+        this.loadingText = null;
+        this.loading = loading;
+      }, 2000);
+      
     }
   }
 }
