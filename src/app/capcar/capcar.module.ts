@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BackgroundComponent, LoadingComponent, PlateComponent } from './components';
 import { PlateRequestService } from './services';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @NgModule({
   imports: [
@@ -11,11 +12,13 @@ import { PlateRequestService } from './services';
   declarations: [
     BackgroundComponent,
     LoadingComponent,
+    ToolbarComponent,
     PlateComponent
   ],
   exports: [
     BackgroundComponent,
     LoadingComponent,
+    ToolbarComponent,
     PlateComponent
   ],
   providers:[

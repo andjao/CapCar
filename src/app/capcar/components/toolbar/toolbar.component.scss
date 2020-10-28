@@ -1,0 +1,19 @@
+$size:15;
+
+.toolbar {
+  position: relative;
+  background-color: #f80;
+  z-index: 9999;
+  width: 100%;
+  height: #{$size}vw;
+  margin: 0 0 2vw 0;
+}
+
+.title {
+  color: #fff;
+  font-family: Traffic;
+  font-size: #{$size/2.5}vw;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
