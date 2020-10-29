@@ -11,20 +11,24 @@ import { PlateRequestService } from '../../services';
 })
 export class PlateComponent implements OnInit {
 
-  private plate: Plate;
-  private plateResponse: PlateResponse;
+  plate = new Plate;
+  plateResponse: PlateResponse;
 
   @ViewChild("plateForm", { static: true }) plateForm: NgForm;
 
   constructor(
     private plateRequestService: PlateRequestService
-  ) { }
+  ) { 
+  }
 
   ngOnInit(): void {
   }
 
-  consulta(event): void {
-    alert(event.target.value);
+  queryPlate(): void {
+    if (this.plateForm.form.valid) {
+      // this.plateRequestService.plateRequest(this.plate);
+      console.log((this.plate));
+    }
   }
 
 }

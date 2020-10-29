@@ -17,7 +17,7 @@
   text-transform: uppercase;
   width: 95vw;
   -webkit-box-shadow: .3vw .3vw 1vw #656565;
-  margin: 0 auto 2vw auto;
+  margin: 0 auto 2vw;
 }
 
 .screwHolesTop {
@@ -57,7 +57,7 @@
 
 .screwHolesBottom {
   align-items: center;
-  top: 30vw;
+  bottom: 3vw;
   display: flex;
   display: -ms-flexbox;
   display: -webkit-box;
@@ -78,7 +78,7 @@
   -webkit-box-shadow: .5vw .5vw 1vw #656565;
 }
 
-#stateCounty {
+.stateCounty {
   align-items: center;
   background-clip: text;
   border: .15vw solid #656565;
@@ -120,7 +120,7 @@
   -webkit-box-shadow: inset 0 0 0 .5vw rgba(181, 198, 208, 1);
 }
 
-#plate {
+.plateInput {
   background-clip: text;
   border: none;
   font-family: Mandatory;
@@ -135,7 +135,7 @@
   -webkit-background-clip: text;
 }
 
-#plate::-moz-placeholder {
+.plateInput::-moz-placeholder {
   font-size: 8vw;
   line-height: 24vw;
   text-shadow: none;
@@ -143,7 +143,7 @@
   color: #444;
 }
 
-#plate::-webkit-input-placeholder {
+.plateInput::-webkit-input-placeholder {
   font-size: 8vw;
   line-height: 7vw;
   text-shadow: none;
@@ -152,7 +152,7 @@
   color: #444;
 }
 
-#plate:-ms-input-placeholder {
+.plateInput:-ms-input-placeholder {
   font-size: 8vw;
   line-height: 7vw;
   text-shadow: none;

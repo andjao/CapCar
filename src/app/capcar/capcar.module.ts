@@ -10,18 +10,20 @@ import {
   PlateReponseComponent
 } from './components';
 import { LoadingService, PlateRequestService } from './services';
+import { PlateDirective } from './directives';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   declarations: [
     BackgroundComponent,
     LoadingComponent,
     PlateComponent,
-    PlateReponseComponent
+    PlateReponseComponent,
+    PlateDirective
   ],
   exports: [
     BackgroundComponent,

@@ -13,6 +13,8 @@ import {
 export class PlateRequestService {
 
   private readonly BASE_URL = "https://apicarros.com/v1/consulta/";
+
+  public queryON:boolean = false;
   
   constructor(private http: HttpClient) { }
 

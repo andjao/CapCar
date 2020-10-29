@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PlateRequestService } from '../../services';
+
 @Component({
   selector: 'app-plate-reponse',
   templateUrl: './plate-reponse.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlateReponseComponent implements OnInit {
 
-  constructor() { }
+  constructor(public plateRequestService: PlateRequestService) { }
 
   ngOnInit(): void {
   }

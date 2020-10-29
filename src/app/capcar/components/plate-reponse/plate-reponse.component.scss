@@ -1,12 +1,27 @@
 .plateResponse {
-  background-color: #009140;
+  position: relative;
+  background-color: #00f;
   border-radius: 2vw;
-  border: 1vw solid #009140;
+  border: 1vw solid #00f;
   box-shadow: inset 0 0 0 .9vw #fff, .3vw .3vw 1vw #000;
-  font-family: Mandatory;
+  font-family: Traffic;
   font-size: 5vw;
   padding: 2vw;
-  margin: 0 auto 2vw auto;
+  margin: 0 auto 2vw;
   color: #fff;
   width: 90%;
+}
+
+.result{
+  margin: 0 auto 3.5vw;
+}
+
+.divider {
+  position: absolute;
+  height: 1vw;
+  background-color: #fff;
+  border: none;
+  width: 100%;
+  top: 9.4vw;
+  left: 0;
 }

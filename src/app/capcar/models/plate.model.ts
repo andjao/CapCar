@@ -1,5 +1,5 @@
 export class Plate {
     constructor(
-        plate?: string,
-    ){}
+        public plate?: string
+    ) { }
 }
