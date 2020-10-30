@@ -35,10 +35,11 @@ export class PlateComponent implements OnInit {
         .plateRequest(this.plate)
         .subscribe(
           response => {
-            this.loadingService.loadingM(false);
-            this.plateResponse = response;
+            this.plateRequestService.plateResponse = response;
+            this.plateResponse = this.plateRequestService.plateResponse;
             this.stateCountyRes = `${this.plateResponse.uf} - ${this.plateResponse.municipio}`;
             this.plateRequestService.queryON = true;
+            this.loadingService.loadingM(false);
           },
           error => {
             this.haveError = true;
@@ -47,5 +48,4 @@ export class PlateComponent implements OnInit {
         );
     }
   }
-
 }
