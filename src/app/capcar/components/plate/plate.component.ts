@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { Plate, PlateResponse } from '../../models'
-import { PlateRequestService } from '../../services';
+import { PlateRequestService, LoadingService } from '../../services';
 
 @Component({
   selector: 'app-plate',
@@ -11,14 +11,18 @@ import { PlateRequestService } from '../../services';
 })
 export class PlateComponent implements OnInit {
 
-  plate = new Plate;
+  plate: Plate;
   plateResponse: PlateResponse;
+  haveError: boolean;
+  stateCountyRes;
 
   @ViewChild("plateForm", { static: true }) plateForm: NgForm;
 
   constructor(
-    private plateRequestService: PlateRequestService
-  ) { 
+    private plateRequestService: PlateRequestService,
+    private loadingService: LoadingService
+  ) {
+    this.stateCountyRes = 'BRASIL';
   }
 
   ngOnInit(): void {
@@ -26,8 +30,21 @@ export class PlateComponent implements OnInit {
 
   queryPlate(): void {
     if (this.plateForm.form.valid) {
-      // this.plateRequestService.plateRequest(this.plate);
-      console.log((this.plate));
+      this.loadingService.loadingM(true, '.8', 'Consultando...')
+      this.plateRequestService
+        .plateRequest(this.plate)
+        .subscribe(
+          response => {
+            this.loadingService.loadingM(false);
+            this.plateResponse = response;
+            this.stateCountyRes = `${this.plateResponse.uf} - ${this.plateResponse.municipio}`;
+            this.plateRequestService.queryON = true;
+          },
+          error => {
+            this.haveError = true;
+            this.plateRequestService.queryON = false;
+          }
+        );
     }
   }
 

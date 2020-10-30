@@ -10,20 +10,25 @@ import {
   PlateReponseComponent
 } from './components';
 import { LoadingService, PlateRequestService } from './services';
-import { PlateDirective } from './directives';
+
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+const maskConfig: Partial<IConfig> = {
+  validation: true,
+};
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxMaskModule.forRoot(maskConfig),
   ],
   declarations: [
     BackgroundComponent,
     LoadingComponent,
     PlateComponent,
     PlateReponseComponent,
-    PlateDirective
   ],
   exports: [
     BackgroundComponent,

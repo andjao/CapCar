@@ -6,7 +6,7 @@
   <div class="plate1">
     <div class="stateCounty">
       <div class="rivet rivetL"></div>
-      <div class="stateCountyRes">BRASIL</div>
+      <div class="stateCountyRes">{{stateCountyRes}}</div>
       <div class="rivet rivetR"></div>
     </div>
     <form #plateForm="ngForm" ng-submit="queryPlate()">
@@ -16,9 +16,10 @@
         name="plate"
         class="plateInput"
         placeholder="Digite a placa aqui"
-        [(ngModel)]="plate.plate"
-        plate
+        [(ngModel)]="plate"
         required
+        mask="SSS-0000"
+        (keyup.enter)="queryPlate()"
         >
     </form>
   </div>
