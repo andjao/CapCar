@@ -14,7 +14,7 @@ export class BackgroundComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    // this.loadingService.loadingM(true);
+    this.loadingService.loadingM(true);
   }
 
 }

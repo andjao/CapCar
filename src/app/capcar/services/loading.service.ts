@@ -14,17 +14,16 @@ export class LoadingService {
   constructor() { }
 
   loadingM(loading, opacity = "1", text = "Carregando...") {
-    if (loading) {
-      this.loadingOpacity = opacity;
-      this.loadingText = text;
-      this.loading = loading;
-    } else {
-      setTimeout(() => {
-        this.loadingOpacity = opacity;
-        this.loadingText = null;
-        this.loading = loading;
-      }, 2000);
-
-    }
+    // if (loading) {
+    //   this.loadingOpacity = opacity;
+    //   this.loadingText = text;
+    //   this.loading = loading;
+    // } else {
+    //   setTimeout(() => {
+    //     this.loadingOpacity = opacity;
+    //     this.loadingText = null;
+    //     this.loading = loading;
+    //   }, 2000);
+    // }
   }
 }

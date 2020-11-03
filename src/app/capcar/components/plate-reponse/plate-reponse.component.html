@@ -1,5 +1,5 @@
 <div class="plateResponse" *ngIf="plateRequestService.queryON">
   <p class="result">Resultado</p>
   <hr class="divider">
-  <p *ngFor="let date of plateRequestService.plateResponse">{{date}}</p>
+  <p *ngFor="let item of plateRequestService.plateResponse | keyvalue">{{item.value}}</p>
 </div>
