@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 
 import { Plate } from '../..'
 import { PlateRequestService, LoadingService } from '../../services';
+import { FipeValueComponent } from '../fipeValue';
 
 @Component({
   selector: 'app-plate',
@@ -12,14 +13,14 @@ import { PlateRequestService, LoadingService } from '../../services';
 export class PlateComponent implements OnInit {
 
   plate: Plate;
-  haveError: boolean;
   stateCountyRes;
 
   @ViewChild("plateForm", { static: true }) plateForm: NgForm;
 
   constructor(
     private plateRequestService: PlateRequestService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private fipeValueComponent: FipeValueComponent
   ) {
     this.stateCountyRes = 'BRASIL';
   }
@@ -42,12 +43,11 @@ export class PlateComponent implements OnInit {
             } else {
               this.plateRequestService.plateResponse = response;
               this.stateCountyRes = `${this.plateRequestService.plateResponse.uf} - ${this.plateRequestService.plateResponse.municipio}`;
-              this.haveError = false;
               this.plateRequestService.queryON = true;
+              this.fipeValueComponent.fipeBrands('carros')
             }
           },
           error => {
-            this.haveError = true;
             this.plateRequestService.queryON = false;
             this.stateCountyRes = 'BRASIL';
             this.loadingService.loadingM(false);

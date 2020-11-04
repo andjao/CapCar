@@ -1,6 +1,5 @@
-.plateResponse {
+.fipeResponse {
   position: relative;
-  background-color: #00f;
   border-radius: 2vw;
   box-shadow: inset 0 0 0 .9vw #fff, .3vw .3vw 1vw #000;
   font-family: Traffic;
@@ -9,7 +8,7 @@
   margin: 0 auto 2vw;
   color: #fff;
   width: 90%;
-  background: -webkit-linear-gradient(-45deg, #499bea 0%, #0000ff 100%);
+  background: -webkit-linear-gradient(-45deg, #00cc00 0%, #008800 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#499bea', endColorstr='#0000ff', GradientType=1);
   $border: 1vw;
   background-clip: padding-box;
@@ -25,12 +24,13 @@
     z-index: -1;
     margin: -$border;
     border-radius: inherit;
-    background: linear-gradient(135deg, #499bea 0%, #0000ff 100%);
+    background: linear-gradient(135deg, #00cc00 0%, #008800 100%);
   }
 }
 
 .result {
   margin: 0 auto 3.5vw;
+  text-align: center;
 }
 
 .divider {

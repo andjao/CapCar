@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
 import {
   BackgroundComponent,
   LoadingComponent,
   PlateComponent,
-  PlateReponseComponent
+  PlateReponseComponent,
+  FipeValueComponent,
 } from './components';
 import { LoadingService, PlateRequestService } from './services';
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 const maskConfig: Partial<IConfig> = {
   validation: true,
@@ -29,16 +31,19 @@ const maskConfig: Partial<IConfig> = {
     LoadingComponent,
     PlateComponent,
     PlateReponseComponent,
+    FipeValueComponent,
   ],
   exports: [
     BackgroundComponent,
     LoadingComponent,
     PlateComponent,
-    PlateReponseComponent
+    PlateReponseComponent,
+    FipeValueComponent,
   ],
   providers: [
     LoadingService,
-    PlateRequestService
+    PlateRequestService,
+    FipeValueComponent
   ]
 })
 export class CapcarModule { }

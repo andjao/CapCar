@@ -1,0 +1,45 @@
+.plateResponse {
+  position: relative;
+  background-color: #00f;
+  border-radius: 2vw;
+  box-shadow: inset 0 0 0 .9vw #fff, .3vw .3vw 1vw #000;
+  font-family: Traffic;
+  font-size: 5vw;
+  padding: 2vw;
+  margin: 0 auto 2vw;
+  color: #fff;
+  width: 90%;
+  background: -webkit-linear-gradient(-45deg, #499bea 0%, #0000ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#499bea', endColorstr='#0000ff', GradientType=1);
+  $border: 1vw;
+  background-clip: padding-box;
+  border: solid $border transparent;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -$border;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #499bea 0%, #0000ff 100%);
+  }
+}
+
+.result {
+  margin: 0 auto 3.5vw;
+  text-align: center;
+}
+
+.divider {
+  position: absolute;
+  height: 1vw;
+  background-color: #fff;
+  border: none;
+  width: 100%;
+  top: 9.4vw;
+  left: 0;
+}

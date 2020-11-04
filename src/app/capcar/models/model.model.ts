@@ -1,9 +1,10 @@
-export class Brand {
+export class Model {
     constructor(
+        public fipe_marca: String,
         public fipe_name: String,
-        public id: number,
+        public id: Number,
         public key: String,
+        public marca: String,
         public name: String,
-        public order: Number,
     ) { }
 }

@@ -1,4 +1,5 @@
 export * from './plate';
 export * from './loading';
 export * from './background';
-export * from './plate-reponse';
+export * from './plateResponse';
+export * from './fipeValue';
