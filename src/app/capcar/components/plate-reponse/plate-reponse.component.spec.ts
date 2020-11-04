@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlateReponseComponent } from './plate-reponse.component';
+import { PlateReponseComponent } from '.';
 
 describe('PlateReponseComponent', () => {
   let component: PlateReponseComponent;

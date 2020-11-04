@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { LoadingText } from '../models'
+import { LoadingText } from '..'
 
 @Injectable({
   providedIn: 'root'

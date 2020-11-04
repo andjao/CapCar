@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Observable';
 
 import {
   Plate,
-  PlateResponse
-} from '../models'
+  PlateResponse,
+} from '..'
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ import {
 export class PlateRequestService {
 
   private readonly apicarros_URL = "https://apicarros.com/v1/consulta/";
-  private readonly fipe_URL = "https://veiculos.fipe.org.br/api/veiculos/";
+  private readonly fipe_URL = "http://fipeapi.appspot.com/api/1/";
 
   public plateResponse: PlateResponse;
   public queryON: boolean = false;
@@ -25,23 +25,23 @@ export class PlateRequestService {
       .get(`${this.apicarros_URL}${plate}/json`);
   }
 
-  fipeBrandsRequest(): Observable<any> {
+  fipeBrandsRequest(type = 'carros'): Observable<any> {
     return this.http
-      .get(this.fipe_URL);
+      .get(`${this.fipe_URL + type}/marcas.json`);
   }
 
-  fipeModelsRequest(): Observable<any> {
+  fipeModelsRequest(type, models): Observable<any> {
     return this.http
-      .get(this.fipe_URL);
+      .get(`${this.fipe_URL}${type}/${models.json}`);
   }
 
-  fipeYearsRequest(): Observable<any> {
+  fipeYearsRequest(type, models, modelYears): Observable<any> {
     return this.http
-      .get(this.fipe_URL);
+      .get(`${this.fipe_URL}/${type}/${models}/${modelYears}.json`);
   }
 
-  fipeAllRequest(): Observable<any> {
+  fipeAllRequest(type, models, modelYears, year): Observable<any> {
     return this.http
-      .get(this.fipe_URL);
+      .get(`${this.fipe_URL}/${type}/${models}/${modelYears}/${year}.json`);
   }
 }

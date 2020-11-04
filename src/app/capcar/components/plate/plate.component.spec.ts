@@ -1,10 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { PlateComponent } from './plate.component';
-import { PlateRequestService } from '../../services';
+import { PlateComponent } from '.';
+import { PlateRequestService } from '../..';
 
 describe('PlateComponent', () => {
   let component: PlateComponent;
@@ -18,9 +17,6 @@ describe('PlateComponent', () => {
       imports:[
         FormsModule,
         HttpClientModule
-      ],
-      schemas:[
-       CUSTOM_ELEMENTS_SCHEMA
       ],
       providers: [
         PlateRequestService

@@ -10,17 +10,8 @@
       <div class="rivet rivetR"></div>
     </div>
     <form #plateForm="ngForm" ng-submit="queryPlate()">
-      <input 
-        text="text"
-        inputmode="text"
-        name="plate"
-        class="plateInput"
-        placeholder="Digite a placa aqui"
-        [(ngModel)]="plate"
-        required
-        mask="SSS-0000"
-        (keyup.enter)="queryPlate()"
-        >
+      <input text="text" inputmode="text" name="plate" class="plateInput" placeholder="Digite a placa aqui"
+        [(ngModel)]="plate" required mask="SSS-0000" (keyup.enter)="queryPlate()">
     </form>
   </div>
   <div class="screwHolesBottom">

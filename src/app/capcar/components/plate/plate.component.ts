@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { Plate } from '../../models'
+import { Plate } from '../..'
 import { PlateRequestService, LoadingService } from '../../services';
 
 @Component({
@@ -34,11 +34,17 @@ export class PlateComponent implements OnInit {
         .plateRequest(this.plate)
         .subscribe(
           response => {
-            this.plateRequestService.plateResponse = response;
-            this.stateCountyRes = `${this.plateRequestService.plateResponse.uf} - ${this.plateRequestService.plateResponse.municipio}`;
-            this.haveError = false;
-            this.plateRequestService.queryON = true;
             this.loadingService.loadingM(false);
+            if (response.codigoRetorno == "404") {
+              this.stateCountyRes = 'BRASIL';
+              this.plateRequestService.queryON = false;
+              return;
+            } else {
+              this.plateRequestService.plateResponse = response;
+              this.stateCountyRes = `${this.plateRequestService.plateResponse.uf} - ${this.plateRequestService.plateResponse.municipio}`;
+              this.haveError = false;
+              this.plateRequestService.queryON = true;
+            }
           },
           error => {
             this.haveError = true;

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BackgroundComponent } from './background.component';
+import { BackgroundComponent } from '.';
 
 describe('BackgroundComponent', () => {
   let component: BackgroundComponent;

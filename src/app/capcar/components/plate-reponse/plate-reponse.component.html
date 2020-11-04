@@ -1,4 +1,4 @@
-<div class="plateResponse" *ngIf="plateRequestService.queryON">
+<div class="plateResponse">
   <p class="result">Resultado</p>
   <hr class="divider">
   <p *ngFor="let item of plateRequestService.plateResponse | keyvalue">{{item.value}}</p>
