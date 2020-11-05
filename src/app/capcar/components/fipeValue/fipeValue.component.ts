@@ -38,6 +38,7 @@ export class FipeValueComponent implements OnInit {
             };
           });
           if (this.brand !== null) {
+            this.plateRequestService.fipeError = false;
             this.fipeModels(type, this.brand.id);
           } else {
             this.plateRequestService.fipeError = true;
@@ -58,6 +59,7 @@ export class FipeValueComponent implements OnInit {
             }
           });
           if (this.modelsID.length > 0) {
+            this.plateRequestService.fipeError = false;
             this.fipeYears(type, this.brand.id, this.modelsID);
           } else {
             this.plateRequestService.fipeError = true;
@@ -82,6 +84,7 @@ export class FipeValueComponent implements OnInit {
             });
             if (modelIDSelectd !== undefined) {
               this.fipeAll(type, this.brand.id, modelIDSelectd, this.yearID);
+              this.plateRequestService.fipeError = false;
               return;
             } else {
               this.plateRequestService.fipeError = true;
