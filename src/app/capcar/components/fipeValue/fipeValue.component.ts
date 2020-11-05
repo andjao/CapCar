@@ -23,7 +23,7 @@ export class FipeValueComponent implements OnInit {
 
   fipeBrands(type) {
     this.plateResponse = this.plateRequestService.plateResponse;
-    this.modelWords = this.plateResponse.modelo.split('/')[1].split(" ");
+    this.modelWords = this.plateResponse.modelo.split(" ");
     this.plateRequestService.fipeBrandsRequest(type)
       .subscribe(
         response => {
