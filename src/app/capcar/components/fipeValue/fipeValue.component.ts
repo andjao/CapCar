@@ -22,6 +22,7 @@ export class FipeValueComponent implements OnInit {
   }
 
   fipeBrands(type) {
+    this.brand = null;
     this.modelsID = [];
     this.plateRequestService.fipeError = false;
     this.yearID = [];
@@ -34,11 +35,15 @@ export class FipeValueComponent implements OnInit {
           response.forEach(item => {
             if (item.fipe_name.match(this.plateResponse.marca)) {
               this.brand = item;
-              this.fipeModels(type, this.brand.id);
             };
           });
+          if (this.brand !== null) {
+            this.fipeModels(type, this.brand.id);
+          } else {
+            this.plateRequestService.fipeError = true;
+          }
         }, error => {
-          return console.log("Erro ao consultar a tabela FIPE");
+          this.plateRequestService.fipeError = true;
         }
       );
   }
@@ -58,7 +63,7 @@ export class FipeValueComponent implements OnInit {
             this.plateRequestService.fipeError = true;
           };
         }, error => {
-          return console.log("Erro ao consultar a tabela FIPE");
+          this.plateRequestService.fipeError = true;
         }
       );
   }
@@ -78,9 +83,11 @@ export class FipeValueComponent implements OnInit {
             if (modelIDSelectd !== undefined) {
               this.fipeAll(type, this.brand.id, modelIDSelectd, this.yearID);
               return;
+            } else {
+              this.plateRequestService.fipeError = true;
             };
           }, error => {
-            return console.log("Erro ao consultar a tabela FIPE");
+            this.plateRequestService.fipeError = true;
           }
         );
     }
@@ -93,7 +100,7 @@ export class FipeValueComponent implements OnInit {
           this.plateRequestService.fipeValue = response;
           this.plateRequestService.fipeOK = true;
         }, error => {
-          return console.log("Erro ao consultar a tabela FIPE");
+          this.plateRequestService.fipeError = true;
         }
       );
   }
