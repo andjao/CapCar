@@ -5,7 +5,6 @@ import { Observable } from 'rxjs/Observable';
 import {
   Plate,
   PlateResponse,
-  FipeValue,
 } from '..'
 
 @Injectable({
@@ -19,7 +18,7 @@ export class PlateRequestService {
   public plateResponse: PlateResponse;
   public queryOK: boolean = false;
   public fipeError: Boolean;
-  public fipeValue: FipeValue;
+  public fipeValues = new Array;
   public fipeOK: Boolean;
 
   constructor(private http: HttpClient) { }

@@ -14,7 +14,6 @@ export class FipeValueComponent implements OnInit {
   private plateResponse: PlateResponse;
   private brand: FipeBrand;
   private modelsID = new Array;
-  private yearID = new Array;
 
   constructor(public plateRequestService: PlateRequestService) { }
 
@@ -25,8 +24,7 @@ export class FipeValueComponent implements OnInit {
     this.brand = null;
     this.modelsID = [];
     this.plateRequestService.fipeError = false;
-    this.yearID = [];
-    this.plateRequestService.fipeValue = null;
+    this.plateRequestService.fipeValues = [];
     this.plateRequestService.fipeOK = false;
     this.plateResponse = this.plateRequestService.plateResponse;
     this.plateRequestService.fipeBrandsRequest(type)
@@ -71,28 +69,18 @@ export class FipeValueComponent implements OnInit {
   }
 
   fipeYears(type, brandID, modelsID) {
-    let modelIDSelectd;
     for (let modelID of modelsID) {
       this.plateRequestService.fipeYearsRequest(type, brandID, modelID)
         .subscribe(
           response => {
-            response.forEach(year => {
-              if (year.id.match(this.plateResponse.ano)) {
-                modelIDSelectd = modelID;
-                this.yearID.push(year.id);
-              };
+            response.forEach(element => {
+              if (element.fipe_codigo.match(this.plateRequestService.plateResponse.ano)) {
+                this.fipeAll(type, brandID, modelID, element.id);
+              }
             });
-            if (modelIDSelectd !== undefined) {
-              this.fipeAll(type, this.brand.id, modelIDSelectd, this.yearID);
-              this.plateRequestService.fipeError = false;
-              return;
-            } else {
-              this.plateRequestService.fipeError = true;
-            };
           }, error => {
             this.plateRequestService.fipeError = true;
-          }
-        );
+          })
     }
   }
 
@@ -100,7 +88,7 @@ export class FipeValueComponent implements OnInit {
     this.plateRequestService.fipeAllRequest(type, brandID, modelID, yearsID)
       .subscribe(
         response => {
-          this.plateRequestService.fipeValue = response;
+          this.plateRequestService.fipeValues.push(response)
           this.plateRequestService.fipeOK = true;
         }, error => {
           this.plateRequestService.fipeError = true;
