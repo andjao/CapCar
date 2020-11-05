@@ -1,10 +1,11 @@
 <div class="plateResponse">
   <p class="result">Resultado</p>
   <hr class="divider">
-  <p>Marca: {{plateRequestService.plateResponse.marca}}</p>
-  <p>Modelo: {{plateRequestService.plateResponse.modelo}}</p>
+  <p>Marca: {{titleize(plateRequestService.plateResponse.marca, false, false)}}</p>
+  <p>Modelo: {{titleize(plateRequestService.plateResponse.modelo, true, true)}}</p>
   <p>Cor: {{plateRequestService.plateResponse.cor}}</p>
-  <p>Localidade: {{plateRequestService.plateResponse.uf}}/{{plateRequestService.plateResponse.municipio}}</p>
+  <p>Localidade:
+    {{plateRequestService.plateResponse.uf}}/{{titleize(plateRequestService.plateResponse.municipio, false, true)}}</p>
   <p>Ano de fabricação: {{plateRequestService.plateResponse.ano}}</p>
   <p>Ano modelo: {{plateRequestService.plateResponse.anoModelo}}</p>
   <p>Chassi: {{plateRequestService.plateResponse.chassi}}</p>

@@ -13,4 +13,24 @@ export class PlateReponseComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  titleize(text, firstWord, lowerCase) {
+    let words;
+    if (firstWord) {
+      words = text.split(" ");
+      words[0] = words[0].toLowerCase();
+      words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1)
+    } else {
+      if (lowerCase) {
+        words = text.toLowerCase().split(" ");
+      } else {
+        words = text.split(" ");
+      }
+      for (let a = 0; a < words.length; a++) {
+        let w = words[a];
+        words[a] = w[0].toUpperCase() + w.slice(1);
+      }
+    }
+    return words.join(" ");
+  }
 }
