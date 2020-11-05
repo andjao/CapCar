@@ -1,5 +1,7 @@
 <div class="fipeResponse">
   <p class="result">Fipe</p>
   <hr class="divider">
-  <p>R$ </p>
+  <p *ngIf="plateRequestService.fipeError">Erro ao consultar a tabela FIPE</p>
+  <p *ngIf="!plateRequestService.fipeOK && !plateRequestService.fipeError">Consultado...</p>
+  <p *ngIf="plateRequestService.fipeOK">{{plateRequestService.fipeValue.preco}}</p>
 </div>

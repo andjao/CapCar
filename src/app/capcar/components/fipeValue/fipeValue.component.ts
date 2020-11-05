@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 
-import { PlateResponse, Brand, Model } from '../..';
+import { PlateResponse, FipeBrand } from '../..';
 import { PlateRequestService } from '../../services';
 
 @Component({
@@ -11,10 +11,10 @@ import { PlateRequestService } from '../../services';
 
 export class FipeValueComponent implements OnInit {
 
-  public plateResponse: PlateResponse;
-  private brand: Brand;
-  public model: Model;
-  public modelWords = new Array();
+  private plateResponse: PlateResponse;
+  private brand: FipeBrand;
+  private modelsID = new Array;
+  private yearID = new Array;
 
   constructor(public plateRequestService: PlateRequestService) { }
 
@@ -22,16 +22,19 @@ export class FipeValueComponent implements OnInit {
   }
 
   fipeBrands(type) {
+    this.modelsID = [];
+    this.plateRequestService.fipeError = false;
+    this.yearID = [];
+    this.plateRequestService.fipeValue = null;
+    this.plateRequestService.fipeOK = false;
     this.plateResponse = this.plateRequestService.plateResponse;
-    this.modelWords = this.plateResponse.modelo.split(" ");
     this.plateRequestService.fipeBrandsRequest(type)
       .subscribe(
         response => {
           response.forEach(item => {
-            if (item.fipe_name.match(this.plateResponse.marca.split('/')[0])) {
+            if (item.fipe_name.match(this.plateResponse.marca)) {
               this.brand = item;
               this.fipeModels(type, this.brand.id);
-              return;
             };
           });
         }, error => {
@@ -44,25 +47,51 @@ export class FipeValueComponent implements OnInit {
     this.plateRequestService.fipeModelsRequest(type, brandID)
       .subscribe(
         response => {
-          let compatibleCount = 0;
           response.forEach(model => {
-            if (this.modelWords.find(word => model.fipe_name.includes(word))) {
-              compatibleCount++;
-              let count = 0;
-              if (compatibleCount > 1) {
-                for (let word of this.modelWords) {
-                  if (model.fipe_name.toUpperCase().match(word.toUpperCase())) {
-                    count++;
-                    if (count > 1 && count <= this.modelWords.length) {
-                      return console.log(model.fipe_name)
-                    };
-                  }
-                }
-              } else {
-                console.log(model.fipe_name);
-              }
-            };
+            if (model.fipe_name.toUpperCase().match(this.plateResponse.modelo.toUpperCase())) {
+              this.modelsID.push(model.id);
+            }
           });
+          if (this.modelsID.length > 0) {
+            this.fipeYears(type, this.brand.id, this.modelsID);
+          } else {
+            this.plateRequestService.fipeError = true;
+          };
+        }, error => {
+          return console.log("Erro ao consultar a tabela FIPE");
+        }
+      );
+  }
+
+  fipeYears(type, brandID, modelsID) {
+    let modelIDSelectd;
+    for (let modelID of modelsID) {
+      this.plateRequestService.fipeYearsRequest(type, brandID, modelID)
+        .subscribe(
+          response => {
+            response.forEach(year => {
+              if (year.id.match(this.plateResponse.ano)) {
+                modelIDSelectd = modelID;
+                this.yearID.push(year.id);
+              };
+            });
+            if (modelIDSelectd !== undefined) {
+              this.fipeAll(type, this.brand.id, modelIDSelectd, this.yearID);
+              return;
+            };
+          }, error => {
+            return console.log("Erro ao consultar a tabela FIPE");
+          }
+        );
+    }
+  }
+
+  fipeAll(type, brandID, modelID, yearsID) {
+    this.plateRequestService.fipeAllRequest(type, brandID, modelID, yearsID)
+      .subscribe(
+        response => {
+          this.plateRequestService.fipeValue = response;
+          this.plateRequestService.fipeOK = true;
         }, error => {
           return console.log("Erro ao consultar a tabela FIPE");
         }

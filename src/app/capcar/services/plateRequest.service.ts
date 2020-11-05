@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import {
   Plate,
   PlateResponse,
+  FipeValue,
 } from '..'
 
 @Injectable({
@@ -16,7 +17,10 @@ export class PlateRequestService {
   private readonly fipe_URL = "http://fipeapi.appspot.com/api/1/";
 
   public plateResponse: PlateResponse;
-  public queryON: boolean = false;
+  public queryOK: boolean = false;
+  public fipeError: Boolean;
+  public fipeValue: FipeValue;
+  public fipeOK: Boolean;
 
   constructor(private http: HttpClient) { }
 
@@ -32,16 +36,16 @@ export class PlateRequestService {
 
   fipeModelsRequest(type, brandID): Observable<any> {
     return this.http
-      .get(`${this.fipe_URL}${type}/veiculos/${brandID}.json`);
+      .get(`${this.fipe_URL + type}/veiculos/${brandID}.json`);
   }
 
   fipeYearsRequest(type, brandID, modelYears): Observable<any> {
     return this.http
-      .get(`${this.fipe_URL}/${type}/veiculos/${brandID}/${modelYears}.json`);
+      .get(`${this.fipe_URL + type}/veiculo/${brandID}/${modelYears}.json`);
   }
 
   fipeAllRequest(type, brandID, modelYears, year): Observable<any> {
     return this.http
-      .get(`${this.fipe_URL}/${type}/veiculos/${brandID}/${modelYears}/${year}.json`);
+      .get(`${this.fipe_URL + type}/veiculo/${brandID}/${modelYears}/${year}.json`);
   }
 }

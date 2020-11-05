@@ -20,7 +20,7 @@ export class PlateComponent implements OnInit {
   constructor(
     private plateRequestService: PlateRequestService,
     private loadingService: LoadingService,
-    private fipeValueComponent: FipeValueComponent
+    public fipeValueComponent: FipeValueComponent
   ) {
     this.stateCountyRes = 'BRASIL';
   }
@@ -38,7 +38,7 @@ export class PlateComponent implements OnInit {
             this.loadingService.loadingM(false);
             if (response.codigoRetorno == "404") {
               this.stateCountyRes = 'BRASIL';
-              this.plateRequestService.queryON = false;
+              this.plateRequestService.queryOK = false;
               return;
             } else {
               this.plateRequestService.plateResponse = response;
@@ -48,12 +48,12 @@ export class PlateComponent implements OnInit {
               }
               this.clearModels();
               this.stateCountyRes = `${this.plateRequestService.plateResponse.uf} - ${this.plateRequestService.plateResponse.municipio}`;
-              this.plateRequestService.queryON = true;
+              this.plateRequestService.queryOK = true;
               this.fipeValueComponent.fipeBrands('carros')
             }
           },
           error => {
-            this.plateRequestService.queryON = false;
+            this.plateRequestService.queryOK = false;
             this.stateCountyRes = 'BRASIL';
             this.loadingService.loadingM(false);
           }
