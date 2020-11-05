@@ -9,7 +9,7 @@ import { LoadingService } from '../../services'
 })
 export class LoadingComponent implements OnInit {
 
-  separateLetters = [];
+  ;
 
   constructor(
     public loadingService: LoadingService
@@ -22,11 +22,11 @@ export class LoadingComponent implements OnInit {
   }
 
   letterSeparator(word){
-    this.separateLetters = [];
+    let separateLetters = [];
     for (var i = 0; i < word.length; i++) {
-      this.separateLetters.push(word[i]);
+      separateLetters.push(word[i]);
     }
-    return this.separateLetters;
+    return separateLetters;
   }
 
 }

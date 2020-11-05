@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { PlateResponse, FipeBrand } from '../..';
 import { PlateRequestService } from '../../services';
@@ -106,5 +106,13 @@ export class FipeValueComponent implements OnInit {
           this.plateRequestService.fipeError = true;
         }
       );
+  }
+
+  letterSeparator(word) {
+    let separateLetters = [];
+    for (var i = 0; i < word.length; i++) {
+      separateLetters.push(word[i]);
+    }
+    return separateLetters;
   }
 }

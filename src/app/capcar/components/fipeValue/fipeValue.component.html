@@ -1,8 +1,10 @@
 <div class="fipeResponse">
-  <p class="result">Fipe</p>
+  <p class="result">FIPE</p>
   <hr class="divider">
   <p *ngIf="plateRequestService.fipeError">Erro ao consultar a tabela FIPE</p>
-  <p *ngIf="!plateRequestService.fipeOK && !plateRequestService.fipeError">Consultado...</p>
+  <div class="loadingBg" *ngIf="!plateRequestService.fipeOK && !plateRequestService.fipeError">
+    Consultando<p class="loadingText" *ngFor="let letter of letterSeparator('...')">{{letter}}</p>
+  </div>
   <p *ngIf="plateRequestService.fipeOK">Valor: {{plateRequestService.fipeValue.preco}}</p>
   <p *ngIf="plateRequestService.fipeOK">Referência: {{plateRequestService.fipeValue.referencia}}</p>
 </div>

@@ -42,3 +42,24 @@
   top: 9.4vw;
   left: 0;
 }
+
+.loadingBg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$time: .2;
+
+.loadingText {
+  color: #fff;
+  text-shadow: 3px 3px 5px #000;
+  animation: bouncingLoader #{$time}s infinite alternate;
+  opacity: 0;
+}
+
+@for $i from 0 through 20 {
+  .loadingText:nth-child(#{$i}) {
+    animation-delay: $i * 0.1s;
+  }
+}
