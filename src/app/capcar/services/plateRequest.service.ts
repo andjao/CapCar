@@ -14,7 +14,7 @@ import {
 export class PlateRequestService {
 
   private readonly apicarros_URL = "https://apicarros.com/v1/consulta/";
-  private readonly fipe_URL = "http://fipeapi.appspot.com/api/1/";
+  private readonly fipe_URL = "https://fipeapi.appspot.com/api/1/";
 
   public plateResponse: PlateResponse;
   public queryOK: boolean = false;
