@@ -1,12 +1,14 @@
 $size:15;
 
 .toolbar {
-  position: relative;
+  position: fixed;
   background-color: #f80;
   z-index: 999;
   width: 100%;
   height: #{$size}vw;
   margin: 0 auto 2vw;
+  top: 0;
+  left: 0;
 }
 
 .title {
