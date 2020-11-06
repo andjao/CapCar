@@ -68,5 +68,10 @@ export class PlateComponent implements OnInit {
         this.plateRequestService.plateResponse.modelo = model.split('chevrolet '.toUpperCase())[1];
         break;
     }
+    if (this.plateRequestService.plateResponse.modelo.split(" ")[0].match(/[0-9]/)) {
+      let words = this.plateRequestService.plateResponse.modelo.split(" ");
+      words[0] = this.plateRequestService.plateResponse.modelo.split(" ")[0].match(/[a-zA-Z]+|[0-9]+/g).join("-");
+      this.plateRequestService.plateResponse.modelo = words.join(" ");
+    }
   }
 }
