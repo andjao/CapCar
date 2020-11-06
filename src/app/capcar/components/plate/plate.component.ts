@@ -42,11 +42,7 @@ export class PlateComponent implements OnInit {
               return;
             } else {
               this.plateRequestService.plateResponse = response;
-              if (response.marca.indexOf('/') > -1 || response.modelo.indexOf('/') > -1) {
-                this.plateRequestService.plateResponse.marca = response.marca.split('/')[0];
-                this.plateRequestService.plateResponse.modelo = response.modelo.split('/')[1];
-              }
-              this.clearModels();
+              this.clearWords(response);
               this.stateCountyRes = `${this.plateRequestService.plateResponse.uf} - ${this.plateRequestService.plateResponse.municipio}`;
               this.plateRequestService.queryOK = true;
               this.fipeValueComponent.fipeBrands('carros')
@@ -61,13 +57,19 @@ export class PlateComponent implements OnInit {
     }
   }
 
-  clearModels() {
+  clearWords(response) {
+    if (response.marca.indexOf('/') > -1 || response.modelo.indexOf('/') > -1) {
+      this.plateRequestService.plateResponse.marca = response.marca.split('/')[0];
+      this.plateRequestService.plateResponse.modelo = response.modelo.split('/')[1];
+    }
+
     let model = this.plateRequestService.plateResponse.modelo.toUpperCase();
     switch (true) {
       case (model.toUpperCase().indexOf('chevrolet'.toUpperCase()) != -1):
         this.plateRequestService.plateResponse.modelo = model.split('chevrolet '.toUpperCase())[1];
         break;
     }
+
     if (this.plateRequestService.plateResponse.modelo.split(" ")[0].match(/[0-9]/)) {
       let words = this.plateRequestService.plateResponse.modelo.split(" ");
       words[0] = this.plateRequestService.plateResponse.modelo.split(" ")[0].match(/[a-zA-Z]+|[0-9]+/g).join("-");

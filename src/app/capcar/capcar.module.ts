@@ -12,7 +12,7 @@ import {
   PlateReponseComponent,
   FipeValueComponent,
 } from './components';
-import { LoadingService, PlateRequestService } from './services';
+import { LoadingService, PlateRequestService, LocalStorageService } from './services';
 
 
 const maskConfig: Partial<IConfig> = {
@@ -43,7 +43,8 @@ const maskConfig: Partial<IConfig> = {
   providers: [
     LoadingService,
     PlateRequestService,
-    FipeValueComponent
+    LocalStorageService,
+    FipeValueComponent,
   ]
 })
 export class CapcarModule { }
