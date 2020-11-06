@@ -1,5 +1,5 @@
 import {
-  Injectable
+  Injectable,
 } from '@angular/core';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class LocalStorageService {
     return localStorage.getItem(key);
   }
 
-  saveLocalStorage(key: string, value: any): void {
+  saveLocalStorage(key: string, value: any, type?: string): void {
     let storageSave: any;
     storageSave = JSON.parse(localStorage.getItem(key)) || [];
     if (key == "history") {
@@ -23,6 +23,7 @@ export class LocalStorageService {
         };
       });
       storageSave.unshift(value);
+      storageSave[0].tipo = type;
     } else {
       storageSave = value;
     }

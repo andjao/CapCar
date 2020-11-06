@@ -2,7 +2,10 @@
   <p class="result">FIPE</p>
   <hr class="divider">
   <p class="fipeError" *ngIf="plateRequestService.fipeError">Veiculo não encontrado</p>
-  <div class="loadingBg" *ngIf="!plateRequestService.fipeOK && !plateRequestService.fipeError">
+  <p class="fipeError" *ngIf="plateRequestService.fipeNotFound">Você selecionou o
+    tipo {{plateRequestService.fipeNotFound}}, talvez seje outro tipo.</p>
+  <div class="loadingBg"
+    *ngIf="!plateRequestService.fipeOK && !plateRequestService.fipeError && !plateRequestService.fipeNotFound">
     Consultando<p class="loadingText" *ngFor="let letter of letterSeparator('...')">{{letter}}</p>
   </div>
   <div class="fipeModels" *ngFor="let model of plateRequestService.fipeValues">

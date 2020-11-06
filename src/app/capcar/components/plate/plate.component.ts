@@ -30,7 +30,8 @@ import {
 export class PlateComponent implements OnInit {
 
   plate: Plate;
-  stateCountyRes;
+  stateCountyRes: string;
+  selectedOption;
 
   @ViewChild("plateForm", { static: true }) plateForm: NgForm;
 
@@ -44,6 +45,15 @@ export class PlateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.init();
+  }
+
+  init() {
+    if (!JSON.parse(this.localStorageService.loadLocalStorage('history'))) {
+      this.selectedOption = "carros";
+    } else {
+      this.selectedOption = JSON.parse(this.localStorageService.loadLocalStorage('history'))[0].tipo
+    }
   }
 
   queryPlate(): void {
@@ -63,8 +73,8 @@ export class PlateComponent implements OnInit {
               this.clearWords(response);
               this.stateCountyRes = `${this.plateRequestService.plateResponse.uf} - ${this.plateRequestService.plateResponse.municipio}`;
               this.plateRequestService.queryOK = true;
-              this.localStorageService.saveLocalStorage('history', response);
-              this.fipeValueComponent.fipeBrands('carros')
+              this.localStorageService.saveLocalStorage('history', response, this.selectedOption);
+              this.fipeValueComponent.fipeBrands(this.selectedOption)
             }
           },
           error => {
