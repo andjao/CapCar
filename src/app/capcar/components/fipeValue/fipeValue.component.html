@@ -1,7 +1,7 @@
 <div class="fipeResponse">
   <p class="result">FIPE</p>
   <hr class="divider">
-  <p class="fipeError" *ngIf="plateRequestService.fipeError">Erro ao consultar a tabela FIPE</p>
+  <p class="fipeError" *ngIf="plateRequestService.fipeError">Veiculo não encontrado</p>
   <div class="loadingBg" *ngIf="!plateRequestService.fipeOK && !plateRequestService.fipeError">
     Consultando<p class="loadingText" *ngFor="let letter of letterSeparator('...')">{{letter}}</p>
   </div>

@@ -31,7 +31,7 @@ export class FipeValueComponent implements OnInit {
       .subscribe(
         response => {
           response.forEach(item => {
-            if (item.fipe_name.match(this.plateResponse.marca)) {
+            if (item.fipe_name.toUpperCase().match(this.plateResponse.marca.toUpperCase())) {
               this.brand = item;
             };
           });
@@ -74,7 +74,7 @@ export class FipeValueComponent implements OnInit {
         .subscribe(
           response => {
             response.forEach(element => {
-              if (element.fipe_codigo.match(this.plateRequestService.plateResponse.ano)) {
+              if (element.fipe_codigo.match(this.plateRequestService.plateResponse.anoModelo)) {
                 this.fipeAll(type, brandID, modelID, element.id);
               }
             });
