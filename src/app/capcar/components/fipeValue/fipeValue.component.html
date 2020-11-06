@@ -3,7 +3,7 @@
   <hr class="divider">
   <p class="fipeError" *ngIf="plateRequestService.fipeError">Veiculo não encontrado</p>
   <p class="fipeError" *ngIf="plateRequestService.fipeNotFound">Você selecionou o
-    tipo {{plateRequestService.fipeNotFound}}, talvez seje outro tipo.</p>
+    tipo "{{plateRequestService.vehicleType}}", talvez seje outro tipo de veículo.</p>
   <div class="loadingBg"
     *ngIf="!plateRequestService.fipeOK && !plateRequestService.fipeError && !plateRequestService.fipeNotFound">
     Consultando<p class="loadingText" *ngFor="let letter of letterSeparator('...')">{{letter}}</p>

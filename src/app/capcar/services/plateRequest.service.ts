@@ -27,6 +27,7 @@ export class PlateRequestService {
   public plateResponse: PlateResponse;
   public queryOK: boolean = false;
   public fipeNotFound: any;
+  public vehicleType: string;
   public fipeError: Boolean;
   public fipeValues = new Array;
   public fipeOK: Boolean;

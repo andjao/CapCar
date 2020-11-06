@@ -48,7 +48,7 @@ export class PlateComponent implements OnInit {
     this.init();
   }
 
-  init() {
+  init(): void {
     if (!JSON.parse(this.localStorageService.loadLocalStorage('history'))) {
       this.selectedOption = "carros";
     } else {
@@ -73,6 +73,7 @@ export class PlateComponent implements OnInit {
               this.clearWords(response);
               this.stateCountyRes = `${this.plateRequestService.plateResponse.uf} - ${this.plateRequestService.plateResponse.municipio}`;
               this.plateRequestService.queryOK = true;
+              this.checkType(this.selectedOption);
               this.localStorageService.saveLocalStorage('history', response, this.selectedOption);
               this.fipeValueComponent.fipeBrands(this.selectedOption)
             }
@@ -86,7 +87,7 @@ export class PlateComponent implements OnInit {
     }
   }
 
-  clearWords(response) {
+  clearWords(response): void {
     if (response.marca.indexOf('/') > -1 || response.modelo.indexOf('/') > -1) {
       this.plateRequestService.plateResponse.marca = response.marca.split('/')[0];
       this.plateRequestService.plateResponse.modelo = response.modelo.split('/')[1];
@@ -104,5 +105,21 @@ export class PlateComponent implements OnInit {
       words[0] = this.plateRequestService.plateResponse.modelo.split(" ")[0].match(/[a-zA-Z]+|[0-9]+/g).join("-");
       this.plateRequestService.plateResponse.modelo = words[0];
     }
+  }
+
+  checkType(type): void {
+    let vehicleType: string;
+    switch (type) {
+      case 'carros':
+        vehicleType = 'Carro';
+        break;
+      case 'motos':
+        vehicleType = "Moto";
+        break;
+      case 'caminhoes':
+        vehicleType = "Caminhão";
+        break;
+    }
+    this.plateRequestService.vehicleType = vehicleType;
   }
 }

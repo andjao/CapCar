@@ -51,7 +51,7 @@ export class FipeValueComponent implements OnInit {
             this.plateRequestService.fipeError = false;
             this.fipeModels(type, this.brand.id);
           } else {
-            this.plateRequestService.fipeNotFound = type;
+            this.plateRequestService.fipeNotFound = true;
           }
         }, error => {
           this.plateRequestService.fipeError = true;
@@ -72,7 +72,7 @@ export class FipeValueComponent implements OnInit {
             this.plateRequestService.fipeError = false;
             this.fipeYears(type, this.brand.id, this.modelsID);
           } else {
-            this.plateRequestService.fipeError = true;
+            this.plateRequestService.fipeNotFound = true;
           };
         }, error => {
           this.plateRequestService.fipeError = true;
