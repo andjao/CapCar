@@ -1,6 +1,10 @@
-import { Injectable } from '@angular/core';
+import {
+  Injectable,
+} from '@angular/core';
 
-import { LoadingText } from '..'
+import {
+  LoadingText,
+} from '..'
 
 @Injectable({
   providedIn: 'root'

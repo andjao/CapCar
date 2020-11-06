@@ -1,7 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+} from '@angular/core';
 
-import { PlateResponse, FipeBrand } from '../..';
-import { PlateRequestService } from '../../services';
+import {
+  PlateResponse,
+  FipeBrand,
+} from '../..';
+
+import {
+  PlateRequestService,
+} from '../../services';
 
 @Component({
   selector: 'app-fipeValue',
@@ -15,7 +24,9 @@ export class FipeValueComponent implements OnInit {
   private brand: FipeBrand;
   private modelsID = new Array;
 
-  constructor(public plateRequestService: PlateRequestService) { }
+  constructor(
+    public plateRequestService: PlateRequestService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -30,9 +41,9 @@ export class FipeValueComponent implements OnInit {
     this.plateRequestService.fipeBrandsRequest(type)
       .subscribe(
         response => {
-          response.forEach(item => {
-            if (item.fipe_name.toUpperCase().match(this.plateResponse.marca.toUpperCase())) {
-              this.brand = item;
+          response.forEach(element => {
+            if (element.fipe_name.toUpperCase().match(this.plateResponse.marca.toUpperCase())) {
+              this.brand = element;
             };
           });
           if (this.brand !== null) {
@@ -51,9 +62,9 @@ export class FipeValueComponent implements OnInit {
     this.plateRequestService.fipeModelsRequest(type, brandID)
       .subscribe(
         response => {
-          response.forEach(model => {
-            if (model.fipe_name.toUpperCase().match(this.plateResponse.modelo.toUpperCase())) {
-              this.modelsID.push(model.id);
+          response.forEach(element => {
+            if (element.fipe_name.toUpperCase().match(this.plateResponse.modelo.toUpperCase())) {
+              this.modelsID.push(element.id);
             }
           });
           if (this.modelsID.length > 0) {

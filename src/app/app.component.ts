@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+} from '@angular/core';
 
-import { PlateRequestService } from './capcar/'
+import {
+  PlateRequestService,
+} from './capcar/'
 
 @Component({
   selector: 'app-root',
@@ -8,7 +12,9 @@ import { PlateRequestService } from './capcar/'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(public plateRequestService: PlateRequestService) { }
-  
+  constructor(
+    public plateRequestService: PlateRequestService,
+  ) { }
+
   title = 'CapCar';
 }

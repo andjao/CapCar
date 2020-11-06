@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+} from '@angular/core';
 
-import { PlateRequestService } from '../../services';
+import {
+  PlateRequestService,
+} from '../../services';
 
 @Component({
   selector: 'app-plateResponse',
@@ -9,13 +14,15 @@ import { PlateRequestService } from '../../services';
 })
 export class PlateReponseComponent implements OnInit {
 
-  constructor(public plateRequestService: PlateRequestService) { }
+  constructor(
+    public plateRequestService: PlateRequestService
+  ) { }
 
   ngOnInit(): void {
   }
 
   titleize(text: string, firstWord: boolean, lowerCase: boolean) {
-    let words= new Array();
+    let words = new Array();
     if (firstWord) {
       words = text.split(" ");
       words[0] = words[0].toLowerCase();

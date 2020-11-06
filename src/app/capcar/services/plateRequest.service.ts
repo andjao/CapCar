@@ -1,15 +1,24 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import {
+  Injectable,
+} from '@angular/core';
+
+import {
+  HttpClient,
+} from '@angular/common/http';
+
+import {
+  Observable,
+} from 'rxjs/Observable';
 
 import {
   Plate,
   PlateResponse,
-} from '..'
+} from '..';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PlateRequestService {
 
   private readonly apicarros_URL = "https://apicarros.com/v1/consulta/";
@@ -21,7 +30,9 @@ export class PlateRequestService {
   public fipeValues = new Array;
   public fipeOK: Boolean;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+  ) { }
 
   plateRequest(plate: Plate): Observable<any> {
     return this.http

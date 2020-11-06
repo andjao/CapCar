@@ -1,9 +1,26 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 
-import { Plate } from '../..'
-import { PlateRequestService, LoadingService } from '../../services';
-import { FipeValueComponent } from '../fipeValue';
+import {
+  NgForm,
+} from '@angular/forms';
+
+import {
+  Plate,
+} from '../..';
+
+import {
+  PlateRequestService,
+  LoadingService,
+  LocalStorageService,
+} from '../../services';
+
+import {
+  FipeValueComponent,
+} from '../fipeValue';
 
 @Component({
   selector: 'app-plate',
@@ -20,6 +37,7 @@ export class PlateComponent implements OnInit {
   constructor(
     private plateRequestService: PlateRequestService,
     private loadingService: LoadingService,
+    private localStorageService: LocalStorageService,
     public fipeValueComponent: FipeValueComponent
   ) {
     this.stateCountyRes = 'BRASIL';
@@ -45,6 +63,7 @@ export class PlateComponent implements OnInit {
               this.clearWords(response);
               this.stateCountyRes = `${this.plateRequestService.plateResponse.uf} - ${this.plateRequestService.plateResponse.municipio}`;
               this.plateRequestService.queryOK = true;
+              this.localStorageService.saveLocalStorage('history', response);
               this.fipeValueComponent.fipeBrands('carros')
             }
           },
