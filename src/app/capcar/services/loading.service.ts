@@ -9,11 +9,11 @@ export class LoadingService {
 
   public loading: Boolean;
   public loadingText: LoadingText
-  public loadingOpacity: String;
+  public loadingOpacity: string;
 
   constructor() { }
 
-  loadingM(loading, opacity = "1", text = "Carregando...") {
+  loadingM(loading: boolean, opacity: string = "1", text: string = "Carregando...") {
     // if (loading) {
     //   this.loadingOpacity = opacity;
     //   this.loadingText = text;

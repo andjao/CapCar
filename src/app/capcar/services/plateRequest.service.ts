@@ -28,22 +28,22 @@ export class PlateRequestService {
       .get(`${this.apicarros_URL}${plate}/json`);
   }
 
-  fipeBrandsRequest(type): Observable<any> {
+  fipeBrandsRequest(type: string): Observable<any> {
     return this.http
       .get(`${this.fipe_URL + type}/marcas.json`);
   }
 
-  fipeModelsRequest(type, brandID): Observable<any> {
+  fipeModelsRequest(type: string, brandID: string): Observable<any> {
     return this.http
       .get(`${this.fipe_URL + type}/veiculos/${brandID}.json`);
   }
 
-  fipeYearsRequest(type, brandID, modelYears): Observable<any> {
+  fipeYearsRequest(type: string, brandID: string, modelYears: string): Observable<any> {
     return this.http
       .get(`${this.fipe_URL + type}/veiculo/${brandID}/${modelYears}.json`);
   }
 
-  fipeAllRequest(type, brandID, modelYears, year): Observable<any> {
+  fipeAllRequest(type: string, brandID: string, modelYears: string, year: string): Observable<any> {
     return this.http
       .get(`${this.fipe_URL + type}/veiculo/${brandID}/${modelYears}/${year}.json`);
   }

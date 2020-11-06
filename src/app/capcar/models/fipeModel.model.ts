@@ -1,10 +1,10 @@
 export class FipeModel {
     constructor(
-        public fipe_marca: String,
-        public fipe_name: String,
-        public id: Number,
-        public key: String,
-        public marca: String,
-        public name: String,
+        public fipe_marca: string,
+        public fipe_name: string,
+        public id: number,
+        public key: string,
+        public marca: string,
+        public name: string,
     ) { }
 }

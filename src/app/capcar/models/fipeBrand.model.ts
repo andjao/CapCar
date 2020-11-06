@@ -1,9 +1,9 @@
 export class FipeBrand {
     constructor(
-        public fipe_name: String,
+        public fipe_name: string,
         public id: number,
-        public key: String,
-        public name: String,
-        public order: Number,
+        public key: string,
+        public name: string,
+        public order: number,
     ) { }
 }
