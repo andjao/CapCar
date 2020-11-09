@@ -15,7 +15,7 @@ export class LocalStorageService {
 
   saveLocalStorage(key: string, value: any, type?: string): void {
     let storageSave: any;
-    storageSave = JSON.parse(localStorage.getItem(key)) || [];
+    storageSave = JSON.parse(this.loadLocalStorage(key)) || [];
     if (key == "history") {
       storageSave.forEach(function (element, index) {
         if (value.placa === element.placa) {
