@@ -63,9 +63,21 @@ export class FipeValueComponent implements OnInit {
     this.plateRequestService.fipeModelsRequest(type, brandID)
       .subscribe(
         response => {
-          response.forEach(element => {
-            if (element.fipe_name.toUpperCase().match(this.plateResponse.modelo.toUpperCase())) {
-              this.modelsID.push(element.id);
+          response.map(element => {
+            const model = this.plateResponse.modelo.split(/[\*/ ]/);
+            const elementSplit = element.fipe_name.toUpperCase().split(/[\*/ ]/).join(" ");
+            let modelSplice;
+            if (model.length >= 2) {
+              modelSplice = model.splice(1);
+            } else {
+              modelSplice = model
+            }
+            for (let word of modelSplice) {
+              if (elementSplit.match(model[0])
+                && elementSplit.match(word || [])) {
+                console.log(element.fipe_name);
+                this.modelsID.push(element.id);
+              }
             }
           });
           if (this.modelsID.length > 0) {

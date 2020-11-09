@@ -93,17 +93,27 @@ export class PlateComponent implements OnInit {
       this.plateRequestService.plateResponse.modelo = response.modelo.split('/')[1];
     }
 
-    let model = this.plateRequestService.plateResponse.modelo.toUpperCase();
+    const brand = this.plateRequestService.plateResponse.marca.toUpperCase();
     switch (true) {
-      case (model.toUpperCase().indexOf('chevrolet'.toUpperCase()) != -1):
+      case (brand.indexOf('imp'.toUpperCase()) != -1):
+        this.plateRequestService.plateResponse.marca = 'GM';
+        break;
+    }
+
+    const model = this.plateRequestService.plateResponse.modelo.toUpperCase();
+    switch (true) {
+      case (model.indexOf('chevrolet'.toUpperCase()) != -1):
         this.plateRequestService.plateResponse.modelo = model.split('chevrolet '.toUpperCase())[1];
+        break;
+      case (model.indexOf('gm'.toUpperCase()) != -1):
+        this.plateRequestService.plateResponse.modelo = model.split('gm '.toUpperCase())[1];
         break;
     }
 
     if (this.plateRequestService.plateResponse.modelo.split(" ")[0].match(/[0-9]/)) {
       let words = this.plateRequestService.plateResponse.modelo.split(" ");
       words[0] = this.plateRequestService.plateResponse.modelo.split(" ")[0].match(/[a-zA-Z]+|[0-9]+/g).join("-");
-      this.plateRequestService.plateResponse.modelo = words[0];
+      this.plateRequestService.plateResponse.modelo = words.join(" ");
     }
   }
 
