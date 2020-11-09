@@ -61,6 +61,21 @@ export class FipeValueComponent implements OnInit {
       );
   }
 
+  loopWords(model, element) {
+    for (let word of model) {
+      if (element.fipe_name.toUpperCase().match(word.toUpperCase())) {
+        this.count++;
+        if (this.count > this.larger) {
+          this.modelsID = [];
+          this.modelsID.push(element.id);
+          this.larger = this.count;
+        } else if (this.count == this.larger) {
+          this.modelsID.push(element.id);
+        }
+      }
+    }
+  }
+
   fipeModels(type, brandID) {
     this.plateRequestService.fipeModelsRequest(type, brandID)
       .subscribe(
@@ -87,21 +102,6 @@ export class FipeValueComponent implements OnInit {
           this.plateRequestService.fipeError = true;
         }
       );
-  }
-
-  loopWords(model, element) {
-    for (let word of model) {
-      if (element.fipe_name.toUpperCase().match(word.toUpperCase())) {
-        this.count++;
-        if (this.count > this.larger) {
-          this.modelsID = [];
-          this.modelsID.push(element.id);
-          this.larger = this.count;
-        } else if (this.count == this.larger) {
-          this.modelsID.push(element.id);
-        }
-      }
-    }
   }
 
   fipeYears(type, brandID, modelsID) {

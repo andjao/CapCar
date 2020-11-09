@@ -88,6 +88,7 @@ export class PlateComponent implements OnInit {
   }
 
   clearWords(response): void {
+    this.plateRequestService.plateResponse.placa = response.placa.match(/[a-zA-Z]+|[0-9]+/g).join("-");
     if (response.marca.indexOf('/') > -1 || response.modelo.indexOf('/') > -1) {
       this.plateRequestService.plateResponse.marca = response.marca.split('/')[0];
       this.plateRequestService.plateResponse.modelo = response.modelo.split('/')[1];
