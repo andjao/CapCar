@@ -75,7 +75,6 @@ export class FipeValueComponent implements OnInit {
             for (let word of modelSplice) {
               if (elementSplit.match(model[0])
                 && elementSplit.match(word || [])) {
-                console.log(element.fipe_name);
                 this.modelsID.push(element.id);
               }
             }

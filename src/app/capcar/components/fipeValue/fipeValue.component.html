@@ -11,6 +11,9 @@
   <div class="fipeModels" *ngFor="let model of plateRequestService.fipeValues">
     <p class="fipeInfo">Modelo: {{model.veiculo}}</p>
     <p class="fipeInfo">Valor: {{model.preco}}</p>
+    <p class="fipeInfo">Ano: {{model.id}}</p>
+    <p class="fipeInfo">Combustivel: {{model.combustivel}}</p>
+    <p class="fipeInfo">Código FIPE: {{model.fipe_codigo}}</p>
     <hr class="divider">
   </div>
   <p class="reference" *ngIf="plateRequestService.fipeOK">
