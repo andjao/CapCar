@@ -23,6 +23,8 @@ export class FipeValueComponent implements OnInit {
   private plateResponse: PlateResponse;
   private brand: FipeBrand;
   private modelsID = new Array;
+  private larger: number;
+  private count: number;
 
   constructor(
     public plateRequestService: PlateRequestService
@@ -63,23 +65,16 @@ export class FipeValueComponent implements OnInit {
     this.plateRequestService.fipeModelsRequest(type, brandID)
       .subscribe(
         response => {
-          const model = this.plateResponse.modelo.split(/[\*/ ]/);
-          let larger = 0;
+          this.larger = 0;
           response.map(element => {
-            let count = 0;
+            const model = this.plateResponse.modelo.split(/[\*/ ]/);
+            this.count = 0;
             if (element.fipe_name.toUpperCase().match(model[0].toUpperCase())) {
-              for (let word of model) {
-                if (element.fipe_name.toUpperCase().match(word.toUpperCase())) {
-                  count++;
-                  if (count > larger) {
-                    this.modelsID = [];
-                    this.modelsID.push(element.id);
-                    larger = count;
-                  } else if (count == larger) {
-                    this.modelsID.push(element.id);
-                  }
-                }
-              }
+              this.loopWords(model, element);
+            } else if (element.fipe_name.toUpperCase().match(model[0].match(/[a-zA-Z]+|[0-9]+/g).join("-"))) {
+              model[0] = model[0].match(/[a-zA-Z]+|[0-9]+/g).join("-");
+              this.plateRequestService.plateResponse.modelo = model.join(" ");
+              this.loopWords(model, element);
             }
           });
           if (this.modelsID.length > 0) {
@@ -92,6 +87,21 @@ export class FipeValueComponent implements OnInit {
           this.plateRequestService.fipeError = true;
         }
       );
+  }
+
+  loopWords(model, element) {
+    for (let word of model) {
+      if (element.fipe_name.toUpperCase().match(word.toUpperCase())) {
+        this.count++;
+        if (this.count > this.larger) {
+          this.modelsID = [];
+          this.modelsID.push(element.id);
+          this.larger = this.count;
+        } else if (this.count == this.larger) {
+          this.modelsID.push(element.id);
+        }
+      }
+    }
   }
 
   fipeYears(type, brandID, modelsID) {
