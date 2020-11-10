@@ -34,9 +34,9 @@ export class PlateComponent implements OnInit {
   stateCountyRes: string;
   selectedType: string;
   mercoSul: boolean;
-  mercoSulIFlag = '../../assets/images/flags/mercosul.svg';
+  mercoSulIFlag = 'assets/images/flags/mercosul.svg';
   initials = 'br';
-  countryFlag = `../../assets/images/flags/${this.initials}.svg`;
+  countryFlag = `assets/images/flags/${this.initials}.svg`;
 
   @ViewChild("plateForm") plateForm: NgForm;
   @ViewChild("plateMercoSulForm") plateMercoSulForm: NgForm;
