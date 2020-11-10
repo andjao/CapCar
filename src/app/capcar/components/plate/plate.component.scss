@@ -161,6 +161,99 @@
   color: #444;
 }
 
+.plateMercosul {
+  font-family: FE-Font;
+  width: 94%;
+  margin: 0 auto 2vw;
+  border-radius: 2vw;
+  border: solid 1vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.countryMercosul {
+  background: linear-gradient(135deg, rgba(73, 155, 234, 1) 0%, rgba(0, 51, 153, 1) 100%);
+  color: #fff;
+  text-align: center;
+  font-size: 4vw;
+  padding: .5vw 2vw;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  -ms-flex-pack: justify;
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
+}
+
+.plateMercosul1 {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+}
+
+.mercoSulIFlag {
+  height: 8vw;
+}
+
+.countryFlag {
+  border: solid .5vw #fff;
+  height: 7vw;
+}
+
+.plateMercoSulInput {
+  font-family: FE-Font;
+  background-clip: text;
+  border: none;
+  font-size: 18vw;
+  height: 22vw;
+  max-width: 100%;
+  position: a;
+  text-align: center;
+  text-shadow: -.3vw -.3vw 0 #fff, .5vw .5vw 1vw #656565;
+  text-transform: uppercase;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  transform: scaleX(0.8);
+  letter-spacing: 1.4vw;
+}
+
+.plateMercoSulInput::-moz-placeholder {
+  font-size: 8vw;
+  line-height: 7vw;
+  text-shadow: none;
+  transform: translate(0, -50%);
+  color: #444;
+  letter-spacing: normal;
+}
+
+.plateMercoSulInput::-webkit-input-placeholder {
+  font-size: 8vw;
+  line-height: 7vw;
+  text-shadow: none;
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  color: #444;
+  letter-spacing: normal;
+}
+
+.plateMercoSulInput:-ms-input-placeholder {
+  font-size: 8vw;
+  line-height: 7vw;
+  text-shadow: none;
+  transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  color: #444;
+  letter-spacing: normal;
+}
+
+.initials {
+  font-size: 4vw;
+  position: absolute;
+  z-index: 1;
+  bottom: 2vw;
+  left: 2vw;
+}
+
 .type {
   position: relative;
   border-radius: 2vw;

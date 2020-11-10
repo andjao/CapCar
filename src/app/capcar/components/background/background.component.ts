@@ -14,6 +14,8 @@ import {
 })
 export class BackgroundComponent implements OnInit {
 
+  img_url = 'https://picsum.photos/900/1600?blur=2';
+
   constructor(
     public loadingService: LoadingService
   ) { }

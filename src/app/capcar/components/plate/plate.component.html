@@ -21,10 +21,19 @@
 </div>
 
 <div class="plateMercosul" *ngIf="mercoSul">
-  <div class="countryMercosul">BRASIL</div>
-  <form #plateMercoSulForm="ngForm" ng-submit="queryPlate()">
-    <input text="text" inputmode="text" name="plateMercoSul" class="plateMercoSulInput" placeholder="Digite a placa aqui"
-    [(ngModel)]="plateMercoSul" required mask="SSS0A00" (keyup.enter)="queryPlate()">  </form>
+  <div class="countryMercosul">
+    <img [src]="mercoSulIFlag" class="mercoSulIFlag">
+    <p>Brasil</p>
+    <img [src]="countryFlag" class="countryFlag">
+  </div>
+  <div class="plateMercosul1">
+    <form #plateMercoSulForm="ngForm" ng-submit="queryPlate()">
+      <input text="text" inputmode="text" name="plateMercoSul" class="plateMercoSulInput"
+        placeholder="Digite a placa aqui" [(ngModel)]="plateMercoSul" required mask="SSS0A00"
+        (keyup.enter)="queryPlate()">
+    </form>
+  </div>
+  <p class="initials">{{initials}}</p>
 </div>
 
 <div class="type">
@@ -36,7 +45,7 @@
   </select>
 </div>
 
-<div class="mercosul">
+<div class="mercosul removeBlue">
   <p class="">Mercosul:</p>
   <label class="switch">
     <input [(ngModel)]="mercoSul" type="checkbox">
