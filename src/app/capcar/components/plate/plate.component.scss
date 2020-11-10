@@ -163,7 +163,6 @@
 
 .type {
   position: relative;
-  background-color: #00f;
   border-radius: 2vw;
   box-shadow: inset 0 0 0 .9vw #fff, .3vw .3vw 1vw #000;
   font-family: Traffic;
@@ -178,6 +177,15 @@
   $border: 1vw;
   background-clip: padding-box;
   border: solid $border transparent;
+  align-items: center;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  -ms-flex-pack: justify;
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
 
   &:before {
     content: '';
@@ -196,8 +204,6 @@
 .title {
   float: left;
   position: relative;
-  transform: translate(0, 5%);
-  margin-right: 2.56vw;
 }
 
 .options {
@@ -207,4 +213,92 @@
   text-align-last: center;
   border: none;
   border-radius: 2vw;
+}
+
+.mercosul {
+  position: relative;
+  border-radius: 2vw;
+  box-shadow: inset 0 0 0 .9vw #000, .3vw .3vw 1vw #000;
+  font-family: Traffic;
+  font-size: 6.9vw;
+  vertical-align: middle;
+  padding: 2vw;
+  margin: auto 2vw 2vw;
+  color: #000;
+  background: -webkit-linear-gradient(-45deg, #ccc 0%, #fff 100%);
+  $border: 1vw;
+  background-clip: padding-box;
+  border: solid $border transparent;
+  align-items: center;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -ms-flex-pack: justify;
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
+  width: 47vw;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -$border;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #ccc 0%, #fff 100%);
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 17vw;
+  height: 9.5vw;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 7.5vw;
+  width: 7.5vw;
+  left: 1vw;
+  bottom: 1vw;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #2196F3;
+}
+
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(7.5vw);
+  -ms-transform: translateX(7.5vw);
+  transform: translateX(7.5vw);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 100vw;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

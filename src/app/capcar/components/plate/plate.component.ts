@@ -30,10 +30,13 @@ import {
 export class PlateComponent implements OnInit {
 
   plate: Plate;
+  plateMercoSul: Plate;
   stateCountyRes: string;
-  selectedOption;
+  selectedType: string;
+  mercoSul: boolean;
 
-  @ViewChild("plateForm", { static: true }) plateForm: NgForm;
+  @ViewChild("plateForm") plateForm: NgForm;
+  @ViewChild("plateMercoSulForm") plateMercoSulForm: NgForm;
 
   constructor(
     private plateRequestService: PlateRequestService,
@@ -50,17 +53,29 @@ export class PlateComponent implements OnInit {
 
   init(): void {
     if (!JSON.parse(this.localStorageService.loadLocalStorage('history'))) {
-      this.selectedOption = "carros";
+      this.selectedType = "carros";
     } else {
-      this.selectedOption = JSON.parse(this.localStorageService.loadLocalStorage('history'))[0].tipo
+      this.selectedType = JSON.parse(this.localStorageService.loadLocalStorage('history'))[0].tipo;
+      this.mercoSul = JSON.parse(this.localStorageService.loadLocalStorage('history'))[0].mercosul;
     }
   }
 
   queryPlate(): void {
-    if (this.plateForm.form.valid) {
+    let typePlate;
+    let plate;
+    if (this.mercoSul) {
+      typePlate = this.plateMercoSulForm.form.valid;
+      plate = this.plateMercoSul;
+    } else {
+      typePlate = this.plateForm.form.valid;
+      plate = this.plate;
+    }
+    console.log(plate);
+
+    if (typePlate) {
       this.loadingService.loadingM(true, '.8', 'Consultando...')
       this.plateRequestService
-        .plateRequest(this.plate)
+        .plateRequest(plate)
         .subscribe(
           response => {
             this.loadingService.loadingM(false);
@@ -73,9 +88,12 @@ export class PlateComponent implements OnInit {
               this.clearWords(response);
               this.stateCountyRes = `${this.plateRequestService.plateResponse.uf} - ${this.plateRequestService.plateResponse.municipio}`;
               this.plateRequestService.queryOK = true;
-              this.checkType(this.selectedOption);
-              this.localStorageService.saveLocalStorage('history', response, this.selectedOption);
-              this.fipeValueComponent.fipeBrands(this.selectedOption)
+              this.checkType(this.selectedType);
+              this.localStorageService.saveLocalStorage('history', response, {
+                type: this.selectedType,
+                mercosul: this.mercoSul
+              });
+              this.fipeValueComponent.fipeBrands(this.selectedType)
             }
           },
           error => {

@@ -1,4 +1,4 @@
-<div class="plate">
+<div class="plate" *ngIf="!mercoSul">
   <div class="screwHolesTop">
     <div class="screwHole screwHoleL"></div>
     <div class="screwHole screwHoleR"></div>
@@ -19,11 +19,27 @@
     <div class="screwHole screwHoleR"></div>
   </div>
 </div>
+
+<div class="plateMercosul" *ngIf="mercoSul">
+  <div class="countryMercosul">BRASIL</div>
+  <form #plateMercoSulForm="ngForm" ng-submit="queryPlate()">
+    <input text="text" inputmode="text" name="plateMercoSul" class="plateMercoSulInput" placeholder="Digite a placa aqui"
+    [(ngModel)]="plateMercoSul" required mask="SSS0A00" (keyup.enter)="queryPlate()">  </form>
+</div>
+
 <div class="type">
   <p class="title">Tipo de veículo:</p>
-  <select class="options" [(ngModel)]="selectedOption">
+  <select class="options" [(ngModel)]="selectedType">
     <option value="carros">Carro</option>
     <option value="motos">Moto</option>
     <option value="caminhoes">Caminhão</option>
   </select>
+</div>
+
+<div class="mercosul">
+  <p class="">Mercosul:</p>
+  <label class="switch">
+    <input [(ngModel)]="mercoSul" type="checkbox">
+    <span class="slider round"></span>
+  </label>
 </div>
