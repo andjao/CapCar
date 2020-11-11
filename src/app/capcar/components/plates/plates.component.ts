@@ -64,7 +64,7 @@ export class PlatesComponent implements OnInit {
     }
     this.loadingService.loadingM(true, '.8', 'Consultando...')
     this.plateRequestService
-      .plateRequest(plate)
+      .plateRequest(plate.toUpperCase())
       .subscribe(
         response => {
           this.loadingService.loadingM(false);
