@@ -9,7 +9,7 @@ import {
   NgForm,
 } from '@angular/forms';
 
-import $ from "jquery";
+import * as $ from 'jquery';
 
 import {
   PlatesComponent,
