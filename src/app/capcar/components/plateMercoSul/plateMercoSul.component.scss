@@ -44,7 +44,6 @@
   font-size: 18vw;
   height: 22vw;
   max-width: 100%;
-  position: a;
   text-align: center;
   text-shadow: -.3vw -.3vw 0 #fff, .5vw .5vw 1vw #656565;
   text-transform: uppercase;
@@ -52,6 +51,7 @@
   -webkit-background-clip: text;
   transform: scaleX(0.8);
   letter-spacing: 1.4vw;
+  -webkit-appearance: auto;
 }
 
 .plateMercoSulInput:-ms-input-placeholder {
