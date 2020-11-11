@@ -1,5 +1,5 @@
-<app-plateNational *ngIf="!mercoSul"></app-plateNational>
-<app-plateMercoSul *ngIf="mercoSul"></app-plateMercoSul>
+<app-plateNational [hidden]="!mercoSul"></app-plateNational>
+<app-plateMercoSul [hidden]="mercoSul"></app-plateMercoSul>
 <div class="type">
   <p class="title">Tipo de veículo:</p>
   <select class="options" [(ngModel)]="selectedType">
