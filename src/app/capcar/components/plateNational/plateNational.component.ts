@@ -8,6 +8,8 @@ import {
   NgForm,
 } from '@angular/forms';
 
+import * as $ from 'jquery';
+
 import {
   PlatesComponent
 } from '../plates';
@@ -26,8 +28,11 @@ export class PlateNationalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  queryPlate() {
-    if (this.plateNationalForm.form.valid) this.platesComponent.queryPlate();
+  queryPlate(event) {
+    if (this.plateNationalForm.form.valid) {
+      $(event.target).blur();
+      this.platesComponent.queryPlate();
+    }
   }
 
 }

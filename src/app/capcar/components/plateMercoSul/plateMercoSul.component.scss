@@ -54,11 +54,12 @@
   letter-spacing: 1.4vw;
 }
 
-.plateMercoSulInput::-moz-placeholder {
+.plateMercoSulInput:-ms-input-placeholder {
   font-size: 8vw;
   line-height: 7vw;
   text-shadow: none;
   transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
   color: #444;
   letter-spacing: normal;
 }
@@ -73,12 +74,11 @@
   letter-spacing: normal;
 }
 
-.plateMercoSulInput:-ms-input-placeholder {
+.plateMercoSulInput::-moz-placeholder {
   font-size: 8vw;
-  line-height: 7vw;
+  line-height: 20vw;
   text-shadow: none;
   transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
   color: #444;
   letter-spacing: normal;
 }

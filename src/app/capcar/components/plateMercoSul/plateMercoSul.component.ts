@@ -4,9 +4,12 @@ import {
   ViewChild,
 } from '@angular/core';
 
+
 import {
   NgForm,
 } from '@angular/forms';
+
+import * as $ from 'jquery';
 
 import {
   PlatesComponent,
@@ -29,9 +32,11 @@ export class PlateMercoSulComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  queryPlate() {
-    if (this.plateMercoSulForm.form.valid) this.platesComponent.queryPlate();
+  queryPlate(event) {
+    if (this.plateMercoSulForm.form.valid) {
+      $(event.target).blur();
+      this.platesComponent.queryPlate();
+    }
   }
 
 }
