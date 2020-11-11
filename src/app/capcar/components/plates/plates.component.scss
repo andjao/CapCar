@@ -125,14 +125,12 @@ input:checked+.slider {
   background-color: #2196F3;
 }
 
-
 input:checked+.slider:before {
   -webkit-transform: translateX(7.5vw);
   -ms-transform: translateX(7.5vw);
   transform: translateX(7.5vw);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 100vw;
 }
