@@ -1,41 +1,5 @@
-<div class="plate" *ngIf="!mercoSul">
-  <div class="screwHolesTop">
-    <div class="screwHole screwHoleL"></div>
-    <div class="screwHole screwHoleR"></div>
-  </div>
-  <div class="plate1">
-    <div class="stateCounty">
-      <div class="rivet rivetL"></div>
-      <div class="stateCountyRes">{{stateCountyRes}}</div>
-      <div class="rivet rivetR"></div>
-    </div>
-    <form #plateForm="ngForm" ng-submit="queryPlate()">
-      <input text="text" inputmode="text" name="plate" class="plateInput" placeholder="Digite a placa aqui"
-        [(ngModel)]="plateNational" required mask="SSS-0000" (keyup.enter)="queryPlate()">
-    </form>
-  </div>
-  <div class="screwHolesBottom">
-    <div class="screwHole screwHoleL"></div>
-    <div class="screwHole screwHoleR"></div>
-  </div>
-</div>
-
-<div class="plateMercosul" *ngIf="mercoSul">
-  <div class="countryMercosul">
-    <img [src]="mercoSulIFlag" class="mercoSulIFlag">
-    <p>Brasil</p>
-    <img [src]="countryFlag" class="countryFlag">
-  </div>
-  <div class="plateMercosul1">
-    <form #plateMercoSulForm="ngForm" ng-submit="queryPlate()">
-      <input text="text" inputmode="text" name="plateMercoSul" class="plateMercoSulInput"
-        placeholder="Digite a placa aqui" [(ngModel)]="plateMercoSul" required mask="SSS0A00"
-        (keyup.enter)="queryPlate()">
-    </form>
-  </div>
-  <p class="initials">{{initials}}</p>
-</div>
-
+<app-plateNational *ngIf="!mercoSul"></app-plateNational>
+<app-plateMercoSul *ngIf="mercoSul"></app-plateMercoSul>
 <div class="type">
   <p class="title">Tipo de veículo:</p>
   <select class="options" [(ngModel)]="selectedType">

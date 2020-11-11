@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlateNationalComponent } from './plateNational.component';
 
-describe('PlateNacionalComponent', () => {
+describe('PlateNationalComponent', () => {
   let component: PlateNationalComponent;
   let fixture: ComponentFixture<PlateNationalComponent>;
 

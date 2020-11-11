@@ -1,0 +1,162 @@
+.plate {
+  background: -o-linear-gradient(315deg, rgba(242, 246, 248, 1) 0%, rgba(216, 225, 231, 1) 33%, rgba(181, 198, 208, 1) 66%, rgba(224, 239, 249, 1) 100%);
+  background: linear-gradient(135deg, rgba(242, 246, 248, 1) 0%, rgba(216, 225, 231, 1) 33%, rgba(181, 198, 208, 1) 66%, rgba(224, 239, 249, 1) 100%);
+  background: rgba(242, 246, 248, 1);
+  background: -o-linear-gradient(-45deg, rgba(242, 246, 248, 1) 0%, rgba(216, 225, 231, 1) 33%, rgba(181, 198, 208, 1) 66%, rgba(224, 239, 249, 1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(242, 246, 248, 1)), color-stop(33%, rgba(216, 225, 231, 1)), color-stop(66%, rgba(181, 198, 208, 1)), color-stop(100%, rgba(224, 239, 249, 1)));
+  background: -webkit-linear-gradient(-45deg, rgba(242, 246, 248, 1) 0%, rgba(216, 225, 231, 1) 33%, rgba(181, 198, 208, 1) 66%, rgba(224, 239, 249, 1) 100%);
+  border: .3vw solid #333333;
+  border-radius: 3vw;
+  box-shadow: .3vw .3vw 1vw #656565;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=1);
+  font-family: Mandatory;
+  font-size: 3.7vw;
+  padding: 2vw 0 2vw 0;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  width: 95vw;
+  -webkit-box-shadow: .3vw .3vw 1vw #656565;
+  margin: 0 auto 2vw;
+}
+
+.screwHolesTop {
+  align-items: center;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  justify-content: space-between;
+  position: absolute;
+  top: 1vw;
+  -ms-flex-align: center;
+  -ms-flex-pack: justify;
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
+}
+
+.screwHole {
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  border-radius: 30%;
+  border-style: ridge;
+  border-top: 0.2vw solid #656565;
+  height: 1.5vw;
+  position: absolute;
+  width: 5vw;
+  background-color: #000;
+}
+
+.screwHoleL {
+  left: 30vw;
+}
+
+.screwHoleR {
+  right: -70vw;
+}
+
+.screwHolesBottom {
+  align-items: center;
+  bottom: 3vw;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  justify-content: space-between;
+  position: absolute;
+  -ms-flex-align: center;
+  -ms-flex-pack: justify;
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
+}
+
+.plate1 {
+  border: .2vw solid #656565;
+  border-radius: 1vw;
+  -webkit-box-shadow: .2vw .2vw 1vw #656565;
+  box-shadow: .2vw .2vw 1vw #656565;
+  margin: 0 2vw;
+  -webkit-box-shadow: .5vw .5vw 1vw #656565;
+}
+
+.stateCounty {
+  align-items: center;
+  background-clip: text;
+  border: .15vw solid #656565;
+  border-radius: 1vw;
+  box-shadow: .5vw .5vw 1vw #656565;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  justify-content: space-between;
+  margin: 3.5vw 6vw -2vw 6vw;
+  text-shadow: -.2vw -.2vw 0 #fff, .2vw .2vw 1vw #656565;
+  -moz-background-clip: text;
+  -ms-flex-align: center;
+  -ms-flex-pack: justify;
+  -webkit-background-clip: text;
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
+  -webkit-box-shadow: .5vw .5vw 1vw #656565;
+}
+
+.rivet {
+  background-color: #000;
+  border: .15vw solid #656565;
+  border-radius: 100%;
+  height: 2vw;
+  margin: 0 1.5vw;
+  width: 2vw;
+  -webkit-box-shadow: .3vw .3vw 1vw #656565;
+  box-shadow: .3vw .3vw 1vw #656565;
+}
+
+.rivetL {
+  box-shadow: inset 0 0 0 .5vw rgba(242, 246, 248, 1);
+  -webkit-box-shadow: inset 0 0 0 .5vw rgba(242, 246, 248, 1);
+}
+
+.rivetR {
+  box-shadow: inset 0 0 0 .5vw rgba(181, 198, 208, 1);
+  -webkit-box-shadow: inset 0 0 0 .5vw rgba(181, 198, 208, 1);
+}
+
+.plateInput {
+  background-clip: text;
+  border: none;
+  font-family: Mandatory;
+  font-size: 18vw;
+  height: 22vw;
+  max-width: 100%;
+  position: relative;
+  text-align: center;
+  text-shadow: -.3vw -.3vw 0 #fff, .5vw .5vw 1vw #656565;
+  text-transform: uppercase;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.plateInput::-moz-placeholder {
+  font-size: 8vw;
+  line-height: 24vw;
+  text-shadow: none;
+  transform: translate(0, -50%);
+  color: #444;
+}
+
+.plateInput::-webkit-input-placeholder {
+  font-size: 8vw;
+  line-height: 7vw;
+  text-shadow: none;
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  color: #444;
+}
+
+.plateInput:-ms-input-placeholder {
+  font-size: 8vw;
+  line-height: 7vw;
+  text-shadow: none;
+  transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  color: #444;
+}

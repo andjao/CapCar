@@ -1,12 +1,7 @@
 import {
   Component,
   OnInit,
-  ViewChild,
 } from '@angular/core';
-
-import {
-  NgForm,
-} from '@angular/forms';
 
 import {
   Plate,
@@ -22,6 +17,7 @@ import {
   FipeValueComponent,
 } from '../fipeValue';
 
+
 @Component({
   selector: 'app-plate',
   templateUrl: './plates.component.html',
@@ -29,23 +25,19 @@ import {
 })
 export class PlatesComponent implements OnInit {
 
-  plateNational: Plate;
-  plateMercoSul: Plate;
-  stateCountyRes: string;
   selectedType: string;
   mercoSul: boolean;
-  mercoSulIFlag = 'assets/images/flags/mercosul.svg';
-  initials = 'br';
-  countryFlag = `assets/images/flags/${this.initials}.svg`;
 
-  @ViewChild("plateForm") plateForm: NgForm;
-  @ViewChild("plateMercoSulForm") plateMercoSulForm: NgForm;
+  plateNational: Plate;
+  stateCountyRes: string;
+
+  plateMercoSul: Plate;
 
   constructor(
     private plateRequestService: PlateRequestService,
     private loadingService: LoadingService,
     private localStorageService: LocalStorageService,
-    public fipeValueComponent: FipeValueComponent
+    public fipeValueComponent: FipeValueComponent,
   ) {
     this.stateCountyRes = 'BRASIL';
   }
@@ -64,48 +56,38 @@ export class PlatesComponent implements OnInit {
   }
 
   queryPlate(): void {
-    let typePlate;
     let plate;
     if (this.mercoSul) {
-      typePlate = this.plateMercoSulForm.form.valid;
       plate = this.plateMercoSul;
     } else {
-      typePlate = this.plateForm.form.valid;
       plate = this.plateNational;
     }
-    console.log(plate);
-
-    if (typePlate) {
-      this.loadingService.loadingM(true, '.8', 'Consultando...')
-      this.plateRequestService
-        .plateRequest(plate)
-        .subscribe(
-          response => {
-            this.loadingService.loadingM(false);
-            if (response.codigoRetorno == "404") {
-              this.stateCountyRes = 'BRASIL';
-              this.plateRequestService.queryOK = false;
-              return;
-            } else {
-              this.plateRequestService.plateResponse = response;
-              this.clearWords(response);
-              this.stateCountyRes = `${this.plateRequestService.plateResponse.uf} - ${this.plateRequestService.plateResponse.municipio}`;
-              this.plateRequestService.queryOK = true;
-              this.checkType(this.selectedType);
-              this.localStorageService.saveLocalStorage('history', response, {
-                type: this.selectedType,
-                mercosul: this.mercoSul
-              });
-              this.fipeValueComponent.fipeBrands(this.selectedType)
-            }
-          },
-          error => {
+    this.loadingService.loadingM(true, '.8', 'Consultando...')
+    this.plateRequestService
+      .plateRequest(plate)
+      .subscribe(
+        response => {
+          this.loadingService.loadingM(false);
+          if (response.codigoRetorno == "404") {
             this.plateRequestService.queryOK = false;
-            this.stateCountyRes = 'BRASIL';
-            this.loadingService.loadingM(false);
+            return;
+          } else {
+            this.plateRequestService.plateResponse = response;
+            this.clearWords(response);
+            this.plateRequestService.queryOK = true;
+            this.checkType(this.selectedType);
+            this.localStorageService.saveLocalStorage('history', response, {
+              type: this.selectedType,
+              mercosul: this.mercoSul
+            });
+            this.fipeValueComponent.fipeBrands(this.selectedType)
           }
-        );
-    }
+        },
+        error => {
+          this.plateRequestService.queryOK = false;
+          this.loadingService.loadingM(false);
+        }
+      );
   }
 
   clearWords(response): void {
