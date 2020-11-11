@@ -24,12 +24,12 @@ import {
 
 @Component({
   selector: 'app-plate',
-  templateUrl: './plate.component.html',
-  styleUrls: ['./plate.component.scss']
+  templateUrl: './plates.component.html',
+  styleUrls: ['./plates.component.scss']
 })
-export class PlateComponent implements OnInit {
+export class PlatesComponent implements OnInit {
 
-  plate: Plate;
+  plateNational: Plate;
   plateMercoSul: Plate;
   stateCountyRes: string;
   selectedType: string;
@@ -71,7 +71,7 @@ export class PlateComponent implements OnInit {
       plate = this.plateMercoSul;
     } else {
       typePlate = this.plateForm.form.valid;
-      plate = this.plate;
+      plate = this.plateNational;
     }
     console.log(plate);
 

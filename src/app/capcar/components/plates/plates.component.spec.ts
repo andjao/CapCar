@@ -2,17 +2,17 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { PlateComponent } from '.';
+import { PlatesComponent } from '.';
 import { PlateRequestService } from '../..';
 
 describe('PlateComponent', () => {
-  let component: PlateComponent;
-  let fixture: ComponentFixture<PlateComponent>;
+  let component: PlatesComponent;
+  let fixture: ComponentFixture<PlatesComponent>;
 
   beforeEach(async() => {
     TestBed.configureTestingModule({
       declarations: [ 
-        PlateComponent
+        PlatesComponent
       ],
       imports:[
         FormsModule,
@@ -26,7 +26,7 @@ describe('PlateComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlateComponent);
+    fixture = TestBed.createComponent(PlatesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

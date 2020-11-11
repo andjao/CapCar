@@ -1,4 +1,4 @@
-export * from './plate';
+export * from './plates';
 export * from './loading';
 export * from './background';
 export * from './plateResponse';

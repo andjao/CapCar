@@ -23,7 +23,7 @@ import {
 import {
   BackgroundComponent,
   LoadingComponent,
-  PlateComponent,
+  PlatesComponent,
   PlateReponseComponent,
   FipeValueComponent,
 } from './components';
@@ -48,14 +48,14 @@ const maskConfig: Partial<IConfig> = {
   declarations: [
     BackgroundComponent,
     LoadingComponent,
-    PlateComponent,
+    PlatesComponent,
     PlateReponseComponent,
     FipeValueComponent,
   ],
   exports: [
     BackgroundComponent,
     LoadingComponent,
-    PlateComponent,
+    PlatesComponent,
     PlateReponseComponent,
     FipeValueComponent,
   ],
