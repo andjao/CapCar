@@ -17,6 +17,10 @@
       <span class="slider round"></span>
     </label>
   </div>
-  <button class="queryBtn" [ngClass]="{'disableBtn': !queryBtn}" [disabled]="!queryBtn" (click)="queryPlate()"><img
-      src="assets/images/search.svg"></button>
+  <button class="queryBtn" [ngClass]="{'disableBtn': !queryBtn}" [disabled]="!queryBtn" (click)="queryPlate()">
+    <img src="assets/images/search.svg">
+  </button>
+  <button class="queryBtn" (click)="history()">
+    <img src="assets/images/history.svg">
+  </button>
 </div>

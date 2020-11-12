@@ -132,4 +132,8 @@ export class PlatesComponent implements OnInit {
     }
     this.plateRequestService.vehicleType = vehicleType;
   }
+
+  history(){
+
+  }
 }
