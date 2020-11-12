@@ -28,4 +28,8 @@ export class HistoryComponent implements OnInit {
     this.localStorageService.historyOpen = false;
   }
 
+  queryPlate(plate) {
+    this.closeHistory();
+  }
+
 }

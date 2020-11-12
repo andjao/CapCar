@@ -37,6 +37,10 @@ table {
   border: solid 1vw #000;
 }
 
+tr {
+  line-height: 10vw
+}
+
 tr:nth-child(even) {
   background-color: #dddddd;
 }
