@@ -32,11 +32,19 @@ export class PlateMercoSulComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  checkValid() {
+    if (this.plateMercoSulForm.form.valid) {
+      this.platesComponent.queryBtn = true;
+    } else {
+      this.platesComponent.queryBtn = false;
+    }
+  }
+  
   queryPlate(event) {
     if (this.plateMercoSulForm.form.valid) {
       $(event.target).blur();
-      this.platesComponent.queryPlate();
+      this.platesComponent.queryPlate(true);
     }
   }
-
 }

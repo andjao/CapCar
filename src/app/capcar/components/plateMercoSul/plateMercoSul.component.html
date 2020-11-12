@@ -8,7 +8,7 @@
     <form #plateMercoSulForm="ngForm" ng-submit="queryPlate()">
       <input text="text" inputmode="text" name="plateMercoSul" class="plateMercoSulInput"
         placeholder="Digite a placa aqui" [(ngModel)]="platesComponent.plateMercoSul" required mask="SSS0A00"
-        (keyup.enter)="queryPlate($event)">
+        (keyup.enter)="queryPlate($event)" (keyup)="checkValid()" autocomplete="off">
     </form>
   </div>
   <p class="initials">{{initials}}</p>

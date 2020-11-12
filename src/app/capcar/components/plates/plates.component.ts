@@ -33,6 +33,8 @@ export class PlatesComponent implements OnInit {
 
   plateMercoSul: Plate;
 
+  queryBtn: boolean = false;
+
   constructor(
     private plateRequestService: PlateRequestService,
     private loadingService: LoadingService,
@@ -55,7 +57,7 @@ export class PlatesComponent implements OnInit {
     }
   }
 
-  queryPlate(): void {
+  queryPlate(valid?): void {
     let plate;
     if (this.mercoSul) {
       plate = this.plateMercoSul;

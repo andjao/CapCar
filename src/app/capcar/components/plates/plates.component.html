@@ -9,10 +9,14 @@
   </select>
 </div>
 
-<div class="mercosul removeBlue">
-  <p class="">Mercosul</p>
-  <label class="switch">
-    <input [(ngModel)]="mercoSul" type="checkbox">
-    <span class="slider round"></span>
-  </label>
+<div class="plateButtons">
+  <div class="mercosul removeBlue">
+    <p class="">Mercosul</p>
+    <label class="switch">
+      <input [(ngModel)]="mercoSul" type="checkbox">
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <button class="queryBtn" [ngClass]="{'disableBtn': !queryBtn}" [disabled]="!queryBtn" (click)="queryPlate()"><img
+      src="assets/images/search.svg"></button>
 </div>

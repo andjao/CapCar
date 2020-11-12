@@ -51,6 +51,11 @@
   border-radius: 2vw;
 }
 
+.plateButtons {
+  display: flex;
+  display: -ms-flexbox;
+}
+
 .mercosul {
   position: relative;
   border-radius: 2vw;
@@ -136,4 +141,20 @@ input:checked+.slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.queryBtn {
+  background-color: #fff;
+  border: solid 2vw #f00;
+  border-radius: 100%;
+  width: 15vw;
+  height: 15vw;
+}
+
+.queryBtn>img {
+  width: auto;
+}
+
+.disableBtn {
+  filter: contrast(30%);
 }

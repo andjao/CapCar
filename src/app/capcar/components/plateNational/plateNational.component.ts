@@ -28,11 +28,18 @@ export class PlateNationalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  checkValid() {
+    if (this.plateNationalForm.form.valid) {
+      this.platesComponent.queryBtn = true;
+    } else {
+      this.platesComponent.queryBtn = false;
+    }
+  }
+
   queryPlate(event) {
     if (this.plateNationalForm.form.valid) {
       $(event.target).blur();
       this.platesComponent.queryPlate();
     }
   }
-
 }
