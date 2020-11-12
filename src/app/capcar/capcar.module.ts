@@ -28,6 +28,7 @@ import {
   PlateMercoSulComponent,
   PlateReponseComponent,
   FipeValueComponent,
+  HistoryComponent,
 } from './components';
 
 import {
@@ -55,6 +56,7 @@ const maskConfig: Partial<IConfig> = {
     PlateMercoSulComponent,
     PlateReponseComponent,
     FipeValueComponent,
+    HistoryComponent,
   ],
   exports: [
     BackgroundComponent,
@@ -64,6 +66,7 @@ const maskConfig: Partial<IConfig> = {
     PlateMercoSulComponent,
     PlateReponseComponent,
     FipeValueComponent,
+    HistoryComponent,
   ],
   providers: [
     LoadingService,
