@@ -3,7 +3,9 @@ import {
   OnInit,
 } from '@angular/core';
 
-import { LocalStorageService } from '../../services/'
+import { LocalStorageService } from '../../services/';
+
+import { PlatesComponent } from '../plates';
 
 @Component({
   selector: 'app-history',
@@ -15,14 +17,10 @@ export class HistoryComponent implements OnInit {
 
   constructor(
     public localStorageService: LocalStorageService,
+    private platesComponent: PlatesComponent
   ) { }
 
   ngOnInit(): void { }
-
-  openHistory(): void {
-    this.localStorageService.historyOpen = true;
-    this.localStorageService.history = JSON.parse(this.localStorageService.loadLocalStorage('history'));
-  }
 
   closeHistory() {
     this.localStorageService.historyOpen = false;
@@ -30,6 +28,7 @@ export class HistoryComponent implements OnInit {
 
   queryPlate(plate) {
     this.closeHistory();
+    this.platesComponent.queryPlate(plate.split('-').join(""));
   }
 
 }

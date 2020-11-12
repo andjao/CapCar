@@ -70,6 +70,7 @@ const maskConfig: Partial<IConfig> = {
   ],
   providers: [
     LoadingService,
+    PlatesComponent,
     PlateRequestService,
     LocalStorageService,
     FipeValueComponent,

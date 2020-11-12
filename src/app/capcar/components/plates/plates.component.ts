@@ -16,8 +16,6 @@ import {
 import {
   FipeValueComponent,
 } from '../fipeValue';
-import { HistoryComponent } from '../history';
-
 
 @Component({
   selector: 'app-plate',
@@ -41,7 +39,6 @@ export class PlatesComponent implements OnInit {
     private loadingService: LoadingService,
     private localStorageService: LocalStorageService,
     public fipeValueComponent: FipeValueComponent,
-    public historyComponent: HistoryComponent,
   ) {
     this.stateCountyRes = 'BRASIL';
   }
@@ -59,7 +56,7 @@ export class PlatesComponent implements OnInit {
     }
   }
 
-  queryPlate(valid?): void {
+  queryPlate(plateS?): void {
     let plate;
     if (this.mercoSul) {
       plate = this.plateMercoSul;
@@ -68,7 +65,7 @@ export class PlatesComponent implements OnInit {
     }
     this.loadingService.loadingM(true, '.8', 'Consultando...')
     this.plateRequestService
-      .plateRequest(plate.toUpperCase())
+      .plateRequest(plateS || plate.toUpperCase())
       .subscribe(
         response => {
           this.loadingService.loadingM(false);
@@ -136,6 +133,8 @@ export class PlatesComponent implements OnInit {
   }
 
   history() {
-    this.historyComponent.openHistory();
+    this.localStorageService.historyOpen = true;
+    this.localStorageService.history = JSON.parse(this.localStorageService.loadLocalStorage('history'));
   }
+
 }
