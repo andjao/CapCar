@@ -73,6 +73,7 @@ const maskConfig: Partial<IConfig> = {
     PlateRequestService,
     LocalStorageService,
     FipeValueComponent,
+    HistoryComponent,
   ]
 })
 export class CapcarModule { }

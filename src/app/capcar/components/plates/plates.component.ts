@@ -16,6 +16,7 @@ import {
 import {
   FipeValueComponent,
 } from '../fipeValue';
+import { HistoryComponent } from '../history';
 
 
 @Component({
@@ -40,6 +41,7 @@ export class PlatesComponent implements OnInit {
     private loadingService: LoadingService,
     private localStorageService: LocalStorageService,
     public fipeValueComponent: FipeValueComponent,
+    public historyComponent: HistoryComponent,
   ) {
     this.stateCountyRes = 'BRASIL';
   }
@@ -133,7 +135,7 @@ export class PlatesComponent implements OnInit {
     this.plateRequestService.vehicleType = vehicleType;
   }
 
-  history(){
-
+  history() {
+    this.historyComponent.openHistory();
   }
 }
