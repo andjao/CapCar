@@ -49,12 +49,10 @@ export class PlatesComponent implements OnInit {
   }
 
   queryPlate(): void {
-    let plate;
-    if (this.sharedService.mercoSul) {
-      plate = this.sharedService.plateMercoSul;
-    } else {
-      plate = this.sharedService.plateNational.split("-").join("");
-    }
+    let plate = this.sharedService.mercoSul
+      ? this.sharedService.plateMercoSul
+      : this.sharedService.plateNational.split("-").join("");
+
     this.loadingService.loadingM(true, '.8', 'Consultando...')
     this.requestsService
       .plateRequest(plate.toUpperCase())

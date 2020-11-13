@@ -3,7 +3,6 @@ import {
 } from '@angular/core';
 
 import {
-  Plate,
   PlateResponse,
 } from '../models';
 

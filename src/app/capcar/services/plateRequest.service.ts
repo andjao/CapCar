@@ -10,10 +10,6 @@ import {
   Observable,
 } from 'rxjs/Observable';
 
-import {
-  Plate,
-} from '..';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +23,7 @@ export class RequestsService {
     private http: HttpClient,
   ) { }
 
-  plateRequest(plate: Plate): Observable<any> {
+  plateRequest(plate): Observable<any> {
     return this.http
       .get(`${this.apicarros_URL}${plate}/json`);
   }
