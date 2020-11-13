@@ -52,8 +52,7 @@ export class PlatesComponent implements OnInit {
     let plate = this.sharedService.mercoSul
       ? this.sharedService.plateMercoSul
       : this.sharedService.plateNational.split("-").join("");
-
-    this.loadingService.loadingM(true, '.8', 'Consultando...')
+    this.loadingService.loadingM(true, '.8', 'Consultando...');
     this.requestsService
       .plateRequest(plate.toUpperCase())
       .subscribe(
@@ -78,6 +77,8 @@ export class PlatesComponent implements OnInit {
         error => {
           this.sharedService.queryOK = false;
           this.loadingService.loadingM(false);
+          if (!navigator.onLine) return alert("Você provavelmente não esta conectado a internet");
+          if (error.response == undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
         }
       );
   }

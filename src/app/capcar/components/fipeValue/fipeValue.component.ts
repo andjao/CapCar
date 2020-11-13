@@ -102,6 +102,7 @@ export class FipeValueComponent implements OnInit {
           };
         }, error => {
           this.sharedService.fipeError = true;
+          if (error.response == undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
         }
       );
   }
@@ -118,6 +119,7 @@ export class FipeValueComponent implements OnInit {
             });
           }, error => {
             this.sharedService.fipeError = true;
+            if (error.response == undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
           })
     }
   }
@@ -130,6 +132,7 @@ export class FipeValueComponent implements OnInit {
           this.sharedService.fipeOK = true;
         }, error => {
           this.sharedService.fipeError = true;
+          if (error.response == undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
         }
       );
   }
