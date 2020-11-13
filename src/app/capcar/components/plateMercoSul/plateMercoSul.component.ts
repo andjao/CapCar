@@ -51,7 +51,7 @@ export class PlateMercoSulComponent implements OnInit {
   queryPlate(event) {
     if (this.plateMercoSulForm.form.valid) {
       $(event.target).blur();
-      this.platesComponent.queryPlate(true);
+      this.platesComponent.queryPlate();
     }
   }
 }

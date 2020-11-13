@@ -10,7 +10,7 @@
         <th>Modelo</th>
         <th>Data</th>
       </tr>
-      <tr *ngFor="let car of sharedService.history" (click)="queryPlate(car.placa)">
+      <tr *ngFor="let car of sharedService.history" (click)="queryPlate(car)">
         <td>{{car.modelo.split(" ")[0]}}</td>
         <td class="plate">{{car.placa}}</td>
         <td>{{car.data | date:'dd/MM/yyyy HH:mm'}}</td>

@@ -28,9 +28,10 @@ export class HistoryComponent implements OnInit {
     this.sharedService.historyOpen = false;
   }
 
-  queryPlate(plate) {
+  queryPlate(car) {
     this.closeHistory();
-    this.platesComponent.queryPlate(plate.split('-').join(""));
+    if (car.mercosul && !this.sharedService.mercoSul) this.sharedService.mercoSul = true;
+    this.platesComponent.queryPlate(car.placa.split('-').join(""));
   }
 
 }
