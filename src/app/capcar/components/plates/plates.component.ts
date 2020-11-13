@@ -48,16 +48,16 @@ export class PlatesComponent implements OnInit {
     }
   }
 
-  queryPlate(plateS?): void {
+  queryPlate(): void {
     let plate;
     if (this.sharedService.mercoSul) {
       plate = this.sharedService.plateMercoSul;
     } else {
-      plate = this.sharedService.plateNational;
+      plate = this.sharedService.plateNational.split("-").join("");
     }
     this.loadingService.loadingM(true, '.8', 'Consultando...')
     this.requestsService
-      .plateRequest(plateS || plate.toUpperCase())
+      .plateRequest(plate.toUpperCase())
       .subscribe(
         response => {
           this.loadingService.loadingM(false);
@@ -65,6 +65,7 @@ export class PlatesComponent implements OnInit {
             this.sharedService.queryOK = false;
             return;
           } else {
+            this.sharedService.stateCountyRes = `${response.uf} - ${response.municipio}`;
             this.sharedService.plateResponse = response;
             this.clearWords(response);
             this.sharedService.queryOK = true;

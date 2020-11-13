@@ -14,8 +14,8 @@ export class SharedService {
 
   constructor() { }
   stateCountyRes: string;
-  plateNational: Plate;
-  plateMercoSul: Plate;
+  plateNational: string;
+  plateMercoSul: string;
   selectedType: string;
   mercoSul: boolean;
   queryBtn: boolean = false;
