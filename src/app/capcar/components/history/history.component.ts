@@ -30,7 +30,13 @@ export class HistoryComponent implements OnInit {
 
   queryPlate(car) {
     this.closeHistory();
-    if (car.mercosul && !this.sharedService.mercoSul) this.sharedService.mercoSul = true;
+    if (car.mercosul && !this.sharedService.mercoSul) {
+      this.sharedService.mercoSul = true;
+      this.sharedService.plateMercoSul = car.placa;
+    } else {
+      this.sharedService.mercoSul = false;
+      this.sharedService.plateNational = car.placa;
+    }
     this.platesComponent.queryPlate(car.placa.split('-').join(""));
   }
 

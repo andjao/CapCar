@@ -13,10 +13,11 @@ import {
 export class SharedService {
 
   constructor() { }
-
+  stateCountyRes: string;
+  plateNational: Plate;
+  plateMercoSul: Plate;
   selectedType: string;
   mercoSul: boolean;
-  plateMercoSul: Plate;
   queryBtn: boolean = false;
 
   queryOK: boolean = false;

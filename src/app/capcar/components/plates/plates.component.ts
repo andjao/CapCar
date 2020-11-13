@@ -25,9 +25,6 @@ import {
 })
 export class PlatesComponent implements OnInit {
 
-  plateNational: Plate;
-  stateCountyRes: string;
-
   constructor(
     private requestsService: RequestsService,
     private loadingService: LoadingService,
@@ -35,7 +32,7 @@ export class PlatesComponent implements OnInit {
     public fipeValueComponent: FipeValueComponent,
     public sharedService: SharedService,
   ) {
-    this.stateCountyRes = 'BRASIL';
+    this.sharedService.stateCountyRes = 'BRASIL';
   }
 
   ngOnInit(): void {
@@ -56,7 +53,7 @@ export class PlatesComponent implements OnInit {
     if (this.sharedService.mercoSul) {
       plate = this.sharedService.plateMercoSul;
     } else {
-      plate = this.plateNational;
+      plate = this.sharedService.plateNational;
     }
     this.loadingService.loadingM(true, '.8', 'Consultando...')
     this.requestsService
