@@ -37,6 +37,7 @@ import {
   LocalStorageService,
   SharedService,
 } from './services';
+import { LongPressDirective } from './directives';
 
 const maskConfig: Partial<IConfig> = {
   validation: true,
@@ -58,6 +59,7 @@ const maskConfig: Partial<IConfig> = {
     PlateReponseComponent,
     FipeValueComponent,
     HistoryComponent,
+    LongPressDirective,
   ],
   exports: [
     BackgroundComponent,

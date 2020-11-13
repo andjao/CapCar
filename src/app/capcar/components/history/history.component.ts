@@ -5,6 +5,7 @@ import {
 
 import {
   SharedService,
+  LocalStorageService
 } from '../../services/';
 
 import { PlatesComponent } from '../plates';
@@ -19,6 +20,7 @@ export class HistoryComponent implements OnInit {
 
   constructor(
     public sharedService: SharedService,
+    private localStorageService: LocalStorageService,
     private platesComponent: PlatesComponent
   ) { }
 
@@ -41,4 +43,8 @@ export class HistoryComponent implements OnInit {
     this.platesComponent.queryPlate();
   }
 
+  removePlate(plate) {
+    this.localStorageService.removeLocalStorage("history", plate);
+    this.sharedService.history = JSON.parse(this.localStorageService.loadLocalStorage("history"));
+  }
 }

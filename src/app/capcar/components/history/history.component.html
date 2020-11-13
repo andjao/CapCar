@@ -10,7 +10,8 @@
         <th>Placa</th>
         <th>Data</th>
       </tr>
-      <tr *ngFor="let car of sharedService.history" (click)="queryPlate(car)">
+      <tr *ngFor="let car of sharedService.history" (click)="queryPlate(car)" ps-force-touch="alert('a')"
+        ps-force-touch-options="{polyfill: true, preventDefault: false}" longPress>
         <td>{{car.modelo.split(" ")[0]}}</td>
         <td class="plate">{{car.placa}}</td>
         <td>{{car.data | date:'dd/MM/yyyy HH:mm'}}</td>
