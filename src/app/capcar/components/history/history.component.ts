@@ -37,6 +37,7 @@ export class HistoryComponent implements OnInit {
       this.sharedService.mercoSul = false;
       this.sharedService.plateNational = car.placa;
     }
+    this.sharedService.queryBtn = true;
     this.platesComponent.queryPlate(car.placa.split('-').join(""));
   }
 
