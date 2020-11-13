@@ -35,6 +35,7 @@ import {
   LoadingService,
   PlateRequestService,
   LocalStorageService,
+  SharedService,
 } from './services';
 
 const maskConfig: Partial<IConfig> = {
@@ -70,9 +71,10 @@ const maskConfig: Partial<IConfig> = {
   ],
   providers: [
     LoadingService,
-    PlatesComponent,
     PlateRequestService,
     LocalStorageService,
+    SharedService,
+    PlatesComponent,
     FipeValueComponent,
     HistoryComponent,
   ]
