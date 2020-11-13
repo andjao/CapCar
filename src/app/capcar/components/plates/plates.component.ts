@@ -99,9 +99,50 @@ export class PlatesComponent implements OnInit {
     }
 
     const brand = this.plateRequestService.plateResponse.marca.toUpperCase();
+
     switch (true) {
-      case (brand.indexOf('imp'.toUpperCase()) != -1):
+      case brand.indexOf('AMGC') != -1:
+        this.plateRequestService.plateResponse.marca = 'Am Gem';
+        break;
+      case brand.indexOf('CHEV') != -1:
+        this.plateRequestService.plateResponse.marca = 'Chevrolet';
+        break;
+      case brand.indexOf('IMP') != -1:
         this.plateRequestService.plateResponse.marca = 'GM';
+        break;
+      case brand.indexOf('JAG') != -1:
+        this.plateRequestService.plateResponse.marca = 'Jaguar';
+        break;
+      case brand.indexOf('LROVER') != -1:
+      case brand.indexOf('LR') != -1:
+        this.plateRequestService.plateResponse.marca = 'Land Rover';
+        break;
+      case brand.indexOf('MPOLO') != -1:
+        this.plateRequestService.plateResponse.marca = 'Marcopolo';
+        break;
+      case brand.indexOf('BRAMONT') != -1:
+        this.plateRequestService.plateResponse.marca = 'Mahindra';
+        break;
+      case brand.indexOf('MB') != -1:
+      case brand.indexOf('MBENZ') != -1:
+      case brand.indexOf('M.BENZ') != -1:
+      case brand.indexOf('M.BEMZ') != -1:
+      case brand.indexOf('MERCEDES BENZ') != -1:
+      case brand.indexOf('MERCEDES') != -1:
+        this.plateRequestService.plateResponse.marca = 'Mercedes-Benz';
+        break;
+      case brand.indexOf('MMC') != -1:
+        this.plateRequestService.plateResponse.marca = 'Mitsubishi';
+        break;
+      case brand.indexOf('INTERNATIONAL') != -1:
+        this.plateRequestService.plateResponse.marca = 'Navistar';
+        break;
+      case brand.indexOf('AMV') != -1:
+      case brand.indexOf('PUMA') != -1:
+        this.plateRequestService.plateResponse.marca = 'Puma-Alfa';
+        break;
+      case brand.indexOf('VW') != -1:
+        this.plateRequestService.plateResponse.marca = 'Volkswagen';
         break;
     }
 
