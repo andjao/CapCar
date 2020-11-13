@@ -1,8 +1,8 @@
-<app-plateNational [hidden]="mercoSul"></app-plateNational>
-<app-plateMercoSul [hidden]="!mercoSul"></app-plateMercoSul>
+<app-plateNational [hidden]="sharedService.mercoSul"></app-plateNational>
+<app-plateMercoSul [hidden]="!sharedService.mercoSul"></app-plateMercoSul>
 <div class="type">
   <p class="title">Tipo de veículo:</p>
-  <select class="options" [(ngModel)]="selectedType">
+  <select class="options" [(ngModel)]="sharedService.selectedType">
     <option value="carros">Carro</option>
     <option value="motos">Moto</option>
     <option value="caminhoes">Caminhão</option>
@@ -13,11 +13,12 @@
   <div class="mercosul removeBlue">
     <p class="">Mercosul</p>
     <label class="switch">
-      <input [(ngModel)]="mercoSul" type="checkbox">
+      <input [(ngModel)]="sharedService.mercoSul" type="checkbox">
       <span class="slider round"></span>
     </label>
   </div>
-  <button class="queryBtn" [ngClass]="{'disableBtn': !queryBtn}" [disabled]="!queryBtn" (click)="queryPlate()">
+  <button class="queryBtn" [ngClass]="{'disableBtn': !sharedService.queryBtn}" [disabled]="!sharedService.queryBtn"
+    (click)="queryPlate()">
     <img src="assets/images/search.svg">
   </button>
   <button class="queryBtn" (click)="history()">

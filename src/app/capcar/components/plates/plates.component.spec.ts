@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { PlatesComponent } from '.';
-import { PlateRequestService } from '../..';
+import { RequestsService } from '../..';
 
 describe('PlateComponent', () => {
   let component: PlatesComponent;
@@ -19,7 +19,7 @@ describe('PlateComponent', () => {
         HttpClientModule
       ],
       providers: [
-        PlateRequestService
+        RequestsService
       ]
     })
     .compileComponents();

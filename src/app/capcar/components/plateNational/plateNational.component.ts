@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 
 import * as $ from 'jquery';
+import { SharedService } from '../../services';
 
 import {
   PlatesComponent
@@ -23,16 +24,19 @@ export class PlateNationalComponent implements OnInit {
 
   @ViewChild("plateNationalForm") plateNationalForm: NgForm;
 
-  constructor(public platesComponent: PlatesComponent) { }
+  constructor(
+    public platesComponent: PlatesComponent,
+    public sharedService: SharedService,
+  ) { }
 
   ngOnInit(): void {
   }
 
   checkValid() {
     if (this.plateNationalForm.form.valid) {
-      this.platesComponent.queryBtn = true;
+      this.sharedService.queryBtn = true;
     } else {
-      this.platesComponent.queryBtn = false;
+      this.sharedService.queryBtn = false;
     }
   }
 

@@ -8,9 +8,10 @@ import {
 } from '../..';
 
 import {
-  PlateRequestService,
+  RequestsService,
   LoadingService,
   LocalStorageService,
+  SharedService,
 } from '../../services';
 
 import {
@@ -24,21 +25,15 @@ import {
 })
 export class PlatesComponent implements OnInit {
 
-  selectedType: string;
-  mercoSul: boolean;
-
   plateNational: Plate;
   stateCountyRes: string;
 
-  plateMercoSul: Plate;
-
-  queryBtn: boolean = false;
-
   constructor(
-    private plateRequestService: PlateRequestService,
+    private requestsService: RequestsService,
     private loadingService: LoadingService,
     private localStorageService: LocalStorageService,
     public fipeValueComponent: FipeValueComponent,
+    public sharedService: SharedService,
   ) {
     this.stateCountyRes = 'BRASIL';
   }
@@ -49,79 +44,79 @@ export class PlatesComponent implements OnInit {
 
   init(): void {
     if (!JSON.parse(this.localStorageService.loadLocalStorage('history'))) {
-      this.selectedType = "carros";
+      this.sharedService.selectedType = "carros";
     } else {
-      this.selectedType = JSON.parse(this.localStorageService.loadLocalStorage('history'))[0].tipo;
-      this.mercoSul = JSON.parse(this.localStorageService.loadLocalStorage('history'))[0].mercosul;
+      this.sharedService.selectedType = JSON.parse(this.localStorageService.loadLocalStorage('history'))[0].tipo;
+      this.sharedService.mercoSul = JSON.parse(this.localStorageService.loadLocalStorage('history'))[0].mercosul;
     }
   }
 
   queryPlate(plateS?): void {
     let plate;
-    if (this.mercoSul) {
-      plate = this.plateMercoSul;
+    if (this.sharedService.mercoSul) {
+      plate = this.sharedService.plateMercoSul;
     } else {
       plate = this.plateNational;
     }
     this.loadingService.loadingM(true, '.8', 'Consultando...')
-    this.plateRequestService
+    this.requestsService
       .plateRequest(plateS || plate.toUpperCase())
       .subscribe(
         response => {
           this.loadingService.loadingM(false);
           if (response.codigoRetorno == "404") {
-            this.plateRequestService.queryOK = false;
+            this.sharedService.queryOK = false;
             return;
           } else {
-            this.plateRequestService.plateResponse = response;
+            this.sharedService.plateResponse = response;
             this.clearWords(response);
-            this.plateRequestService.queryOK = true;
-            this.checkType(this.selectedType);
+            this.sharedService.queryOK = true;
+            this.checkType(this.sharedService.selectedType);
             this.localStorageService.saveLocalStorage('history', response, {
-              type: this.selectedType,
-              mercosul: this.mercoSul
+              type: this.sharedService.selectedType,
+              mercosul: this.sharedService.mercoSul
             });
-            this.fipeValueComponent.fipeBrands(this.selectedType)
+            this.fipeValueComponent.fipeBrands(this.sharedService.selectedType)
           }
         },
         error => {
-          this.plateRequestService.queryOK = false;
+          this.sharedService.queryOK = false;
           this.loadingService.loadingM(false);
         }
       );
   }
 
   clearWords(response): void {
-    this.plateRequestService.plateResponse.placa = response.placa.match(/[a-zA-Z]+|[0-9]+/g).join("-");
+    this.sharedService.plateResponse.placa = response.placa.match(/[a-zA-Z]+|[0-9]+/g).join("-");
     if (response.marca.indexOf('/') > -1 || response.modelo.indexOf('/') > -1) {
-      this.plateRequestService.plateResponse.marca = response.marca.split('/')[0];
-      this.plateRequestService.plateResponse.modelo = response.modelo.split('/')[1];
+      this.sharedService.plateResponse.marca = response.marca.split('/')[0];
+      this.sharedService.plateResponse.modelo = response.modelo.split('/')[1];
     }
 
-    const brand = this.plateRequestService.plateResponse.marca.toUpperCase();
+    const brand = this.sharedService.plateResponse.marca.toUpperCase();
 
     switch (true) {
       case brand.indexOf('AMGC') != -1:
-        this.plateRequestService.plateResponse.marca = 'Am Gem';
+        this.sharedService.plateResponse.marca = 'Am Gem';
         break;
       case brand.indexOf('CHEV') != -1:
-        this.plateRequestService.plateResponse.marca = 'Chevrolet';
+        this.sharedService.plateResponse.marca = 'Chevrolet';
         break;
       case brand.indexOf('IMP') != -1:
-        this.plateRequestService.plateResponse.marca = 'GM';
+        this.sharedService.plateResponse.marca = 'GM';
         break;
       case brand.indexOf('JAG') != -1:
-        this.plateRequestService.plateResponse.marca = 'Jaguar';
+        this.sharedService.plateResponse.marca = 'Jaguar';
         break;
       case brand.indexOf('LROVER') != -1:
       case brand.indexOf('LR') != -1:
-        this.plateRequestService.plateResponse.marca = 'Land Rover';
+        this.sharedService.plateResponse.marca = 'Land Rover';
         break;
       case brand.indexOf('MPOLO') != -1:
-        this.plateRequestService.plateResponse.marca = 'Marcopolo';
+        this.sharedService.plateResponse.marca = 'Marcopolo';
         break;
       case brand.indexOf('BRAMONT') != -1:
-        this.plateRequestService.plateResponse.marca = 'Mahindra';
+        this.sharedService.plateResponse.marca = 'Mahindra';
         break;
       case brand.indexOf('MB') != -1:
       case brand.indexOf('MBENZ') != -1:
@@ -129,30 +124,30 @@ export class PlatesComponent implements OnInit {
       case brand.indexOf('M.BEMZ') != -1:
       case brand.indexOf('MERCEDES BENZ') != -1:
       case brand.indexOf('MERCEDES') != -1:
-        this.plateRequestService.plateResponse.marca = 'Mercedes-Benz';
+        this.sharedService.plateResponse.marca = 'Mercedes-Benz';
         break;
       case brand.indexOf('MMC') != -1:
-        this.plateRequestService.plateResponse.marca = 'Mitsubishi';
+        this.sharedService.plateResponse.marca = 'Mitsubishi';
         break;
       case brand.indexOf('INTERNATIONAL') != -1:
-        this.plateRequestService.plateResponse.marca = 'Navistar';
+        this.sharedService.plateResponse.marca = 'Navistar';
         break;
       case brand.indexOf('AMV') != -1:
       case brand.indexOf('PUMA') != -1:
-        this.plateRequestService.plateResponse.marca = 'Puma-Alfa';
+        this.sharedService.plateResponse.marca = 'Puma-Alfa';
         break;
       case brand.indexOf('VW') != -1:
-        this.plateRequestService.plateResponse.marca = 'Volkswagen';
+        this.sharedService.plateResponse.marca = 'Volkswagen';
         break;
     }
 
-    const model = this.plateRequestService.plateResponse.modelo.toUpperCase();
+    const model = this.sharedService.plateResponse.modelo.toUpperCase();
     switch (true) {
       case (model.indexOf('chevrolet'.toUpperCase()) != -1):
-        this.plateRequestService.plateResponse.modelo = model.split('chevrolet '.toUpperCase())[1];
+        this.sharedService.plateResponse.modelo = model.split('chevrolet '.toUpperCase())[1];
         break;
       case (model.indexOf('gm'.toUpperCase()) != -1):
-        this.plateRequestService.plateResponse.modelo = model.split('gm '.toUpperCase())[1];
+        this.sharedService.plateResponse.modelo = model.split('gm '.toUpperCase())[1];
         break;
     }
   }
@@ -170,12 +165,12 @@ export class PlatesComponent implements OnInit {
         vehicleType = "Caminhão";
         break;
     }
-    this.plateRequestService.vehicleType = vehicleType;
+    this.sharedService.vehicleType = vehicleType;
   }
 
   history() {
-    this.localStorageService.historyOpen = true;
-    this.localStorageService.history = JSON.parse(this.localStorageService.loadLocalStorage('history'));
+    this.sharedService.historyOpen = true;
+    this.sharedService.history = JSON.parse(this.localStorageService.loadLocalStorage('history'));
   }
 
 }

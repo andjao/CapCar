@@ -1,4 +1,4 @@
-<div *ngIf="localStorageService.historyOpen" class="historyBg">
+<div *ngIf="sharedService.historyOpen" class="historyBg">
   <div class="history">
     <button class="closeHistory" (click)="closeHistory()"><img src="assets/images/close.svg"></button>
     <table>
@@ -10,7 +10,7 @@
         <th>Modelo</th>
         <th>Data</th>
       </tr>
-      <tr *ngFor="let car of localStorageService.history" (click)="queryPlate(car.placa)">
+      <tr *ngFor="let car of sharedService.history" (click)="queryPlate(car.placa)">
         <td>{{car.modelo.split(" ")[0]}}</td>
         <td class="plate">{{car.placa}}</td>
         <td>{{car.data | date:'dd/MM/yyyy HH:mm'}}</td>

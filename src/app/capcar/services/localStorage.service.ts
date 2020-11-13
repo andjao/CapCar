@@ -7,9 +7,6 @@ import {
 })
 export class LocalStorageService {
 
-  historyOpen: boolean;
-  history = new Array;
-
   constructor() { }
 
   loadLocalStorage(key: string) {

@@ -1,14 +1,14 @@
 <div class="fipeResponse">
   <p class="result">FIPE</p>
   <hr class="divider">
-  <p class="fipeError" *ngIf="plateRequestService.fipeError">Veiculo não encontrado</p>
-  <p class="fipeError" *ngIf="plateRequestService.fipeNotFound">Você selecionou o
-    tipo "{{plateRequestService.vehicleType}}", talvez seje outro tipo de veículo.</p>
+  <p class="fipeError" *ngIf="sharedService.fipeError">Veiculo não encontrado</p>
+  <p class="fipeError" *ngIf="sharedService.fipeNotFound">Você selecionou o
+    tipo "{{sharedService.vehicleType}}", talvez seje outro tipo de veículo.</p>
   <div class="loadingBg"
-    *ngIf="!plateRequestService.fipeOK && !plateRequestService.fipeError && !plateRequestService.fipeNotFound">
+    *ngIf="!sharedService.fipeOK && !sharedService.fipeError && !sharedService.fipeNotFound">
     Consultando<p class="loadingText" *ngFor="let letter of letterSeparator('...')">{{letter}}</p>
   </div>
-  <div class="fipeModels" *ngFor="let model of plateRequestService.fipeValues">
+  <div class="fipeModels" *ngFor="let model of sharedService.fipeValues">
     <p class="fipeInfo">Modelo: {{model.veiculo}}</p>
     <p class="fipeInfo">Valor: {{model.preco}}</p>
     <p class="fipeInfo">Ano: {{model.id}}</p>
@@ -16,7 +16,7 @@
     <p class="fipeInfo">Código FIPE: {{model.fipe_codigo}}</p>
     <hr class="divider">
   </div>
-  <p class="reference" *ngIf="plateRequestService.fipeOK">
-    Referência: {{plateRequestService.fipeValues[0].referencia}}
+  <p class="reference" *ngIf="sharedService.fipeOK">
+    Referência: {{sharedService.fipeValues[0].referencia}}
   </p>
 </div>

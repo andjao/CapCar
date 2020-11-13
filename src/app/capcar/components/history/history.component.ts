@@ -3,7 +3,9 @@ import {
   OnInit,
 } from '@angular/core';
 
-import { LocalStorageService } from '../../services/';
+import {
+  SharedService,
+} from '../../services/';
 
 import { PlatesComponent } from '../plates';
 
@@ -16,14 +18,14 @@ import { PlatesComponent } from '../plates';
 export class HistoryComponent implements OnInit {
 
   constructor(
-    public localStorageService: LocalStorageService,
+    public sharedService: SharedService,
     private platesComponent: PlatesComponent
   ) { }
 
   ngOnInit(): void { }
 
   closeHistory() {
-    this.localStorageService.historyOpen = false;
+    this.sharedService.historyOpen = false;
   }
 
   queryPlate(plate) {

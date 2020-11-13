@@ -4,7 +4,8 @@ import {
 } from '@angular/core';
 
 import {
-  PlateRequestService,
+  RequestsService,
+  SharedService,
 } from '../../services';
 
 @Component({
@@ -15,7 +16,8 @@ import {
 export class PlateReponseComponent implements OnInit {
 
   constructor(
-    public plateRequestService: PlateRequestService
+    public requestsService: RequestsService,
+    public sharedService: SharedService,
   ) { }
 
   ngOnInit(): void {

@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 
-import { PlateRequestService } from '.';
+import { RequestsService } from '.';
 
 describe('PlateService', () => {
-  let service: PlateRequestService;
+  let service: RequestsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-      	PlateRequestService
+      	RequestsService
       ],
       imports: [
       	HttpClientModule

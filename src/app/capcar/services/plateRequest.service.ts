@@ -12,25 +12,16 @@ import {
 
 import {
   Plate,
-  PlateResponse,
 } from '..';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class PlateRequestService {
+export class RequestsService {
 
   private readonly apicarros_URL = "https://apicarros.com/v1/consulta/";
   private readonly fipe_URL = "https://fipeapi.appspot.com/api/1/";
-
-  public plateResponse: PlateResponse;
-  public queryOK: boolean = false;
-  public fipeNotFound: any;
-  public vehicleType: string;
-  public fipeError: Boolean;
-  public fipeValues = new Array;
-  public fipeOK: Boolean;
 
   constructor(
     private http: HttpClient,

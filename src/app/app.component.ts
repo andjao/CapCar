@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 
 import {
-  PlateRequestService,
+  SharedService,
 } from './capcar/'
 
 @Component({
@@ -13,7 +13,7 @@ import {
 })
 export class AppComponent {
   constructor(
-    public plateRequestService: PlateRequestService,
+    public sharedService: SharedService,
   ) { }
 
   title = 'CapCar';

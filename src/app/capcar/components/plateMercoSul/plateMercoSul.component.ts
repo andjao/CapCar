@@ -12,6 +12,10 @@ import {
 import * as $ from 'jquery';
 
 import {
+  SharedService
+} from '../../services';
+
+import {
   PlatesComponent,
 } from '../plates';
 
@@ -24,7 +28,10 @@ export class PlateMercoSulComponent implements OnInit {
 
   @ViewChild("plateMercoSulForm") plateMercoSulForm: NgForm;
 
-  constructor(public platesComponent: PlatesComponent) { }
+  constructor(
+    public platesComponent: PlatesComponent,
+    public sharedService: SharedService,
+  ) { }
 
   mercoSulIFlag = 'assets/images/flags/mercosul.svg';
   initials = 'br';
@@ -35,12 +42,12 @@ export class PlateMercoSulComponent implements OnInit {
 
   checkValid() {
     if (this.plateMercoSulForm.form.valid) {
-      this.platesComponent.queryBtn = true;
+      this.sharedService.queryBtn = true;
     } else {
-      this.platesComponent.queryBtn = false;
+      this.sharedService.queryBtn = false;
     }
   }
-  
+
   queryPlate(event) {
     if (this.plateMercoSulForm.form.valid) {
       $(event.target).blur();
