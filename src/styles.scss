@@ -116,3 +116,14 @@ input:checked+.slider:before {
 .disabledDark {
   filter: invert(100%) contrast(30%) !important;
 }
+
+.darkModeTable {
+  filter: invert(100%);
+  box-shadow: none;
+}
+
+.darkModeButtom {
+  filter: invert(100%);
+  box-shadow: none;
+  z-index: 999;
+}
