@@ -4,10 +4,6 @@ import {
 } from '@angular/core';
 
 import {
-  Plate,
-} from '../..';
-
-import {
   RequestsService,
   LoadingService,
   LocalStorageService,
@@ -71,6 +67,7 @@ export class PlatesComponent implements OnInit {
             this.sharedService.stateCountyRes = `${response.uf} - ${response.municipio}`;
             this.sharedService.plateResponse = response;
             this.sharedService.plateResponse.placa = response.placa.toUpperCase();
+            this.sharedService.plateResponse.data = new Date();
             this.clearWords(response);
             this.sharedService.queryOK = true;
             this.checkType(this.sharedService.selectedType);

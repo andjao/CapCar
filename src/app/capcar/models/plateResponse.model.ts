@@ -6,7 +6,7 @@ export class PlateResponse {
         public codigoRetorno: number,
         public codigoSituacao: number,
         public cor: string,
-        public data: string,
+        public data: Date,
         public dataAtualizacaoAlarme: string,
         public dataAtualizacaoCaracteristicasVeiculo: string,
         public dataAtualizacaoRouboFurto: string,
