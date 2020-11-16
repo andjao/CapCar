@@ -17,8 +17,9 @@
       <span class="slider round"></span>
     </label>
   </div>
-  <button class="queryBtn" [ngClass]="{'disableBtn': !sharedService.queryBtn}" [disabled]="!sharedService.queryBtn"
-    (click)="queryPlate()">
+  <button class="queryBtn"
+    [ngClass]="{'darkModeInvert': sharedService.darkMode, 'disableBtn': !sharedService.queryBtn, 'disabledDark':sharedService.darkMode && !sharedService.queryBtn}"
+    [disabled]="!sharedService.queryBtn" (click)="queryPlate()">
     <img src="assets/images/search.svg">
   </button>
 </div>

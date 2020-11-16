@@ -99,10 +99,20 @@ input:checked+.slider:before {
   color: #fff !important;
 }
 
-.darkModeText::placeholder{
+.darkModeText::placeholder {
   color: #aaa !important;
 }
 
 .darkModePlate {
   box-shadow: inset 0 0 0 .9vw #fff, .3vw .3vw 1vw #000 !important;
+}
+
+.darkModeInvert {
+  filter: invert(100%);
+  border: solid #000 2vw !important;
+  box-shadow: .3vw .3vw 1vw #fff !important;
+}
+
+.disabledDark {
+  filter: invert(100%) contrast(30%) !important;
 }
