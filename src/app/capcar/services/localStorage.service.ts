@@ -26,6 +26,7 @@ export class LocalStorageService {
       storageSave.unshift(value);
       storageSave[0].tipo = type;
       storageSave[0].mercosul = mercosul || false;
+      storageSave[0].placa = storageSave[0].placa.toUpperCase();
     } else {
       storageSave = value;
     }

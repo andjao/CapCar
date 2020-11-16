@@ -41,7 +41,7 @@ export class PlatesComponent implements OnInit {
 
   init(): void {
     if (!JSON.parse(this.localStorageService.loadLocalStorage('history'))
-      || JSON.parse(this.localStorageService.loadLocalStorage('history')) != []) {
+      || JSON.parse(this.localStorageService.loadLocalStorage('history')) !== []) {
       this.sharedService.selectedType = "carros";
     } else {
       this.sharedService.selectedType = JSON.parse(this.localStorageService.loadLocalStorage('history'))[0].tipo;
@@ -52,15 +52,15 @@ export class PlatesComponent implements OnInit {
   queryPlate(): void {
     let plate;
     if (this.sharedService.mercoSul) {
-      plate = this.sharedService.plateMercoSul
+      plate = this.sharedService.plateMercoSul;
       this.sharedService.plateNational = "";
     } else {
-      plate = this.sharedService.plateNational.split("-").join("");
+      plate = this.sharedService.plateNational;
       this.sharedService.plateMercoSul = "";
     }
     this.loadingService.loadingM(true, '.8', 'Consultando...');
     this.requestsService
-      .plateRequest(plate.toUpperCase())
+      .plateRequest(plate.split("-").join("").toUpperCase())
       .subscribe(
         response => {
           this.loadingService.loadingM(false);
@@ -70,6 +70,8 @@ export class PlatesComponent implements OnInit {
           } else {
             this.sharedService.stateCountyRes = `${response.uf} - ${response.municipio}`;
             this.sharedService.plateResponse = response;
+            if (!this.sharedService.mercoSul) this.sharedService.plateResponse.placa = response.placa
+              .match(/[a-zA-Z]+|[0-9]+/g).join("-");
             this.clearWords(response);
             this.sharedService.queryOK = true;
             this.checkType(this.sharedService.selectedType);
