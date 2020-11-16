@@ -70,12 +70,11 @@ export class PlatesComponent implements OnInit {
           } else {
             this.sharedService.stateCountyRes = `${response.uf} - ${response.municipio}`;
             this.sharedService.plateResponse = response;
-            if (!this.sharedService.mercoSul) this.sharedService.plateResponse.placa = response.placa
-              .match(/[a-zA-Z]+|[0-9]+/g).join("-");
+            this.sharedService.plateResponse.placa = response.placa.toUpperCase();
             this.clearWords(response);
             this.sharedService.queryOK = true;
             this.checkType(this.sharedService.selectedType);
-            this.localStorageService.saveLocalStorage('history', response, {
+            this.localStorageService.saveLocalStorage('history', this.sharedService.plateResponse, {
               type: this.sharedService.selectedType,
               mercosul: this.sharedService.mercoSul
             });
