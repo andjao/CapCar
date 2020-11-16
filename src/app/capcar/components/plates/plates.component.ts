@@ -168,9 +168,4 @@ export class PlatesComponent implements OnInit {
     this.sharedService.vehicleType = vehicleType;
   }
 
-  history() {
-    this.sharedService.historyOpen = true;
-    this.sharedService.history = JSON.parse(this.localStorageService.loadLocalStorage('history'));
-  }
-
 }

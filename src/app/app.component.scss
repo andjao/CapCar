@@ -9,13 +9,57 @@ $size:15;
   margin: 0 auto 2vw;
   top: 0;
   left: 0;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  -ms-flex-pack: justify;
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
 }
 
 .title {
   color: #fff;
   font-family: Traffic;
   font-size: #{$size/2.5}vw;
+}
+
+.sanduwish {
+  font-size: 10vw;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 2vw;
+}
+
+.sidenav {
+  font-family: Traffic;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #000;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 15vw;
+  z-index: 1000;
+}
+
+.sidenav a {
+  padding: 0 0 5vw 5vw;
+  text-decoration: none;
+  font-size: 5vw;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.sidenav .closebtn {
   position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
+  top: 2vw;
+  right: 2vw;
+  font-size: 10vw;
 }
