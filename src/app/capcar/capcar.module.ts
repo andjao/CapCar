@@ -29,6 +29,7 @@ import {
   PlateReponseComponent,
   FipeValueComponent,
   HistoryComponent,
+  PrivacyPoliciesComponent,
 } from './components';
 
 import {
@@ -60,6 +61,7 @@ const maskConfig: Partial<IConfig> = {
     FipeValueComponent,
     HistoryComponent,
     LongPressDirective,
+    PrivacyPoliciesComponent,
   ],
   exports: [
     BackgroundComponent,
@@ -70,6 +72,7 @@ const maskConfig: Partial<IConfig> = {
     PlateReponseComponent,
     FipeValueComponent,
     HistoryComponent,
+    PrivacyPoliciesComponent,
   ],
   providers: [
     LoadingService,

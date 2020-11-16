@@ -1,0 +1,26 @@
+.privacyPolicies {
+  font-family: Traffic;
+  font-size: 5vw;
+  padding: 10vw;
+  position: fixed;
+  top: 15vw;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: #fff;
+  color: #000;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.closepPivacyPolicies {
+  background-color: #fff;
+  border: solid .5vw #000;
+  border-radius: 100%;
+  width: 7vw;
+  height: 7vw;
+  position: fixed;
+  float: right;
+  top: 20vw;
+  right: 5vw;
+}

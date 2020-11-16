@@ -55,6 +55,7 @@ export class AppComponent {
 
   policy() {
     this.closeNav();
+    this.sharedService.privacyPolicies = false;
   }
 
   contact() {
