@@ -1,11 +1,11 @@
 <div *ngIf="sharedService.historyOpen" class="historyBg">
   <div class="history">
     <button class="closeHistory" (click)="closeHistory()"><img src="assets/images/close.svg"></button>
-    <table>
+    <table class="removeBlue">
       <tr>
         <th colspan="3">Histórico</th>
       </tr>
-      <tr *ngIf="sharedService.history != null">
+      <tr *ngIf="sharedService.history !== null && sharedService.history.length !== 0">
         <th>Modelo</th>
         <th>Placa</th>
         <th>Data</th>
@@ -16,7 +16,7 @@
         <td class="plate">{{car.placa}}</td>
         <td>{{car.data | date:'dd/MM/yyyy HH:mm'}}</td>
       </tr>
-      <tr *ngIf="sharedService.history == null">
+      <tr *ngIf="sharedService.history === null || sharedService.history.length === 0">
         <th colspan="3">Nenhuma consulta foi feita.</th>
       </tr>
     </table>

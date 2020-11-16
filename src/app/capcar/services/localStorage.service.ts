@@ -1,6 +1,7 @@
 import {
   Injectable,
 } from '@angular/core';
+import { element } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -33,12 +34,8 @@ export class LocalStorageService {
 
   removeLocalStorage(key, index) {
     console.clear();
-    let a = JSON.parse(this.loadLocalStorage(key));
-    console.log('tamanho antes', a.length);
-    a = a.splice(index, 1);
-    console.log('tamanho depois', a.length);
-    console.log(a[0].modelo);
-    console.log('index', index);
-    // localStorage.setItem(key, JSON.stringify(JSON.parse(this.loadLocalStorage(key)).slice(index, 1)));
+    let storageSave = JSON.parse(this.loadLocalStorage(key));
+    storageSave.splice(index, 1);
+    localStorage.setItem('history', JSON.stringify(storageSave));
   }
 }

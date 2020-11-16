@@ -40,7 +40,8 @@ export class PlatesComponent implements OnInit {
   }
 
   init(): void {
-    if (!JSON.parse(this.localStorageService.loadLocalStorage('history'))) {
+    if (!JSON.parse(this.localStorageService.loadLocalStorage('history'))
+      || JSON.parse(this.localStorageService.loadLocalStorage('history')) != []) {
       this.sharedService.selectedType = "carros";
     } else {
       this.sharedService.selectedType = JSON.parse(this.localStorageService.loadLocalStorage('history'))[0].tipo;

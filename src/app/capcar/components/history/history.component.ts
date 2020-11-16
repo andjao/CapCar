@@ -24,7 +24,8 @@ export class HistoryComponent implements OnInit {
     private platesComponent: PlatesComponent
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   closeHistory() {
     this.sharedService.historyOpen = false;
