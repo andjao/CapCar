@@ -1,6 +1,6 @@
 <app-plateNational [hidden]="sharedService.mercoSul"></app-plateNational>
 <app-plateMercoSul [hidden]="!sharedService.mercoSul"></app-plateMercoSul>
-<div class="type removeBlue">
+<div class="type removeBlue" [ngClass]="{'darkMode2 darkModePlate': sharedService.darkMode}">
   <p class="title">Tipo de veículo:</p>
   <select class="options" [(ngModel)]="sharedService.selectedType">
     <option value="carros">Carro</option>
@@ -10,7 +10,7 @@
 </div>
 
 <div class="plateButtons removeBlue">
-  <div class="mercosul">
+  <div class="mercosul" [ngClass]="{'darkMode2 darkModePlate': sharedService.darkMode}">
     <p class="">Mercosul</p>
     <label class="switch">
       <input [(ngModel)]="sharedService.mercoSul" type="checkbox">

@@ -4,7 +4,7 @@
     <p>Brasil</p>
     <img [src]="countryFlag" class="countryFlag">
   </div>
-  <div class="plateMercosul1">
+  <div class="plateMercosul1" [ngClass]="{'darkMode': sharedService.darkMode}">
     <form #plateMercoSulForm="ngForm" ng-submit="queryPlate()">
       <input text="text" inputmode="text" name="plateMercoSul" class="plateMercoSulInput"
         placeholder="Digite a placa aqui" [(ngModel)]="sharedService.plateMercoSul" required mask="SSS0A00"

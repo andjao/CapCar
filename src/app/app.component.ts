@@ -1,5 +1,6 @@
 import {
   Component,
+  OnInit,
 } from '@angular/core';
 
 import {
@@ -17,6 +18,18 @@ export class AppComponent {
     public sharedService: SharedService,
     public localStorageService: LocalStorageService,
   ) { }
+
+  ngOnInit(): void {
+    this.init();
+  }
+
+  init() {
+    if (JSON.parse(this.localStorageService.loadLocalStorage('darkMode'))) {
+      this.sharedService.darkMode = true;
+    } else {
+      this.sharedService.darkMode = false;
+    }
+  }
 
   title = 'CapCar';
 
@@ -37,7 +50,7 @@ export class AppComponent {
   }
 
   darkMode() {
-    this.closeNav();
+    this.localStorageService.saveLocalStorage('darkMode', !this.sharedService.darkMode, { type: "", mercosul: "" })
   }
 
   policy() {

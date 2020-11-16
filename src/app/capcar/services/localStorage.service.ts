@@ -14,7 +14,7 @@ export class LocalStorageService {
     return localStorage.getItem(key);
   }
 
-  saveLocalStorage(key: string, value: any, { type, mercosul }): void {
+  saveLocalStorage(key: string, value: any, { type, mercosul: mercoSul }): void {
     let storageSave: any;
     storageSave = JSON.parse(this.loadLocalStorage(key)) || [];
     if (key == "history") {
@@ -25,7 +25,7 @@ export class LocalStorageService {
       });
       storageSave.unshift(value);
       storageSave[0].tipo = type;
-      storageSave[0].mercosul = mercosul || false;
+      storageSave[0].mercosul = mercoSul || false;
       storageSave[0].placa = storageSave[0].placa.toUpperCase();
     } else {
       storageSave = value;

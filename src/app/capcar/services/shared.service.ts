@@ -29,4 +29,6 @@ export class SharedService {
   historyOpen: boolean;
   history = new Array;
 
+  darkMode:boolean;
+
 }
