@@ -12,5 +12,5 @@
         [ngClass]="{'darkModeText': sharedService.darkMode}">
     </form>
   </div>
-  <p class="initials">{{initials}}</p>
+  <p [ngClass]="{'darkModeText': sharedService.darkMode}" class="initials">{{initials}}</p>
 </div>
