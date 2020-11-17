@@ -30,6 +30,7 @@ import {
   FipeValueComponent,
   HistoryComponent,
   PrivacyPoliciesComponent,
+  CameraComponent
 } from './components';
 
 import {
@@ -62,6 +63,7 @@ const maskConfig: Partial<IConfig> = {
     HistoryComponent,
     LongPressDirective,
     PrivacyPoliciesComponent,
+    CameraComponent,
   ],
   exports: [
     BackgroundComponent,
@@ -73,6 +75,7 @@ const maskConfig: Partial<IConfig> = {
     FipeValueComponent,
     HistoryComponent,
     PrivacyPoliciesComponent,
+    CameraComponent,
   ],
   providers: [
     LoadingService,
