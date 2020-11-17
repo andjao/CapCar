@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../services';
 
-import { } from 'tesseract.js';
+import { createWorker } from 'tesseract.js';
 
 @Component({
   selector: 'app-camera',

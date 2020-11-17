@@ -1,8 +1,5 @@
-<div *ngIf="!sharedService.cameraON" class="cameraBg">
+<div *ngIf="sharedService.cameraON" class="cameraBg">
   <button class="closeCam" (click)="closeCam()">
     <img src="assets/images/close.svg">
   </button>
-  <div class="camera">
-    <video></video>
-  </div>
 </div>
