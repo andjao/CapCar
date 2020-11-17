@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../../services';
+
+import { } from 'tesseract.js';
 
 @Component({
   selector: 'app-camera',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CameraComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public sharedService: SharedService,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  closeCam() {
+    this.sharedService.cameraON = false;
   }
 
 }

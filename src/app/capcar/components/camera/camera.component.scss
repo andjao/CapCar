@@ -1,0 +1,26 @@
+.cameraBg {
+  background-color: #0008;
+  font-family: Traffic;
+  font-size: 10vw;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeCam {
+  background-color: #fff;
+  border: solid .5vw #000;
+  border-radius: 100%;
+  width: 7vw;
+  height: 7vw;
+  position: relative;
+  float: right;
+  top: 3.5vw;
+  right: -3.5vw;
+}
