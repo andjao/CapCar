@@ -42,4 +42,12 @@ export class PlateReponseComponent implements OnInit {
     }
     return words.join(" ");
   }
+
+  hyphenation(text) {
+    if (!text.mercosul) {
+      return text.placa.match(/[a-zA-Z]+|[0-9]+/g).join("-");
+    } else {
+      return text.placa;
+    }
+  }
 }

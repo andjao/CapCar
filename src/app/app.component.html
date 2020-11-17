@@ -5,7 +5,7 @@
 <div id="mySidenav" class="sidenav removeBlue" [ngStyle]="{'width' : mySidenav ? '70vw' : '0'}">
   <a class="closebtn" (click)="closeNav()">&times;</a>
   <a (click)="history()">Histórico</a>
-  <a (click)="darkMode()">Modo Escuro<label class="switch trasform">
+  <a (click)="darkMode()">Modo escuro<label class="switch trasform">
       <input [(ngModel)]="sharedService.darkMode" type="checkbox">
       <span class="slider round"></span>
     </label></a>

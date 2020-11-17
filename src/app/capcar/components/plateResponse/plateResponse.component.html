@@ -1,7 +1,7 @@
 <div class="plateResponse" [ngClass]="{'darkMode darkModePlate': sharedService.darkMode}">
   <p class="result">Resultado</p>
   <hr class="divider">
-  <p>Placa: {{sharedService.plateResponse.placa}}</p>
+  <p>Placa: {{hyphenation(sharedService.plateResponse)}}</p>
   <p>Marca: {{titleize(sharedService.plateResponse.marca, false, false)}}</p>
   <p>Modelo: {{titleize(sharedService.plateResponse.modelo, true, true)}}</p>
   <p>Cor: {{sharedService.plateResponse.cor}}</p>
