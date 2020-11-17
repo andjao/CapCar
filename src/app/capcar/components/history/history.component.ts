@@ -41,6 +41,7 @@ export class HistoryComponent implements OnInit {
       this.sharedService.plateNational = car.placa;
     }
     this.sharedService.queryBtn = true;
+    this.sharedService.selectedType = car.tipo;
     this.platesComponent.queryPlate();
   }
 
