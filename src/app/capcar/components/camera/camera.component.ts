@@ -31,7 +31,7 @@ export class CameraComponent implements OnInit {
 
   closeCam() {
     this.sharedService.cameraON = false;
-    this.videoElement.nativeElement.srcObject.getTracks().forEach(function (track) {
+    this.videoElement.nativeElement.srcObject.getTracks().forEach(track => {
       track.stop();
     });
   }
