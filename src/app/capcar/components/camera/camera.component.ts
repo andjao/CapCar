@@ -1,7 +1,19 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { SharedService } from '../../services';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 
-import { createWorker } from 'tesseract.js';
+import {
+  LocalStorageService,
+  SharedService,
+} from '../../services';
+
+import {
+  createWorker
+} from 'tesseract.js';
 
 @Component({
   selector: 'app-camera',
@@ -18,14 +30,15 @@ export class CameraComponent implements OnInit {
   constraints = {
     video: {
       facingMode: "environment",
-      width: { ideal: 180 },
-      height: { ideal: 360 }
+      width: { ideal: 5 },
+      height: { ideal: 2 }
     }
   }
 
   constructor(
+    private renderer: Renderer2,
     public sharedService: SharedService,
-    private renderer: Renderer2
+    public localStorageService: LocalStorageService,
   ) { }
 
   ngOnInit(): void {
@@ -33,19 +46,26 @@ export class CameraComponent implements OnInit {
   }
 
   init() {
-    navigator.permissions.query({ name: 'camera' }).then(result => {
-      if (result.state !== 'granted') this.sharedService.hiddenCam = true;
-      if (result.state === 'granted') {
-        this.startCamera();
-      } else if (result.state === 'prompt') {
-        if (!alert(`Lembre-se de permitir o acesso a câmera`)) {
+    if (!navigator.userAgent.toLowerCase().match('firefox')) {
+      navigator.permissions.query({ name: 'camera' }).then(result => {
+        if (result.state !== 'granted') this.sharedService.hiddenCam = true;
+        if (result.state === 'granted') {
           this.startCamera();
+        } else if (result.state === 'prompt') {
+          alert(`Lembre-se de permitir o acesso a câmera`)
+          this.startCamera();
+        } else if (result.state === 'denied') {
+          this.sharedService.cameraON = false;
+          this.tutorialCam()
         }
-      } else if (result.state === 'denied') {
-        this.sharedService.cameraON = false;
-        alert(`Acesso a câmera negado!\nPermita o acesso nas configurações do navegador`);
+      });
+    } else {
+      if (!this.localStorageService.loadLocalStorage('cam')) {
+        alert(`Lembre-se de permitir o acesso a câmera`);
+        this.localStorageService.saveLocalStorage('cam', true, { type: null, mercosul: null });
       }
-    });
+      this.startCamera();
+    }
   }
 
   attachVideo(stream) {
@@ -61,9 +81,9 @@ export class CameraComponent implements OnInit {
     if (!!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) {
       navigator.mediaDevices.getUserMedia(this.constraints)
         .then(this.attachVideo.bind(this))
-        .catch(this.handleError);
+        .catch(this.tutorialCam);
     } else {
-      alert(`Acesso a câmera negado!\nPermita o acesso nas configurações do navegador`);
+      this.tutorialCam();
     }
   }
 
@@ -74,9 +94,16 @@ export class CameraComponent implements OnInit {
     });
   }
 
-  handleError(error) {
-    alert(`Acesso a câmera negado!\nPermita o acesso nas configurações do navegador`);
+  tutorialCam() {
+    const navigatorType = navigator;
+    if (navigatorType.userAgent.toLowerCase().match('mobile') && confirm(`Acesso a câmera negado!
+    \nPermita o acesso nas configurações do navegador
+    \nPara acessar o tutorial de como reativar a camera aperte em OK`)) {
+      if (navigatorType.userAgent.toLowerCase().match('chrome'))
+        window.open('https://support.google.com/chrome/answer/2693767?co=GENIE.Platform%3DDesktop&hl=pt-BR', "_blank");
+      else if (navigator.userAgent.toLowerCase().match('firefox'))
+        window.open('https://support.mozilla.org/pt-BR/kb/conceda-acesso-camera-firefox-android', "_blank");
+    }
     this.sharedService.cameraON = false;
   }
-
 }
