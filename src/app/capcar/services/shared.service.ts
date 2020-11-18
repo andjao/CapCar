@@ -32,6 +32,7 @@ export class SharedService {
   darkMode: boolean;
   privacyPolicies: boolean;
 
-  cameraON: boolean= false;
+  cameraON: boolean = false;
+  hiddenCam: boolean = true;
 
 }

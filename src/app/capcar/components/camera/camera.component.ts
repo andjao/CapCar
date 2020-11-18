@@ -12,6 +12,9 @@ export class CameraComponent implements OnInit {
 
   @ViewChild('video') videoElement: ElementRef;
 
+  videoWidth = 0;
+  videoHeight = 0;
+
   constraints = {
     video: {
       facingMode: "environment",
@@ -26,20 +29,27 @@ export class CameraComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.startCamera();
+    this.init();
   }
 
-  closeCam() {
-    this.sharedService.cameraON = false;
-    this.videoElement.nativeElement.srcObject.getTracks().forEach(track => {
-      track.stop();
+  init() {
+    navigator.permissions.query({ name: 'camera' }).then(result => {
+      if (result.state !== 'granted') this.sharedService.hiddenCam = true;
+      if (result.state === 'granted') {
+        this.startCamera();
+      } else if (result.state === 'prompt') {
+        if (!alert(`Lembre-se de permitir o acesso a câmera`)) {
+          this.startCamera();
+        }
+      } else if (result.state === 'denied') {
+        this.sharedService.cameraON = false;
+        alert(`Acesso a câmera negado!\nPermita o acesso nas configurações do navegador`);
+      }
     });
   }
 
-  videoWidth = 0;
-  videoHeight = 0;
-
   attachVideo(stream) {
+    this.sharedService.hiddenCam = false;
     this.renderer.setProperty(this.videoElement.nativeElement, 'srcObject', stream);
     this.renderer.listen(this.videoElement.nativeElement, 'play', (event) => {
       this.videoHeight = this.videoElement.nativeElement.videoHeight;
@@ -53,12 +63,20 @@ export class CameraComponent implements OnInit {
         .then(this.attachVideo.bind(this))
         .catch(this.handleError);
     } else {
-      alert('Sorry, camera not available.');
+      alert(`Acesso a câmera negado!\nPermita o acesso nas configurações do navegador`);
     }
   }
 
+  closeCam() {
+    this.sharedService.cameraON = false;
+    this.videoElement.nativeElement.srcObject.getTracks().forEach(track => {
+      track.stop();
+    });
+  }
+
   handleError(error) {
-    console.log('Error: ', error);
+    alert(`Acesso a câmera negado!\nPermita o acesso nas configurações do navegador`);
+    this.sharedService.cameraON = false;
   }
 
 }

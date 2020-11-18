@@ -1,4 +1,4 @@
-<div class="cameraBg">
+<div class="cameraBg" [ngClass]="{'hidden': sharedService.hiddenCam}">
   <div class="camera">
     <button class="closeCam" (click)="closeCam()">
       <img src="assets/images/close.svg">
