@@ -17,6 +17,9 @@
       <span class="slider round"></span>
     </label>
   </div>
+  <button class="queryBtn" [ngClass]="{'darkModeInvert': sharedService.darkMode}" (click)="openCam()">
+    <img src="assets/images/camera.svg">
+  </button>
   <button class="queryBtn"
     [ngClass]="{'darkModeInvert': sharedService.darkMode, 'disableBtn': !sharedService.queryBtn, 'disabledDark':sharedService.darkMode && !sharedService.queryBtn}"
     [disabled]="!sharedService.queryBtn" (click)="queryPlate()">

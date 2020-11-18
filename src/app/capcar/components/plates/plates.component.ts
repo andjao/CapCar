@@ -168,4 +168,8 @@ export class PlatesComponent implements OnInit {
     this.sharedService.vehicleType = vehicleType;
   }
 
+  openCam() {
+    this.sharedService.cameraON = true;
+  }
+
 }

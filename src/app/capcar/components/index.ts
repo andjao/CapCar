@@ -7,3 +7,4 @@ export * from './plateResponse';
 export * from './fipeValue';
 export * from './history';
 export * from './privacyPolicies';
+export * from './camera';
