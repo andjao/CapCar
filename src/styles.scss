@@ -14,7 +14,6 @@
   src: url(assets/fonts/traffic3.ttf) format('truetype');
 }
 
-
 * {
   outline: none;
   margin: 0;
@@ -39,6 +38,7 @@ body {
   width: 17vw;
   height: 9.5vw;
   margin-left: 2vw;
+  font-family: FE-Font;
 }
 
 .switch input {
