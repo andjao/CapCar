@@ -69,11 +69,11 @@ export class CameraComponent implements OnInit {
   }
 
   attachVideo(stream) {
-    this.sharedService.hiddenCam = false;
     this.renderer.setProperty(this.videoElement.nativeElement, 'srcObject', stream);
     this.renderer.listen(this.videoElement.nativeElement, 'play', (event) => {
       this.videoHeight = this.videoElement.nativeElement.videoHeight;
       this.videoWidth = this.videoElement.nativeElement.videoWidth;
+      this.sharedService.hiddenCam = false;
     });
   }
 
