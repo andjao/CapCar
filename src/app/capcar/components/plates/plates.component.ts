@@ -169,6 +169,7 @@ export class PlatesComponent implements OnInit {
   }
 
   openCam() {
+    this.sharedService.scamOK = true;
     this.sharedService.cameraON = true;
   }
 
