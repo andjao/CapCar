@@ -12,7 +12,8 @@ import {
 } from '../../services';
 
 import {
-  createWorker
+  createWorker,
+  createScheduler
 } from 'tesseract.js';
 
 @Component({
@@ -46,6 +47,7 @@ export class CameraComponent implements OnInit {
   }
 
   init() {
+    this.start();
     if (!navigator.userAgent.toLowerCase().match('firefox')) {
       navigator.permissions.query({ name: 'camera' }).then(result => {
         if (result.state !== 'granted') this.sharedService.hiddenCam = true;
@@ -106,5 +108,44 @@ export class CameraComponent implements OnInit {
         window.open('https://support.mozilla.org/pt-BR/kb/conceda-acesso-camera-firefox-android', "_blank");
     }
     this.sharedService.cameraON = false;
+  }
+
+  scheduler = createScheduler();
+  timerId = null;
+
+  addMessage(m) {
+    if(m.match("ABC-1234")) alert("leu");
+    this.sharedService.achou = m;
+  }
+
+  async doOCR() {
+    const c = document.createElement('canvas');
+    c.width = 640;
+    c.height = 360;
+    c.getContext('2d').drawImage(this.videoElement.nativeElement, 0, 0, 640, 360);
+    const { data: { text } } = await this.scheduler.addJob('recognize', c);
+    text.split('\n').forEach((line) => {
+      this.addMessage(line);
+    });
+  }
+
+  async start() {
+    const worker = createWorker();
+    await worker.load();
+    await worker.loadLanguage('eng');
+    await worker.initialize('eng');
+    this.scheduler.addWorker(worker);
+
+    this.videoElement.nativeElement.addEventListener('playing', () => {
+      this.timerId = setInterval(() => {
+        this.doOCR();
+      }, 1000);
+    });
+
+    this.videoElement.nativeElement.addEventListener('pause', () => {
+      clearInterval(this.timerId);
+    });
+    this.videoElement.nativeElement.pause();
+    this.videoElement.nativeElement.play();
   }
 }

@@ -22,6 +22,7 @@
     "@angular/router": "~10.2.0",
     "@types/jquery": "^3.5.4",
     "angular-cli-ghpages": "^0.6.2",
+    "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
     "ngx-mask": "^10.0.4",
