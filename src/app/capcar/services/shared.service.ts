@@ -34,6 +34,5 @@ export class SharedService {
 
   cameraON: boolean = false;
   hiddenCam: boolean = true;
-  achou;
 
 }

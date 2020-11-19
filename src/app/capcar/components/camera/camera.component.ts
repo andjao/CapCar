@@ -15,6 +15,7 @@ import {
   createWorker,
   createScheduler
 } from 'tesseract.js';
+import { PlatesComponent } from '../plates';
 
 @Component({
   selector: 'app-camera',
@@ -40,6 +41,7 @@ export class CameraComponent implements OnInit {
     private renderer: Renderer2,
     public sharedService: SharedService,
     public localStorageService: LocalStorageService,
+    private platesComponent: PlatesComponent,
   ) { }
 
   ngOnInit(): void {
@@ -90,6 +92,7 @@ export class CameraComponent implements OnInit {
   }
 
   closeCam() {
+    clearInterval(this.timerId);
     this.sharedService.cameraON = false;
     this.sharedService.hiddenCam = true;
     this.videoElement.nativeElement.srcObject.getTracks().forEach(track => {
@@ -114,8 +117,19 @@ export class CameraComponent implements OnInit {
   timerId = null;
 
   addMessage(m) {
-    if(m.match("ABC-1234")) alert("leu");
-    this.sharedService.achou = m;
+    let regexNational = new RegExp("[a-zA-Z]{3}-[0-9]{4}");
+    let regexMercoSul = new RegExp("[a-zA-Z]{3}[0-9][0-9a-zA-Z][0-9]{2}");
+    if (regexNational.test(m)) {
+      this.closeCam();
+      this.sharedService.mercoSul = false;
+      this.sharedService.plateNational = m.match(regexNational).join("");
+      this.platesComponent.queryPlate();
+    } else if (regexMercoSul.test(m)) {
+      this.closeCam();
+      this.sharedService.mercoSul = true;
+      this.sharedService.plateMercoSul = m.match(regexMercoSul).join("");
+      this.platesComponent.queryPlate();
+    }
   }
 
   async doOCR() {
