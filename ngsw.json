@@ -1,0 +1,105 @@
+{
+  "configVersion": 1,
+  "timestamp": 1606154748602,
+  "index": "https://andjao.github.io/capcar/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://andjao.github.io/capcar/favicon.ico",
+        "https://andjao.github.io/capcar/index.html",
+        "https://andjao.github.io/capcar/main.c2dc671e2f11a5c914de.js",
+        "https://andjao.github.io/capcar/manifest.webmanifest",
+        "https://andjao.github.io/capcar/polyfills.9bf4dad123bd95dda86e.js",
+        "https://andjao.github.io/capcar/runtime.359d5ee4682f20e936e9.js",
+        "https://andjao.github.io/capcar/styles.4cb78b274a30958f390f.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://andjao.github.io/capcar/assets/icons/icon-128x128.png",
+        "https://andjao.github.io/capcar/assets/icons/icon-144x144.png",
+        "https://andjao.github.io/capcar/assets/icons/icon-152x152.png",
+        "https://andjao.github.io/capcar/assets/icons/icon-192x192.png",
+        "https://andjao.github.io/capcar/assets/icons/icon-384x384.png",
+        "https://andjao.github.io/capcar/assets/icons/icon-512x512.png",
+        "https://andjao.github.io/capcar/assets/icons/icon-72x72.png",
+        "https://andjao.github.io/capcar/assets/icons/icon-96x96.png",
+        "https://andjao.github.io/capcar/assets/images/camera.svg",
+        "https://andjao.github.io/capcar/assets/images/close.svg",
+        "https://andjao.github.io/capcar/assets/images/flags/ar.svg",
+        "https://andjao.github.io/capcar/assets/images/flags/br.svg",
+        "https://andjao.github.io/capcar/assets/images/flags/mercosul.svg",
+        "https://andjao.github.io/capcar/assets/images/flags/py.svg",
+        "https://andjao.github.io/capcar/assets/images/flags/uy.svg",
+        "https://andjao.github.io/capcar/assets/images/flags/ve.svg",
+        "https://andjao.github.io/capcar/assets/images/history.svg",
+        "https://andjao.github.io/capcar/assets/images/search.svg",
+        "https://andjao.github.io/capcar/mandatory.46c8c3e76a9cf4ede8e3.ttf",
+        "https://andjao.github.io/capcar/traffic3.25a80c7f3068ed3069be.ttf"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://andjao.github.io/capcar/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://andjao.github.io/capcar/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://andjao.github.io/capcar/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://andjao.github.io/capcar/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://andjao.github.io/capcar/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://andjao.github.io/capcar/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://andjao.github.io/capcar/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://andjao.github.io/capcar/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://andjao.github.io/capcar/assets/images/camera.svg": "692f436b845779a50d7e732cf1ee4f42383f0939",
+    "https://andjao.github.io/capcar/assets/images/close.svg": "80f2d5549c58a202fba57c5db4027ef2909909a3",
+    "https://andjao.github.io/capcar/assets/images/flags/ar.svg": "9fa3a59a2013d5d0e4405dbd728118af688f7c95",
+    "https://andjao.github.io/capcar/assets/images/flags/br.svg": "9745c1fa6656be47ed3f9bee75f8d1da80c89f07",
+    "https://andjao.github.io/capcar/assets/images/flags/mercosul.svg": "a82d1dc94e6e031f4740b49bde55332da7f54e11",
+    "https://andjao.github.io/capcar/assets/images/flags/py.svg": "99bb7e6bf33accb0cedd11644f5e78379482535a",
+    "https://andjao.github.io/capcar/assets/images/flags/uy.svg": "e6ad68ca34182ba93cfcb4aa204b8ac18b5f4625",
+    "https://andjao.github.io/capcar/assets/images/flags/ve.svg": "77ecd01e5a58b385452723cb63bee35d17b9b99f",
+    "https://andjao.github.io/capcar/assets/images/history.svg": "b7b3522bc0a118879d1c557cdc44b4bc8408c5e2",
+    "https://andjao.github.io/capcar/assets/images/search.svg": "a9ecbe4d50fafb195ac322a789abfe9348d40403",
+    "https://andjao.github.io/capcar/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://andjao.github.io/capcar/index.html": "01080e75e99cb9dc20282a86c43460a5cf9cfd13",
+    "https://andjao.github.io/capcar/main.c2dc671e2f11a5c914de.js": "393d723d75434441686f6f1573080307c2580207",
+    "https://andjao.github.io/capcar/mandatory.46c8c3e76a9cf4ede8e3.ttf": "72859a746e7ed934bac1df3ca70cb9c970e4f50c",
+    "https://andjao.github.io/capcar/manifest.webmanifest": "5f1614a5dc8c52c9f578963e1c8389ae87071920",
+    "https://andjao.github.io/capcar/polyfills.9bf4dad123bd95dda86e.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
+    "https://andjao.github.io/capcar/runtime.359d5ee4682f20e936e9.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://andjao.github.io/capcar/styles.4cb78b274a30958f390f.css": "8d9969a9eaafc8db682c5707c55ec339473871b7",
+    "https://andjao.github.io/capcar/traffic3.25a80c7f3068ed3069be.ttf": "4ccccb1b29753c86666d191923a6dcb364901d3d"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
