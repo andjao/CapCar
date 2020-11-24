@@ -16,7 +16,7 @@
 <app-loading></app-loading>
 <app-privacyPolicies></app-privacyPolicies>
 <app-plate></app-plate>
-<app-camera *ngIf="!sharedService.cameraON"></app-camera>
+<app-camera *ngIf="sharedService.cameraON"></app-camera>
 <div *ngIf="sharedService.queryOK">
   <app-plateResponse></app-plateResponse>
   <app-fipeValue></app-fipeValue>
