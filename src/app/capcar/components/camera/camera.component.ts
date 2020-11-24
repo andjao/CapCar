@@ -16,6 +16,7 @@ import {
   createWorker,
   createScheduler
 } from 'tesseract.js';
+
 import { PlatesComponent } from '../plates';
 
 @Component({
