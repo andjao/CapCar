@@ -1,6 +1,6 @@
 <div class="cameraBg" [ngClass]="{'hidden': sharedService.hiddenCam}">
 
-  <div class="camera">
+  <div class="camera" [ngStyle]="{'width' : sharedService.rotate ? '45%' : '90%'}">
     <button class="closeCam" (click)="closeCam()">
       <img src="assets/images/close.svg">
     </button>

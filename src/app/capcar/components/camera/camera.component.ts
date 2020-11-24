@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  HostListener,
   OnInit,
   Renderer2,
   ViewChild,
@@ -32,8 +33,7 @@ export class CameraComponent implements OnInit {
   constraints = {
     video: {
       facingMode: "environment",
-      width: { ideal: 5 },
-      height: { ideal: 2 }
+      aspectRatio: 1 / 1
     }
   }
 
@@ -44,7 +44,12 @@ export class CameraComponent implements OnInit {
     private platesComponent: PlatesComponent,
   ) { }
 
+  @HostListener('window:orientationchange') onOrientationChange() {
+    this.sharedService.rotate = window.screen.orientation.type.match('portrait') ? false : true;
+  }
+
   ngOnInit(): void {
+    this.sharedService.rotate = window.screen.orientation.type.match('portrait') ? false : true;
     this.init();
   }
 
@@ -75,8 +80,6 @@ export class CameraComponent implements OnInit {
   attachVideo(stream) {
     this.renderer.setProperty(this.videoElement.nativeElement, 'srcObject', stream);
     this.renderer.listen(this.videoElement.nativeElement, 'play', (event) => {
-      this.videoHeight = this.videoElement.nativeElement.videoHeight;
-      this.videoWidth = this.videoElement.nativeElement.videoWidth;
       this.sharedService.hiddenCam = false;
     });
   }
@@ -143,8 +146,8 @@ export class CameraComponent implements OnInit {
   async doOCR() {
     const c = document.createElement('canvas');
     c.width = 640;
-    c.height = 360;
-    c.getContext('2d').drawImage(this.videoElement.nativeElement, 0, 0, 640, 360);
+    c.height = 256;
+    c.getContext('2d').drawImage(this.videoElement.nativeElement, 0, 0, 640, 256);
     const { data: { text } } = await this.scheduler.addJob('recognize', c);
     text.split('\n').forEach((line) => {
       this.addMessage(line);
@@ -157,17 +160,6 @@ export class CameraComponent implements OnInit {
     await worker.loadLanguage('eng');
     await worker.initialize('eng');
     this.scheduler.addWorker(worker);
-
-    this.videoElement.nativeElement.addEventListener('playing', () => {
-      this.timerId = setInterval(() => {
-        this.doOCR();
-      }, 1000);
-    });
-
-    this.videoElement.nativeElement.addEventListener('pause', () => {
-      clearInterval(this.timerId);
-    });
-    this.videoElement.nativeElement.pause();
-    this.videoElement.nativeElement.play();
+    this.doOCR();
   }
 }
