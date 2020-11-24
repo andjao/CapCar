@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1606171664906,
+  "timestamp": 1606255064199,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.3840473b8bbcd757935d.js",
+        "/main.7bc6e02f4cd66a194824.js",
         "/manifest.webmanifest",
         "/polyfills.9bf4dad123bd95dda86e.js",
         "/runtime.359d5ee4682f20e936e9.js",
@@ -45,8 +45,11 @@
         "/assets/images/flags/py.svg",
         "/assets/images/flags/uy.svg",
         "/assets/images/flags/ve.svg",
+        "/assets/images/flash-off.svg",
+        "/assets/images/flash-on.svg",
         "/assets/images/history.svg",
         "/assets/images/search.svg",
+        "/assets/pt.traineddata",
         "/mandatory.46c8c3e76a9cf4ede8e3.ttf",
         "/traffic3.25a80c7f3068ed3069be.ttf"
       ],
@@ -71,13 +74,16 @@
     "/assets/images/flags/py.svg": "99bb7e6bf33accb0cedd11644f5e78379482535a",
     "/assets/images/flags/uy.svg": "e6ad68ca34182ba93cfcb4aa204b8ac18b5f4625",
     "/assets/images/flags/ve.svg": "77ecd01e5a58b385452723cb63bee35d17b9b99f",
+    "/assets/images/flash-off.svg": "0126e09c84ffb58cd6ff1de2d537703bda066a96",
+    "/assets/images/flash-on.svg": "f87f5a88f9beeda4924f2f3c5908d22d023e544a",
     "/assets/images/history.svg": "b7b3522bc0a118879d1c557cdc44b4bc8408c5e2",
     "/assets/images/search.svg": "a9ecbe4d50fafb195ac322a789abfe9348d40403",
+    "/assets/pt.traineddata": "f2cda77b0d8265de9bcc2ae4f9a533b47fab1117",
     "/favicon.ico": "f1a412567746369cd777883f5bde528c37ce1a6d",
-    "/index.html": "f31b4b4d6ed740d79aae729d780cf77e422751fc",
-    "/main.3840473b8bbcd757935d.js": "77263f1939a6a69b9fc78f5cee82a53814162776",
+    "/index.html": "0ad572723946aea193ec45c72a3552dd1a192841",
+    "/main.7bc6e02f4cd66a194824.js": "1acdd1d7bb11a9041a10288489906c1b8c86615e",
     "/mandatory.46c8c3e76a9cf4ede8e3.ttf": "72859a746e7ed934bac1df3ca70cb9c970e4f50c",
-    "/manifest.webmanifest": "f00204ebd0c073c5c7a24afe7451ba8f8f61b6ef",
+    "/manifest.webmanifest": "74b69b6c12a9742a74305f7226beb78fff6bc701",
     "/polyfills.9bf4dad123bd95dda86e.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
     "/runtime.359d5ee4682f20e936e9.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/styles.4cb78b274a30958f390f.css": "8d9969a9eaafc8db682c5707c55ec339473871b7",
