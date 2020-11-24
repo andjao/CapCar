@@ -98,6 +98,9 @@ export class CameraComponent implements OnInit {
     this.videoElement.nativeElement.srcObject.getTracks().forEach(track => {
       track.stop();
     });
+    clearInterval(this.timerId);
+    this.scheduler.terminate;
+    createWorker().terminate();
   }
 
   tutorialCam() {
@@ -127,14 +130,12 @@ export class CameraComponent implements OnInit {
         this.sharedService.mercoSul = false;
         this.sharedService.plateNational = m.match(regexNational).join("");
         this.platesComponent.queryPlate();
-        clearInterval(this.timerId);
       } else if (regexMercoSul.test(m)) {
         this.sharedService.scamOK = true;
         this.closeCam();
         this.sharedService.mercoSul = true;
         this.sharedService.plateMercoSul = m.match(regexMercoSul).join("");
         this.platesComponent.queryPlate();
-        clearInterval(this.timerId);
       }
     }
   }
@@ -153,8 +154,8 @@ export class CameraComponent implements OnInit {
   async start() {
     const worker = createWorker();
     await worker.load();
-    await worker.loadLanguage('eng');
-    await worker.initialize('eng');
+    await worker.loadLanguage('pt');
+    await worker.initialize('pt');
     this.scheduler.addWorker(worker);
 
     this.videoElement.nativeElement.addEventListener('playing', () => {
