@@ -18,19 +18,41 @@
   border-radius: 100%;
   width: 7vw;
   height: 7vw;
-  position: relative;
-  float: right;
-  top: 3.5vw;
-  right: -3.5vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.torch {
+  background: none;
+  border: none;
+  width: 7vw;
+  height: 7vw;
+  position: absolute;
+  top: 19vw;
+  right: 0;
+  z-index: 1000;
+  transform: translateY(-50%);
+  padding: 0;
+  filter: drop-shadow(0 0 3vw #000);
+  -webkit-filter: drop-shadow(0 0 3vw #000);
 }
 
 .camera {
   position: relative;
+  width: 90%;
   margin: 0 auto;
+  overflow: hidden;
+  height: 38vw;
+  border-radius: 2vw;
 }
 
 .vid {
+  display: block;
   width: 100%;
+  position: relative;
+  transform: translateY(-50%);
 }
 
 .hidden {

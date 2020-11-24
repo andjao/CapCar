@@ -27,15 +27,14 @@ export class CameraComponent implements OnInit {
 
   @ViewChild('video') videoElement: ElementRef;
 
-  videoWidth = 0;
-  videoHeight = 0;
-
   constraints = {
     video: {
       facingMode: "environment",
       aspectRatio: 1 / 1
     }
   }
+
+  stream: any;
 
   constructor(
     private renderer: Renderer2,
@@ -44,12 +43,7 @@ export class CameraComponent implements OnInit {
     private platesComponent: PlatesComponent,
   ) { }
 
-  @HostListener('window:orientationchange') onOrientationChange() {
-    this.sharedService.rotate = window.screen.orientation.type.match('portrait') ? false : true;
-  }
-
   ngOnInit(): void {
-    this.sharedService.rotate = window.screen.orientation.type.match('portrait') ? false : true;
     this.init();
   }
 
@@ -81,6 +75,17 @@ export class CameraComponent implements OnInit {
     this.renderer.setProperty(this.videoElement.nativeElement, 'srcObject', stream);
     this.renderer.listen(this.videoElement.nativeElement, 'play', (event) => {
       this.sharedService.hiddenCam = false;
+    });
+    stream.getVideoTracks()[0].applyConstraints({
+      advanced: [{
+        torch: false
+      }]
+    }).then(() => {
+      this.stream = stream;
+      this.sharedService.torchOK = true;
+    }
+    ).catch(() => {
+      this.sharedService.torchOK = false;
     });
   }
 
@@ -119,6 +124,16 @@ export class CameraComponent implements OnInit {
     this.sharedService.cameraON = false;
   }
 
+  changeTorch() {
+    this.sharedService.torchON = this.sharedService.torchON ? false : true;
+    this.sharedService.torchOnOff = this.sharedService.torchON ? 'assets/images/flash-on.svg' : 'assets/images/flash-off.svg';
+    this.stream.getVideoTracks()[0].applyConstraints({
+      advanced: [{
+        torch: this.sharedService.torchON
+      }]
+    })
+  }
+
   scheduler = createScheduler();
   timerId = null;
 
@@ -146,8 +161,8 @@ export class CameraComponent implements OnInit {
   async doOCR() {
     const c = document.createElement('canvas');
     c.width = 640;
-    c.height = 256;
-    c.getContext('2d').drawImage(this.videoElement.nativeElement, 0, 0, 640, 256);
+    c.height = 640;
+    c.getContext('2d').drawImage(this.videoElement.nativeElement, 0, 0, 640, 640);
     const { data: { text } } = await this.scheduler.addJob('recognize', c);
     text.split('\n').forEach((line) => {
       this.addMessage(line);

@@ -35,6 +35,8 @@ export class SharedService {
   cameraON: boolean = false;
   hiddenCam: boolean = true;
   scamOK: boolean = false;
-  rotate: boolean;
+  torchOK: boolean = false;
+  torchON: boolean = false;
+  torchOnOff: string = 'assets/images/flash-off.svg';
 
 }

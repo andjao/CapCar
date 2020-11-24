@@ -1,8 +1,10 @@
 <div class="cameraBg" [ngClass]="{'hidden': sharedService.hiddenCam}">
-
-  <div class="camera" [ngStyle]="{'width' : sharedService.rotate ? '45%' : '90%'}">
+  <div class="camera">
     <button class="closeCam" (click)="closeCam()">
       <img src="assets/images/close.svg">
+    </button>
+    <button *ngIf="sharedService.torchOK" class="torch" (click)="changeTorch()">
+      <img [src]="sharedService.torchOnOff">
     </button>
     <video #video class="vid" autoplay></video>
   </div>
