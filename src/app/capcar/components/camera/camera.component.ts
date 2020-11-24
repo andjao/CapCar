@@ -154,8 +154,8 @@ export class CameraComponent implements OnInit {
   async start() {
     const worker = createWorker();
     await worker.load();
-    await worker.loadLanguage('pt');
-    await worker.initialize('pt');
+    await worker.loadLanguage('eng');
+    await worker.initialize('eng');
     this.scheduler.addWorker(worker);
 
     this.videoElement.nativeElement.addEventListener('playing', () => {
