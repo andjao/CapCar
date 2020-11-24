@@ -126,7 +126,7 @@ export class CameraComponent implements OnInit {
 
   changeTorch() {
     this.sharedService.torchON = this.sharedService.torchON ? false : true;
-    this.sharedService.torchOnOff = this.sharedService.torchON ? 'assets/images/flash-on.svg' : 'assets/images/flash-off.svg';
+    this.sharedService.torchOnOff = this.sharedService.torchON ? 'assets/images/flash-off.svg' : 'assets/images/flash-on.svg';
     this.stream.getVideoTracks()[0].applyConstraints({
       advanced: [{
         torch: this.sharedService.torchON

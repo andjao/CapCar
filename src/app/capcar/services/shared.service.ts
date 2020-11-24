@@ -37,6 +37,6 @@ export class SharedService {
   scamOK: boolean = false;
   torchOK: boolean = false;
   torchON: boolean = false;
-  torchOnOff: string = 'assets/images/flash-off.svg';
+  torchOnOff: string = 'assets/images/flash-on.svg';
 
 }
