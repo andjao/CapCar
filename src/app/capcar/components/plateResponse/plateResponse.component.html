@@ -11,8 +11,7 @@
   <p>Ano modelo: {{sharedService.plateResponse.anoModelo}}</p>
   <p>Chassi: {{sharedService.plateResponse.chassi}}</p>
 </div>
-<div class="platesTraffic situationResponse" [ngClass]="{'darkMode darkModePlate': sharedService.darkMode, 
-  'theft': checkTheft()}">
+<div class="platesTraffic situationResponse" [ngClass]="{'theft': checkTheft()}">
   <p class="titlePlateTraffic title">Situação</p>
   <hr class="divider">
   <p *ngIf="!checkTheft()">Regular</p>

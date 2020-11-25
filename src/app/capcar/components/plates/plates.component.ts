@@ -140,14 +140,13 @@ export class PlatesComponent implements OnInit {
         this.sharedService.plateResponse.marca = 'Volkswagen';
         break;
     }
-
     const model = this.sharedService.plateResponse.modelo.toLowerCase();
     switch (true) {
       case (model.indexOf('chevrolet') != -1):
-        this.sharedService.plateResponse.modelo = model.split('chevrolet ')[1];
+        this.sharedService.plateResponse.modelo = model.split('chevrolet ')[1].toUpperCase();
         break;
       case (model.indexOf('gm') != -1):
-        this.sharedService.plateResponse.modelo = model.split('gm ')[1];
+        this.sharedService.plateResponse.modelo = model.split('gm ')[1].toUpperCase();
         break;
     }
   }
