@@ -32,6 +32,11 @@ export class SharedService {
   darkMode: boolean;
   privacyPolicies: boolean;
 
-  cameraON: boolean= false;
+  cameraON: boolean = false;
+  hiddenCam: boolean = true;
+  scamOK: boolean = false;
+  torchOK: boolean = false;
+  torchON: boolean = false;
+  torchOnOff: string = 'assets/images/flash-on.svg';
 
 }
