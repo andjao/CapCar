@@ -1,38 +1,12 @@
 .type {
-  position: relative;
-  border-radius: 2vw;
-  box-shadow: inset 0 0 0 .9vw #fff, .3vw .3vw 1vw #000;
-  font-family: Traffic;
   font-size: 6.9vw;
-  vertical-align: middle;
   padding: 2vw;
   margin: 0 auto 2vw;
-  color: #fff;
-  width: 90%;
-  background: -webkit-linear-gradient(-45deg, #b07000 0%, #804000 100%);
-  $border: 1vw;
-  background-clip: padding-box;
-  border: solid $border transparent;
   align-items: center;
   display: flex;
-  display: -ms-flexbox;
-  display: -webkit-box;
   justify-content: space-between;
-  -ms-flex-align: center;
-  -ms-flex-pack: justify;
-  -webkit-box-align: center;
-  -webkit-box-pack: justify;
 
   &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    margin: -$border;
-    border-radius: inherit;
     background: linear-gradient(135deg, #b07000 0%, #804000 100%);
   }
 }
@@ -60,37 +34,16 @@
 }
 
 .mercosul {
-  position: relative;
-  border-radius: 2vw;
+  margin: auto 0;
   box-shadow: inset 0 0 0 .9vw #000, .3vw .3vw 1vw #000;
   font-family: Traffic;
   font-size: 6.9vw;
-  vertical-align: middle;
-  padding: 2vw;
   color: #000;
-  background: -webkit-linear-gradient(-45deg, #ccc 0%, #fff 100%);
-  $border: 1vw;
-  background-clip: padding-box;
-  border: solid $border transparent;
   align-items: center;
   display: flex;
-  display: -ms-flexbox;
-  -ms-flex-align: center;
-  -ms-flex-pack: justify;
-  -webkit-box-align: center;
-  -webkit-box-pack: justify;
   width: 47vw;
 
   &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    margin: -$border;
-    border-radius: inherit;
     background: linear-gradient(135deg, #ccc 0%, #fff 100%);
   }
 }

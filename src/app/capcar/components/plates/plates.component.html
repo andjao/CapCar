@@ -1,6 +1,6 @@
 <app-plateNational [hidden]="sharedService.mercoSul"></app-plateNational>
 <app-plateMercoSul [hidden]="!sharedService.mercoSul"></app-plateMercoSul>
-<div class="type removeBlue" [ngClass]="{'darkMode darkModePlate': sharedService.darkMode}">
+<div class="platesTraffic type" [ngClass]="{'darkMode darkModePlate': sharedService.darkMode}">
   <p class="title">Tipo de veículo:</p>
   <select class="options" [(ngModel)]="sharedService.selectedType">
     <option value="carros">Carro</option>
@@ -10,17 +10,18 @@
 </div>
 
 <div class="plateButtons removeBlue">
-  <div class="mercosul" [ngClass]="{'darkMode darkModePlate': sharedService.darkMode}">
+  <div class="platesTraffic mercosul" [ngClass]="{'darkMode darkModePlate': sharedService.darkMode}">
     <p class="">Mercosul</p>
     <label class="switch">
       <input [(ngModel)]="sharedService.mercoSul" type="checkbox">
       <span class="slider round"></span>
     </label>
   </div>
-  <button class="queryBtn" [ngClass]="{'darkModeInvert': sharedService.darkMode}" (click)="openCam()">
+  <button (contextmenu)="false" class="queryBtn" [ngClass]="{'darkModeInvert': sharedService.darkMode}"
+    (click)="openCam()">
     <img src="assets/images/camera.svg">
   </button>
-  <button class="queryBtn"
+  <button (contextmenu)="false" class="queryBtn"
     [ngClass]="{'darkModeInvert': sharedService.darkMode, 'disableBtn': !sharedService.queryBtn, 'disabledDark':sharedService.darkMode && !sharedService.queryBtn}"
     [disabled]="!sharedService.queryBtn" (click)="queryPlate()">
     <img src="assets/images/search.svg">

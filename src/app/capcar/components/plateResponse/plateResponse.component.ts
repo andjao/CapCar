@@ -50,4 +50,8 @@ export class PlateReponseComponent implements OnInit {
       return text.placa;
     }
   }
+
+  checkTheft() {
+    return this.sharedService.plateResponse.situacao.toLowerCase().match(/roubo|furto/);
+  }
 }

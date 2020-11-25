@@ -1,5 +1,5 @@
 <div *ngIf="!sharedService.privacyPolicies" class="privacyPolicies" [ngClass]="{'darkMode': sharedService.darkMode}">
-  <button class="closepPivacyPolicies" (click)="closePrivacyPolicies()"
+  <button (contextmenu)="false" class="closepPivacyPolicies" (click)="closePrivacyPolicies()"
     [ngClass]="{'darkModeButtom': sharedService.darkMode}">
     <img src="assets/images/close.svg">
   </button>

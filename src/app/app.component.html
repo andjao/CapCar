@@ -12,13 +12,13 @@
   <a (click)="policy()">Politicas de privacidade</a>
   <a (click)="contact()">Contato</a>
 </div>
-<app-background></app-background>
-<app-loading></app-loading>
+<app-background (contextmenu)="false"></app-background>
+<app-loading (contextmenu)="false"></app-loading>
 <app-privacyPolicies></app-privacyPolicies>
 <app-plate></app-plate>
-<app-camera *ngIf="sharedService.cameraON"></app-camera>
+<app-camera (contextmenu)="false" *ngIf="sharedService.cameraON"></app-camera>
 <div *ngIf="sharedService.queryOK">
   <app-plateResponse></app-plateResponse>
   <app-fipeValue></app-fipeValue>
 </div>
-<app-history></app-history>
+<app-history (contextmenu)="false"></app-history>
