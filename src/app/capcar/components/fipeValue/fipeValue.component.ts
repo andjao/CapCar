@@ -71,7 +71,7 @@ export class FipeValueComponent implements OnInit {
           this.modelsID = [];
           this.modelsID.push(element.id);
           this.larger = this.count;
-        } else if (this.count == this.larger) {
+        } else if (this.count === this.larger) {
           this.modelsID.push(element.id);
         }
       }
@@ -102,7 +102,7 @@ export class FipeValueComponent implements OnInit {
           };
         }, error => {
           this.sharedService.fipeError = true;
-          if (error.response == undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
+          if (error.response === undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
         }
       );
   }
@@ -119,7 +119,7 @@ export class FipeValueComponent implements OnInit {
             });
           }, error => {
             this.sharedService.fipeError = true;
-            if (error.response == undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
+            if (error.response === undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
           })
     }
   }
@@ -132,7 +132,7 @@ export class FipeValueComponent implements OnInit {
           this.sharedService.fipeOK = true;
         }, error => {
           this.sharedService.fipeError = true;
-          if (error.response == undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
+          if (error.response === undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
         }
       );
   }

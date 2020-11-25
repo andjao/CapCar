@@ -12,29 +12,38 @@ $border: 1vw;
 
 .situationResponse {
   text-align: center;
+
   &:before {
     background: linear-gradient(135deg, #008800 0%, #00aa00 100%);
   }
 }
 
 .theft {
-  font-size: 7vw;
+  font-size: 8vw;
+
   &:before {
     background: linear-gradient(135deg, #ff3030 0%, #ff0000 100%);
   }
 }
 
+.theftP {
+  margin-top: 3vw;
+  font-size: 5.5vw;
+}
+
 .call {
+  font-size: 8vw;
   width: auto;
-  margin-top: 2vw;
+  margin-top: 3vw;
   background: linear-gradient(135deg, #008800 0%, #00aa00 100%);
+
   &:before {
     background: linear-gradient(135deg, #008800 0%, #00aa00 100%);
   }
 }
 
 .call>img {
-  width: 6vw;
+  width: 9vw;
   float: right;
   margin-left: 2vw;
 }

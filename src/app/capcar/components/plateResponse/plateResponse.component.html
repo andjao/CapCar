@@ -17,7 +17,7 @@
   <p *ngIf="!checkTheft()">Regular</p>
   <div *ngIf="checkTheft()">
     <p>Veículo roubado!</p>
-    <p>Deseja ligar para a polícia?</p>
+    <p class="theftP">Se caso você tenha visto este veículo, deseja ligar para a polícia?</p>
     <button (contextmenu)="false" class="platesTraffic call" onclick="window.location.assign('tel:190')">Ligar <img
         src="assets/images/call.svg" alt=""></button>
   </div>
