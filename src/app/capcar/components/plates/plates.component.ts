@@ -93,61 +93,61 @@ export class PlatesComponent implements OnInit {
       this.sharedService.plateResponse.modelo = response.modelo.split('/')[1];
     }
 
-    const brand = this.sharedService.plateResponse.marca.toUpperCase();
+    const brand = this.sharedService.plateResponse.marca.toLowerCase();
 
     switch (true) {
-      case brand.indexOf('AMGC') != -1:
+      case brand.indexOf('amgc') != -1:
         this.sharedService.plateResponse.marca = 'Am Gem';
         break;
-      case brand.indexOf('CHEV') != -1:
+      case brand.indexOf('chev') != -1:
         this.sharedService.plateResponse.marca = 'Chevrolet';
         break;
-      case brand.indexOf('IMP') != -1:
+      case brand.indexOf('imp') != -1:
         this.sharedService.plateResponse.marca = 'GM';
         break;
-      case brand.indexOf('JAG') != -1:
+      case brand.indexOf('jag') != -1:
         this.sharedService.plateResponse.marca = 'Jaguar';
         break;
-      case brand.indexOf('LROVER') != -1:
-      case brand.indexOf('LR') != -1:
+      case brand.indexOf('lrover') != -1:
+      case brand.indexOf('lr') != -1:
         this.sharedService.plateResponse.marca = 'Land Rover';
         break;
-      case brand.indexOf('MPOLO') != -1:
+      case brand.indexOf('mpolo') != -1:
         this.sharedService.plateResponse.marca = 'Marcopolo';
         break;
-      case brand.indexOf('BRAMONT') != -1:
+      case brand.indexOf('bramont') != -1:
         this.sharedService.plateResponse.marca = 'Mahindra';
         break;
-      case brand.indexOf('MB') != -1:
-      case brand.indexOf('MBENZ') != -1:
-      case brand.indexOf('M.BENZ') != -1:
-      case brand.indexOf('M.BEMZ') != -1:
-      case brand.indexOf('MERCEDES BENZ') != -1:
-      case brand.indexOf('MERCEDES') != -1:
+      case brand.indexOf('mb') != -1:
+      case brand.indexOf('mbenz') != -1:
+      case brand.indexOf('m.benz') != -1:
+      case brand.indexOf('m.bemz') != -1:
+      case brand.indexOf('mercedes benz') != -1:
+      case brand.indexOf('mercedes') != -1:
         this.sharedService.plateResponse.marca = 'Mercedes-Benz';
         break;
-      case brand.indexOf('MMC') != -1:
+      case brand.indexOf('mmc') != -1:
         this.sharedService.plateResponse.marca = 'Mitsubishi';
         break;
-      case brand.indexOf('INTERNATIONAL') != -1:
+      case brand.indexOf('international') != -1:
         this.sharedService.plateResponse.marca = 'Navistar';
         break;
-      case brand.indexOf('AMV') != -1:
-      case brand.indexOf('PUMA') != -1:
+      case brand.indexOf('amv') != -1:
+      case brand.indexOf('puma') != -1:
         this.sharedService.plateResponse.marca = 'Puma-Alfa';
         break;
-      case brand.indexOf('VW') != -1:
+      case brand.indexOf('vw') != -1:
         this.sharedService.plateResponse.marca = 'Volkswagen';
         break;
     }
 
-    const model = this.sharedService.plateResponse.modelo.toUpperCase();
+    const model = this.sharedService.plateResponse.modelo.toLowerCase();
     switch (true) {
-      case (model.indexOf('chevrolet'.toUpperCase()) != -1):
-        this.sharedService.plateResponse.modelo = model.split('chevrolet '.toUpperCase())[1];
+      case (model.indexOf('chevrolet') != -1):
+        this.sharedService.plateResponse.modelo = model.split('chevrolet ')[1];
         break;
-      case (model.indexOf('gm'.toUpperCase()) != -1):
-        this.sharedService.plateResponse.modelo = model.split('gm '.toUpperCase())[1];
+      case (model.indexOf('gm') != -1):
+        this.sharedService.plateResponse.modelo = model.split('gm ')[1];
         break;
     }
   }

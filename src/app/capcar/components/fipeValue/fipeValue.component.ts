@@ -47,7 +47,7 @@ export class FipeValueComponent implements OnInit {
       .subscribe(
         response => {
           response.forEach(element => {
-            if (element.fipe_name.toUpperCase().match(this.plateResponse.marca.toUpperCase())) {
+            if (element.fipe_name.toLowerCase().match(this.plateResponse.marca.toLowerCase())) {
               this.brand = element;
             };
           });
@@ -65,7 +65,7 @@ export class FipeValueComponent implements OnInit {
 
   loopWords(model, element) {
     for (let word of model) {
-      if (element.fipe_name.toUpperCase().match(word.toUpperCase())) {
+      if (element.fipe_name.toLowerCase().match(word.toLowerCase())) {
         this.count++;
         if (this.count > this.larger) {
           this.modelsID = [];
@@ -86,9 +86,9 @@ export class FipeValueComponent implements OnInit {
           response.map(element => {
             const model = this.plateResponse.modelo.split(/[\*/ ]/);
             this.count = 0;
-            if (element.fipe_name.toUpperCase().match(model[0].toUpperCase())) {
+            if (element.fipe_name.toLowerCase().match(model[0].toLowerCase())) {
               this.loopWords(model, element);
-            } else if (element.fipe_name.toUpperCase().match(model[0].match(/[a-zA-Z]+|[0-9]+/g).join("-"))) {
+            } else if (element.fipe_name.toLowerCase().match(model[0].match(/[a-zA-Z]+|[0-9]+/g).join("-"))) {
               model[0] = model[0].match(/[a-zA-Z]+|[0-9]+/g).join("-");
               this.sharedService.plateResponse.modelo = model.join(" ");
               this.loopWords(model, element);
