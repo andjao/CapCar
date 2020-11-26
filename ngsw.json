@@ -1,0 +1,113 @@
+{
+  "configVersion": 1,
+  "timestamp": 1606401268151,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.ecb1477450f302a32e73.js",
+        "/manifest.webmanifest",
+        "/polyfills.9bf4dad123bd95dda86e.js",
+        "/runtime.359d5ee4682f20e936e9.js",
+        "/styles.ecc73792bf0590b5fa56.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/images/call.svg",
+        "/assets/images/camera.svg",
+        "/assets/images/close.svg",
+        "/assets/images/flags/ar.svg",
+        "/assets/images/flags/br.svg",
+        "/assets/images/flags/mercosul.svg",
+        "/assets/images/flags/py.svg",
+        "/assets/images/flags/uy.svg",
+        "/assets/images/flags/ve.svg",
+        "/assets/images/flash-off.svg",
+        "/assets/images/flash-on.svg",
+        "/assets/images/history.svg",
+        "/assets/images/search.svg",
+        "/assets/pt.traineddata",
+        "/mandatory.46c8c3e76a9cf4ede8e3.ttf",
+        "/traffic3.25a80c7f3068ed3069be.ttf"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/icons/icon-128x128.png": "58149a54a75ad4c7593da4f3ff09f59e8e219565",
+    "/assets/icons/icon-144x144.png": "cd1be24e07f574744aff3ac76309e3d2ad7a48b2",
+    "/assets/icons/icon-152x152.png": "8ee0ca4aa869fc7b73e522b2f5ee81fafff01c01",
+    "/assets/icons/icon-192x192.png": "b3a80dfe3f29d17be15541beda58775a9db20eee",
+    "/assets/icons/icon-384x384.png": "12b0ef8fa42c77a65370757fe93716063b9a1504",
+    "/assets/icons/icon-512x512.png": "8dee1b560aee66bd0e813d5a0bdf8100b907307c",
+    "/assets/icons/icon-72x72.png": "3e2d757131f6e87f3a97e2bd162f876b8c995d2f",
+    "/assets/icons/icon-96x96.png": "e21b45a835772fe0c8f575f041fc29a758d7243c",
+    "/assets/images/call.svg": "f5d4e848babcc7a1b1be02b8eac0cabd577a6a0c",
+    "/assets/images/camera.svg": "692f436b845779a50d7e732cf1ee4f42383f0939",
+    "/assets/images/close.svg": "80f2d5549c58a202fba57c5db4027ef2909909a3",
+    "/assets/images/flags/ar.svg": "9fa3a59a2013d5d0e4405dbd728118af688f7c95",
+    "/assets/images/flags/br.svg": "9745c1fa6656be47ed3f9bee75f8d1da80c89f07",
+    "/assets/images/flags/mercosul.svg": "a82d1dc94e6e031f4740b49bde55332da7f54e11",
+    "/assets/images/flags/py.svg": "99bb7e6bf33accb0cedd11644f5e78379482535a",
+    "/assets/images/flags/uy.svg": "e6ad68ca34182ba93cfcb4aa204b8ac18b5f4625",
+    "/assets/images/flags/ve.svg": "77ecd01e5a58b385452723cb63bee35d17b9b99f",
+    "/assets/images/flash-off.svg": "0126e09c84ffb58cd6ff1de2d537703bda066a96",
+    "/assets/images/flash-on.svg": "f87f5a88f9beeda4924f2f3c5908d22d023e544a",
+    "/assets/images/history.svg": "b7b3522bc0a118879d1c557cdc44b4bc8408c5e2",
+    "/assets/images/search.svg": "a9ecbe4d50fafb195ac322a789abfe9348d40403",
+    "/assets/pt.traineddata": "f2cda77b0d8265de9bcc2ae4f9a533b47fab1117",
+    "/favicon.ico": "f1a412567746369cd777883f5bde528c37ce1a6d",
+    "/index.html": "8869b0b0aa87f5e8b31bc2eac8c2acac19acae8f",
+    "/main.ecb1477450f302a32e73.js": "60c76ed3c417d5a94c1bdc2f4357f8bbdb871b05",
+    "/mandatory.46c8c3e76a9cf4ede8e3.ttf": "72859a746e7ed934bac1df3ca70cb9c970e4f50c",
+    "/manifest.webmanifest": "69336d8596cda07b847e77e748813ed217b6724c",
+    "/polyfills.9bf4dad123bd95dda86e.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
+    "/runtime.359d5ee4682f20e936e9.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/styles.ecc73792bf0590b5fa56.css": "8f2b3abe1b69c6d5f601dd78435262560ede0339",
+    "/traffic3.25a80c7f3068ed3069be.ttf": "4ccccb1b29753c86666d191923a6dcb364901d3d"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
