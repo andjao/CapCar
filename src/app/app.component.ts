@@ -1,13 +1,11 @@
 import {
   Component,
   OnInit,
-  Optional,
 } from '@angular/core';
 
 import {
   SharedService,
   LocalStorageService,
-  MetadataService
 } from './capcar/'
 
 @Component({
@@ -19,7 +17,6 @@ export class AppComponent {
   constructor(
     public sharedService: SharedService,
     public localStorageService: LocalStorageService,
-    @Optional() public metadataService: MetadataService
   ) { }
 
   ngOnInit(): void {
@@ -27,10 +24,6 @@ export class AppComponent {
   }
 
   init() {
-    if (this.metadataService) {
-      this.metadataService.updateMetadata({});
-    }
-
     if (JSON.parse(this.localStorageService.loadLocalStorage('darkMode'))) {
       this.sharedService.darkMode = true;
     } else {
