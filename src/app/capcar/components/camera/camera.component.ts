@@ -37,6 +37,9 @@ export class CameraComponent implements OnInit {
 
   stream: any;
 
+  scheduler = createScheduler();
+  timer = null;
+
   constructor(
     private renderer: Renderer2,
     public sharedService: SharedService,
@@ -101,13 +104,13 @@ export class CameraComponent implements OnInit {
   }
 
   closeCam() {
-    clearInterval(this.timerId);
+    clearInterval(this.timer);
     this.sharedService.cameraON = false;
     this.sharedService.hiddenCam = true;
     this.videoElement.nativeElement.srcObject.getTracks().forEach(track => {
       track.stop();
     });
-    clearInterval(this.timerId);
+    clearInterval(this.timer);
     this.scheduler.terminate;
     createWorker().terminate();
   }
@@ -135,9 +138,6 @@ export class CameraComponent implements OnInit {
     })
   }
 
-  scheduler = createScheduler();
-  timerId = null;
-
   addMessage(m) {
     const regexNational = new RegExp("[a-zA-Z]{3}-[0-9]{4}");
     const regexMercoSul = new RegExp("[a-zA-Z]{3}[0-9][0-9a-zA-Z][0-9]{2}");
@@ -159,15 +159,29 @@ export class CameraComponent implements OnInit {
     }
   }
 
-  async doOCR() {
+  doOCR() {
+    const sx = 0;
+    const sy = this.videoElement.nativeElement.videoHeight * .5;
+    const sw = this.videoElement.nativeElement.videoWidth;
+    const sh = this.videoElement.nativeElement.videoHeight * .4;
+    const dx = 0;
+    const dy = 0;
+    const dw = this.videoElement.nativeElement.videoWidth;
+    const dh = this.videoElement.nativeElement.videoHeight * .4;
     const c = document.createElement('canvas');
-    c.width = 640;
-    c.height = 640;
-    c.getContext('2d').drawImage(this.videoElement.nativeElement, 0, 0, 640, 640);
-    const { data: { text } } = await this.scheduler.addJob('recognize', c);
-    text.split('\n').forEach((line) => {
-      this.addMessage(line);
-    });
+    c.width = this.videoElement.nativeElement.videoWidth;
+    c.height = this.videoElement.nativeElement.videoHeight;
+    this.timer = setInterval(async () => {
+      c.getContext('2d').drawImage(this.videoElement.nativeElement,
+        sx, sy,
+        sw, sh,
+        dx, dy,
+        dw, dh);
+      const { data: { text } } = await this.scheduler.addJob('recognize', c);
+      text.split('\n').forEach((line) => {
+        this.addMessage(line);
+      });
+    }, 1000)
   }
 
   async start() {
