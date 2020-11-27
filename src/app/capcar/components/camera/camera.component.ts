@@ -170,7 +170,7 @@ export class CameraComponent implements OnInit {
     const dh = this.videoElement.nativeElement.videoHeight * .4;
     const c = document.createElement('canvas');
     c.width = this.videoElement.nativeElement.videoWidth;
-    c.height = this.videoElement.nativeElement.videoHeight;
+    c.height = this.videoElement.nativeElement.videoHeight * .4;
     this.timer = setInterval(async () => {
       c.getContext('2d').drawImage(this.videoElement.nativeElement,
         sx, sy,
