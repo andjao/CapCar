@@ -43,6 +43,7 @@ export class PlatesComponent implements OnInit {
       this.sharedService.selectedType = JSON.parse(this.localStorageService.loadLocalStorage('history'))[0].tipo;
       this.sharedService.mercoSul = JSON.parse(this.localStorageService.loadLocalStorage('history'))[0].mercosul;
     }
+    if (navigator.userAgent.toLowerCase().match(/mobile/)) this.sharedService.cameraEnable = false;
   }
 
   queryPlate(): void {

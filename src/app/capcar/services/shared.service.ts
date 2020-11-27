@@ -33,6 +33,7 @@ export class SharedService {
   privacyPolicies: boolean;
 
   cameraON: boolean = false;
+  cameraEnable: boolean = true;
   hiddenCam: boolean = true;
   scamOK: boolean = false;
   torchOK: boolean = false;
