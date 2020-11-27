@@ -3,6 +3,8 @@ import {
   OnInit,
 } from '@angular/core';
 
+import { environment } from '../environments/environment';
+
 import {
   SharedService,
   LocalStorageService,
@@ -14,6 +16,9 @@ import {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  env = environment;
+
   constructor(
     public sharedService: SharedService,
     public localStorageService: LocalStorageService,

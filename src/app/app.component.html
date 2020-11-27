@@ -12,7 +12,7 @@
   <a (click)="policy()">Politicas de privacidade</a>
   <a (click)="contact()">Contato</a>
 </div>
-<app-background (contextmenu)="false"></app-background>
+<app-background *ngIf="env.production" (contextmenu)="false"></app-background>
 <app-loading (contextmenu)="false"></app-loading>
 <app-privacyPolicies></app-privacyPolicies>
 <app-plate></app-plate>
