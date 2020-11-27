@@ -163,14 +163,14 @@ export class CameraComponent implements OnInit {
     const sx = 0;
     const sy = this.videoElement.nativeElement.videoHeight * .5;
     const sw = this.videoElement.nativeElement.videoWidth;
-    const sh = this.videoElement.nativeElement.videoHeight * .4;
+    const sh = window.innerWidth * .6;
     const dx = 0;
     const dy = 0;
-    const dw = this.videoElement.nativeElement.videoWidth;
-    const dh = this.videoElement.nativeElement.videoHeight * .4;
+    const dw = window.innerWidth * .9;
+    const dh = window.innerWidth * .4;
     const c = document.createElement('canvas');
-    c.width = this.videoElement.nativeElement.videoWidth;
-    c.height = this.videoElement.nativeElement.videoHeight * .4;
+    c.width = window.innerWidth * .9;
+    c.height = window.innerWidth * .4;
     this.timer = setInterval(async () => {
       c.getContext('2d').drawImage(this.videoElement.nativeElement,
         sx, sy,
@@ -181,7 +181,9 @@ export class CameraComponent implements OnInit {
       text.split('\n').forEach((line) => {
         this.addMessage(line);
       });
-    }, 1000)
+
+      // document.getElementById("canvas").appendChild(c);
+    }, 0)
   }
 
   async start() {
