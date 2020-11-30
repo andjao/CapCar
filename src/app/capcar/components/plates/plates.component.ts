@@ -61,29 +61,30 @@ export class PlatesComponent implements OnInit {
       .subscribe(
         response => {
           this.loadingService.loadingM(false);
-          if (response.codigoRetorno === "404") {
-            this.sharedService.queryOK = false;
-            return;
-          } else {
-            this.sharedService.stateCountyRes = `${response.uf} - ${response.municipio}`;
-            this.sharedService.plateResponse = response;
-            this.sharedService.plateResponse.placa = response.placa.toUpperCase();
-            this.sharedService.plateResponse.data = new Date();
-            this.clearWords(response);
-            this.sharedService.queryOK = true;
-            this.checkType(this.sharedService.selectedType);
-            this.localStorageService.saveLocalStorage('history', this.sharedService.plateResponse, {
-              type: this.sharedService.selectedType,
-              mercosul: this.sharedService.mercoSul
-            });
-            this.fipeValueComponent.fipeBrands(this.sharedService.selectedType)
-          }
+          this.sharedService.stateCountyRes = `${response.uf} - ${response.municipio}`;
+          this.sharedService.plateResponse = response;
+          this.sharedService.plateResponse.placa = response.placa.toUpperCase();
+          this.sharedService.plateResponse.data = new Date();
+          this.clearWords(response);
+          this.sharedService.queryOK = true;
+          this.checkType(this.sharedService.selectedType);
+          this.localStorageService.saveLocalStorage('history', this.sharedService.plateResponse, {
+            type: this.sharedService.selectedType,
+            mercosul: this.sharedService.mercoSul
+          });
+          this.fipeValueComponent.fipeBrands(this.sharedService.selectedType)
+
         },
         error => {
           this.sharedService.queryOK = false;
+          if (error.status === 402) {
+            alert("Veículo não encontrado");
+          } else if (error.status === 0) {
+            alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
+          } else if (!navigator.onLine) {
+            alert("Você provavelmente não esta conectado a internet");
+          }
           this.loadingService.loadingM(false);
-          if (!navigator.onLine) return alert("Você provavelmente não esta conectado a internet");
-          if (error.response === undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
         }
       );
   }
