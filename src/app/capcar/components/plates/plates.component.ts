@@ -98,6 +98,13 @@ export class PlatesComponent implements OnInit {
     const brand = this.sharedService.plateResponse.marca.toLowerCase();
 
     switch (true) {
+      case brand.length < 2:
+        let model = this.sharedService.plateResponse.modelo
+          .split(" ")[0]
+          .toLowerCase();
+        this.sharedService.plateResponse.marca = model.charAt(0).toUpperCase() + model.slice(1);
+        this.sharedService.plateResponse.modelo = this.sharedService.plateResponse.modelo.split(" ").splice(1).join(" ");
+        break;
       case brand.indexOf('amgc') !== -1:
         this.sharedService.plateResponse.marca = 'Am Gem';
         break;
@@ -140,13 +147,6 @@ export class PlatesComponent implements OnInit {
         break;
       case brand.indexOf('vw') !== -1:
         this.sharedService.plateResponse.marca = 'Volkswagen';
-        break;
-      case brand.length < 2:
-        let model = this.sharedService.plateResponse.modelo
-          .split(" ")[0]
-          .toLowerCase();
-        this.sharedService.plateResponse.marca = model.charAt(0).toUpperCase() + model.slice(1);
-        this.sharedService.plateResponse.modelo = this.sharedService.plateResponse.modelo.split(" ").splice(1).join(" ");
         break;
     }
     const model = this.sharedService.plateResponse.modelo.toLowerCase();
