@@ -13,8 +13,6 @@ import {
 })
 export class LoadingService {
 
-  env = environment;
-
   public loading: Boolean;
   public loadingText: LoadingText
   public loadingOpacity: string;
@@ -22,7 +20,7 @@ export class LoadingService {
   constructor() { }
 
   loadingM(loading: boolean, opacity: string = "1", text: string = "Carregando...") {
-    if (this.env.production) {
+    if (environment.production) {
       if (loading) {
         this.loadingOpacity = opacity;
         this.loadingText = text;
