@@ -76,13 +76,14 @@ export class PlatesComponent implements OnInit {
 
         },
         error => {
+          if (error.status === 0) console.log(error);
           this.sharedService.queryOK = false;
-          if (error.status === 402) {
+          if (!navigator.onLine) {
+            alert("Você provavelmente não esta conectado a internet");
+          } else if (error.status === 402) {
             alert("Veículo não encontrado");
           } else if (error.status === 0) {
             alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
-          } else if (!navigator.onLine) {
-            alert("Você provavelmente não esta conectado a internet");
           }
           this.loadingService.loadingM(false);
         }
