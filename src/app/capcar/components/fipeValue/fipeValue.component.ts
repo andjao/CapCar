@@ -86,9 +86,9 @@ export class FipeValueComponent implements OnInit {
           response.map(element => {
             const model = this.plateResponse.modelo.split(/[\*/ ]/);
             this.count = 0;
-            if (element.fipe_name.toLowerCase().match(model[0].toLowerCase())) {
+            if (element.fipe_name.toLowerCase().match("\\b" + model[0].toLowerCase() + "\\b")) {
               this.loopWords(model, element);
-            } else if (element.fipe_name.toUpperCase().match(model[0].match(/[a-zA-Z]+|[0-9]+/g).join("-"))) {
+            } else if (element.fipe_name.toUpperCase().match("\\b" + model[0].match(/[a-zA-Z]+|[0-9]+/g).join("-") + "\\b")) {
               model[0] = model[0].match(/[a-zA-Z]+|[0-9]+/g).join("-");
               this.sharedService.plateResponse.modelo = model.join(" ");
               this.loopWords(model, element);
