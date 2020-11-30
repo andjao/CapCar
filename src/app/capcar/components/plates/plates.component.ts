@@ -76,7 +76,6 @@ export class PlatesComponent implements OnInit {
 
         },
         error => {
-          if (error.status === 0) console.log(error);
           this.sharedService.queryOK = false;
           if (!navigator.onLine) {
             alert("Você provavelmente não esta conectado a internet");
@@ -104,13 +103,6 @@ export class PlatesComponent implements OnInit {
         break;
       case brand.indexOf('chev') !== -1:
         this.sharedService.plateResponse.marca = 'Chevrolet';
-        break;
-      case brand === 'i':
-        let model = this.sharedService.plateResponse.modelo
-          .split(" ")[0]
-          .toLowerCase();
-        this.sharedService.plateResponse.marca = model.charAt(0).toUpperCase() + model.slice(1);
-        this.sharedService.plateResponse.modelo = this.sharedService.plateResponse.modelo.split(" ").splice(1).join(" ");
         break;
       case brand.indexOf('imp') !== -1:
         this.sharedService.plateResponse.marca = 'GM';
@@ -148,6 +140,13 @@ export class PlatesComponent implements OnInit {
         break;
       case brand.indexOf('vw') !== -1:
         this.sharedService.plateResponse.marca = 'Volkswagen';
+        break;
+      case brand.length < 2:
+        let model = this.sharedService.plateResponse.modelo
+          .split(" ")[0]
+          .toLowerCase();
+        this.sharedService.plateResponse.marca = model.charAt(0).toUpperCase() + model.slice(1);
+        this.sharedService.plateResponse.modelo = this.sharedService.plateResponse.modelo.split(" ").splice(1).join(" ");
         break;
     }
     const model = this.sharedService.plateResponse.modelo.toLowerCase();
