@@ -105,7 +105,7 @@ export class PlatesComponent implements OnInit {
       case brand.indexOf('chev') !== -1:
         this.sharedService.plateResponse.marca = 'Chevrolet';
         break;
-      case brand.indexOf('i') !== -1:
+      case brand === 'i':
         let model = this.sharedService.plateResponse.modelo
           .split(" ")[0]
           .toLowerCase();
