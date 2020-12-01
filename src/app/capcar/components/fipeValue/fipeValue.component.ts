@@ -35,6 +35,12 @@ export class FipeValueComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  errorM(error) {
+    console.log(error);
+    this.sharedService.fipeError = true;
+    if (error.response === undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
+  }
+
   fipeBrands(type) {
     this.brand = null;
     this.modelsID = [];
@@ -58,7 +64,7 @@ export class FipeValueComponent implements OnInit {
             this.sharedService.fipeNotFound = true;
           }
         }, error => {
-          this.sharedService.fipeError = true;
+          this.errorM(error);
         }
       );
   }
@@ -101,8 +107,7 @@ export class FipeValueComponent implements OnInit {
             this.sharedService.fipeNotFound = true;
           };
         }, error => {
-          this.sharedService.fipeError = true;
-          if (error.response === undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
+          this.errorM(error);
         }
       );
   }
@@ -118,8 +123,7 @@ export class FipeValueComponent implements OnInit {
               }
             });
           }, error => {
-            this.sharedService.fipeError = true;
-            if (error.response === undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
+            this.errorM(error);
           })
     }
   }
@@ -131,8 +135,7 @@ export class FipeValueComponent implements OnInit {
           this.sharedService.fipeValues.push(response)
           this.sharedService.fipeOK = true;
         }, error => {
-          this.sharedService.fipeError = true;
-          if (error.response === undefined) alert("Você ultrapassou o numero de consultas que pode ser feita por minuto. Por favor aguarde um pouco em tente novamente em instantes.");
+          this.errorM(error);
         }
       );
   }
