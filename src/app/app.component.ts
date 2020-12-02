@@ -38,14 +38,14 @@ export class AppComponent {
 
   title = 'CapCar';
 
-  mySidenav: boolean = false;
+  sideNav: boolean = false;
 
   openNav() {
-    this.mySidenav = true;
+    this.sideNav = true;
   }
 
   closeNav() {
-    this.mySidenav = false;
+    this.sideNav = false;
   }
 
   history() {

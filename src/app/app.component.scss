@@ -83,3 +83,21 @@ $size:15;
 .trasform {
   transform: translate(0, -20%);
 }
+
+.about {
+  text-align: center;
+  color: #fff;
+  font-size: 5vw;
+  position: absolute;
+  bottom: 20vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about img {
+  width: 30vw;
+}
+
+.about p:nth-of-type(2){
+  font-size: 4vw;
+}
