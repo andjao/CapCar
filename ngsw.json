@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1606916413317,
+  "timestamp": 1606923072048,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.5f81509e1f7345dbbc29.js",
+        "/main.c1f9117535d7e60b4671.js",
         "/manifest.webmanifest",
         "/polyfills.9bf4dad123bd95dda86e.js",
         "/runtime.359d5ee4682f20e936e9.js",
@@ -39,6 +39,7 @@
         "/assets/icons/icon-96x96.png",
         "/assets/images/call.svg",
         "/assets/images/camera.svg",
+        "/assets/images/capcar.svg",
         "/assets/images/close.svg",
         "/assets/images/flags/ar.svg",
         "/assets/images/flags/br.svg",
@@ -69,6 +70,7 @@
     "/assets/icons/icon-96x96.png": "e21b45a835772fe0c8f575f041fc29a758d7243c",
     "/assets/images/call.svg": "f5d4e848babcc7a1b1be02b8eac0cabd577a6a0c",
     "/assets/images/camera.svg": "692f436b845779a50d7e732cf1ee4f42383f0939",
+    "/assets/images/capcar.svg": "36b0886eda6fc657022358d665186edcf04b5f4d",
     "/assets/images/close.svg": "80f2d5549c58a202fba57c5db4027ef2909909a3",
     "/assets/images/flags/ar.svg": "9fa3a59a2013d5d0e4405dbd728118af688f7c95",
     "/assets/images/flags/br.svg": "9745c1fa6656be47ed3f9bee75f8d1da80c89f07",
@@ -82,8 +84,8 @@
     "/assets/images/search.svg": "a9ecbe4d50fafb195ac322a789abfe9348d40403",
     "/assets/pt.traineddata": "f2cda77b0d8265de9bcc2ae4f9a533b47fab1117",
     "/favicon.ico": "f1a412567746369cd777883f5bde528c37ce1a6d",
-    "/index.html": "385ce1b8e55e2e7245403febe333759a9160afd4",
-    "/main.5f81509e1f7345dbbc29.js": "f899f80c1a5d06c00dc28a6bf87a6f1cc3ea5c84",
+    "/index.html": "6d08b464ff12e0607ba57dfc3f26077ce439d527",
+    "/main.c1f9117535d7e60b4671.js": "2746f8a6536fe4d19a73f56d999c294e4033dd95",
     "/mandatory.46c8c3e76a9cf4ede8e3.ttf": "72859a746e7ed934bac1df3ca70cb9c970e4f50c",
     "/manifest.webmanifest": "69336d8596cda07b847e77e748813ed217b6724c",
     "/polyfills.9bf4dad123bd95dda86e.js": "763cd3b34dfa4600ebb9d9588ec7116988e98920",
