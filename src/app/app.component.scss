@@ -48,7 +48,7 @@ $size:15;
   align-items: center;
 }
 
-.sidenav {
+.sideNav {
   font-family: Traffic;
   height: 100%;
   width: 0;
@@ -63,7 +63,7 @@ $size:15;
   z-index: 1000;
 }
 
-.sidenav a {
+.sideNav a {
   padding: 0 0 5vw 5vw;
   text-decoration: none;
   font-size: 5vw;
@@ -73,7 +73,7 @@ $size:15;
   white-space: nowrap;
 }
 
-.sidenav .closebtn {
+.sideNav .closebtn {
   position: absolute;
   top: 2vw;
   right: 2vw;
@@ -90,7 +90,7 @@ $size:15;
   font-size: 5vw;
   position: absolute;
   bottom: 20vw;
-  left: 50%;
+  left:  50%;
   transform: translateX(-50%);
 }
 
@@ -98,6 +98,6 @@ $size:15;
   width: 30vw;
 }
 
-.about p:nth-of-type(2){
+.about p:nth-of-type(2) {
   font-size: 4vw;
 }
