@@ -60,6 +60,9 @@ export class PlatesComponent implements OnInit {
       .plateRequest(plate.split("-").join("").toUpperCase())
       .subscribe(
         response => {
+          if (response.codigoRetorno == 502) {
+            return alert("Veículo não encontrado");
+          }
           this.loadingService.loadingM(false);
           this.sharedService.stateCountyRes = `${response.uf} - ${response.municipio}`;
           this.sharedService.plateResponse = response;
@@ -73,7 +76,6 @@ export class PlatesComponent implements OnInit {
             mercosul: this.sharedService.mercoSul
           });
           this.fipeValueComponent.fipeBrands(this.sharedService.selectedType)
-
         },
         error => {
           this.sharedService.queryOK = false;

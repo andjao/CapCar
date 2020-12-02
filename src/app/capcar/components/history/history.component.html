@@ -4,22 +4,26 @@
       <img src="assets/images/close.svg">
     </button>
     <table [ngClass]="{'darkModeTable': sharedService.darkMode}">
-      <tr>
-        <th colspan="3">Histórico</th>
-      </tr>
-      <tr *ngIf="sharedService.history !== null && sharedService.history.length !== 0">
-        <th>Modelo</th>
-        <th>Placa</th>
-        <th>Data/Hora</th>
-      </tr>
-      <tr *ngFor="let car of sharedService.history" (click)="queryPlate(car)" longPress>
-        <td>{{car.modelo.split(" ")[0]}}</td>
-        <td class="plate">{{car.placa}}</td>
-        <td>{{car.data | date:'dd/MM/yyyy HH:mm:ss'}}</td>
-      </tr>
-      <tr *ngIf="sharedService.history === null || sharedService.history.length === 0">
-        <th colspan="3">Nenhuma consulta foi feita.</th>
-      </tr>
+      <thead>
+        <tr>
+          <th colspan="3">Histórico</th>
+        </tr>
+        <tr *ngIf="sharedService.history !== null && sharedService.history.length !== 0">
+          <th>Modelo</th>
+          <th>Placa</th>
+          <th>Data/Hora</th>
+        </tr>
+        <tr *ngIf="sharedService.history === null || sharedService.history.length === 0">
+          <th colspan="3" style="width: 100vw">Nenhuma consulta foi feita.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of sharedService.history" (click)="queryPlate(car)" longPress>
+          <td>{{car.modelo.split(" ")[0]}}</td>
+          <td [ngClass]="{'plateN' : !car.mercosul, 'plateM': car.mercosul}">{{car.placa}}</td>
+          <td>{{car.data | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>

@@ -26,7 +26,7 @@
   position: relative;
   float: right;
   top: 3.5vw;
-  right: -3.5vw;
+  right: 0;
 }
 
 table {
@@ -35,16 +35,61 @@ table {
   width: 100%;
   background-color: #fff;
   border: solid 1vw #000;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+thead,
+tbody {
+  display: block;
+}
+
+tbody {
+  max-height: 50vw;
+  display: block;
+  overflow: auto;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+tbody::-webkit-scrollbar {
+  display: none;
 }
 
 tr {
-  line-height: 10vw
+  line-height: 10vw;
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.plate {
+th:nth-of-type(1) {
+  width: 27vw;
+}
+th:nth-of-type(2) {
+  width: 23vw;
+}
+th:nth-of-type(3) {
+  width: 49vw;
+}
+
+td:nth-of-type(1) {
+  width: 27%;
+}
+
+td:nth-of-type(2) {
+  width: 23%;
+}
+
+td:nth-of-type(3) {
+  width: 49%;
+}
+
+.plateN {
   font-family: Mandatory;
+}
+
+.plateM {
+  font-family: FE-Font;
 }
