@@ -1,6 +1,8 @@
 import {
   Component,
+  ElementRef,
   OnInit,
+  ViewChild,
 } from '@angular/core';
 
 import { environment } from '../environments/environment';
@@ -40,12 +42,15 @@ export class AppComponent {
 
   sideNav: boolean = false;
 
+  @ViewChild('capcar') capcar: ElementRef;
+
   openNav() {
     this.sideNav = true;
   }
 
   closeNav() {
     this.sideNav = false;
+    this.capcar.nativeElement.src = "assets/images/capcar.svg";
   }
 
   history() {
@@ -66,5 +71,9 @@ export class AppComponent {
   contact() {
     this.closeNav();
     this.sharedService.contactON = true;
+  }
+
+  easterEgg() {
+    this.capcar.nativeElement.src = "assets/images/capcarA.svg";
   }
 }
