@@ -27,6 +27,7 @@ export class LocalStorageService {
       storageSave[0].tipo = type;
       storageSave[0].mercosul = mercoSul || false;
       storageSave[0].placa = storageSave[0].placa.toUpperCase();
+      if (storageSave.length > 30) storageSave.pop();
     } else {
       storageSave = value;
     }
