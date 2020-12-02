@@ -3,8 +3,8 @@
   <span class="sanduwish" (click)="openNav()">&#9776;</span>
 </div>
 <div *ngIf="sideNav" class="menuBg" (click)="closeNav()"></div>
-<div class="sideNav removeBlue" [ngStyle]="{'width' : sideNav ? '70vw' : '0'}">
-  <a (contextmenu)="false" class="closebtn" (click)="closeNav()">&times;</a>
+<div (contextmenu)="false" class="sideNav removeBlue" [ngStyle]="{'width' : sideNav ? '70vw' : '0'}">
+  <a class="closebtn" (click)="closeNav()">&times;</a>
   <a (click)="history()">Histórico</a>
   <a (click)="darkMode()">Modo escuro<label class="switch trasform">
       <input [(ngModel)]="sharedService.darkMode" type="checkbox">
