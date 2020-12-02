@@ -65,5 +65,6 @@ export class AppComponent {
 
   contact() {
     this.closeNav();
+    this.sharedService.contactON = true;
   }
 }

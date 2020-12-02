@@ -39,5 +39,6 @@ export class SharedService {
   torchOK: boolean = false;
   torchON: boolean = false;
   torchOnOff: string = 'assets/images/flash-on.svg';
+  contactON: boolean = false;
 
 }
