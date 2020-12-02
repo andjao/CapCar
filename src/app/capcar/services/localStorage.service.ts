@@ -18,7 +18,7 @@ export class LocalStorageService {
     let storageSave: any;
     storageSave = JSON.parse(this.loadLocalStorage(key)) || [];
     if (key === "history") {
-      storageSave.forEach(function (element, index) {
+      storageSave.forEach((element, index) => {
         if (value.placa === element.placa) {
           storageSave.splice(index, 1);
         };
