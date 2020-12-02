@@ -35,7 +35,6 @@ export class LocalStorageService {
   }
 
   removeLocalStorage(key, index) {
-    console.clear();
     let storageSave = JSON.parse(this.loadLocalStorage(key));
     storageSave.splice(index, 1);
     localStorage.setItem('history', JSON.stringify(storageSave));

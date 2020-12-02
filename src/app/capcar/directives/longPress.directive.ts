@@ -30,7 +30,7 @@ export class LongPressDirective {
     clearTimeout(this._timeout);
   }
 
-  @HostListener('touchcancel') onMouseLeave() {
+  @HostListener('touchmove') onMouseLeave() {
     clearTimeout(this._timeout);
   }
 
