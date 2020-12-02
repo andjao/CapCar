@@ -2,6 +2,7 @@
   <p class="title">Capcar</p>
   <span class="sanduwish" (click)="openNav()">&#9776;</span>
 </div>
+<div *ngIf="mySidenav" class="menuBg" (click)="closeNav()"></div>
 <div id="mySidenav" class="sidenav removeBlue" [ngStyle]="{'width' : mySidenav ? '70vw' : '0'}">
   <a (contextmenu)="false" class="closebtn" (click)="closeNav()">&times;</a>
   <a (click)="history()">Histórico</a>

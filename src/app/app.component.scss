@@ -33,6 +33,21 @@ $size:15;
   margin-right: 2vw;
 }
 
+.menuBg {
+  background-color: #0008;
+  font-family: Traffic;
+  font-size: 10vw;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .sidenav {
   font-family: Traffic;
   height: 100%;
