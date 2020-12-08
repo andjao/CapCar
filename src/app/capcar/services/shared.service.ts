@@ -30,6 +30,7 @@ export class SharedService {
   history = new Array;
 
   darkMode: boolean;
+  privacyPoliciesAccept: boolean;
   privacyPolicies: boolean;
 
   cameraON: boolean = false;

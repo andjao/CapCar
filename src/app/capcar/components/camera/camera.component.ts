@@ -181,8 +181,6 @@ export class CameraComponent implements OnInit {
       text.split('\n').forEach((line) => {
         this.addMessage(line);
       });
-
-      // document.getElementById("canvas").appendChild(c);
     }, 0)
   }
 

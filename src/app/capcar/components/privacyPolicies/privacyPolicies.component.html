@@ -1,6 +1,6 @@
-<div *ngIf="!sharedService.privacyPolicies" class="privacyPolicies" [ngClass]="{'darkMode': sharedService.darkMode}">
-  <button (contextmenu)="false" class="closepPivacyPolicies" (click)="closePrivacyPolicies()"
-    [ngClass]="{'darkModeButtom': sharedService.darkMode}">
+<div *ngIf="sharedService.privacyPolicies" class="privacyPolicies" [ngClass]="{'darkMode': sharedService.darkMode}">
+  <button *ngIf="sharedService.privacyPoliciesAccept" (contextmenu)="false" class="closepPivacyPolicies"
+    (click)="closePrivacyPolicies()" [ngClass]="{'darkModeButtom': sharedService.darkMode}">
     <img src="assets/images/close.svg">
   </button>
   <p><strong>Políticas de privacidade</strong></p><br />
@@ -95,4 +95,8 @@
     mencionados abaixo:</p>
   <p><em>E-mail: </em><a href="mailto:ads.marchi@gmail.com"><em>ads.marchi@gmail.com</em></a><em>, </em><a
       href="mailto:everton.31.oliveira@gmail.com"><em>everton.31.oliveira@gmail.com</em></a></p>
+  <div class="accept">
+    <button *ngIf="!sharedService.privacyPoliciesAccept" (click)="accept()" class="platesTraffic"
+      [ngClass]="{'darkModeButtom': sharedService.darkMode}">Aceitar</button>
+  </div>
 </div>

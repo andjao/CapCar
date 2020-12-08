@@ -25,16 +25,24 @@ export class PrivacyPoliciesComponent implements OnInit {
   }
 
 
-  init() {
+  init() {    
     if (JSON.parse(this.localStorageService.loadLocalStorage('privacyPolicies'))) {
-      this.sharedService.privacyPolicies = true;
-    } else {
+      this.sharedService.privacyPoliciesAccept = true;
       this.sharedService.privacyPolicies = false;
+    } else {
+      this.sharedService.privacyPoliciesAccept = false;
+      this.sharedService.privacyPolicies = true;
+
     }
   }
 
   closePrivacyPolicies() {
-    this.sharedService.privacyPolicies = true;
+    this.sharedService.privacyPolicies = false;
+  }
+
+  accept() {
+    this.sharedService.privacyPoliciesAccept = true;
+    this.sharedService.privacyPolicies = false;
     this.localStorageService.saveLocalStorage('privacyPolicies', true, { type: "", mercosul: "" })
   }
 
