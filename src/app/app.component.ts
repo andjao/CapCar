@@ -31,9 +31,16 @@ export class AppComponent {
   }
 
   init() {
-    if (JSON.parse(this.localStorageService.loadLocalStorage('darkMode'))) {
+    const darkMode = JSON.parse(this.localStorageService.loadLocalStorage('darkMode'));
+    if (darkMode) {
       this.sharedService.darkMode = true;
-    } else {
+    }
+    else if (darkMode === null && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      this.sharedService.darkMode = false;
+      this.darkMode();
+      this.sharedService.darkMode = true;
+    }
+    else {
       this.sharedService.darkMode = false;
     }
   }
