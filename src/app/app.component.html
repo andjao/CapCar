@@ -1,6 +1,6 @@
 <div class="toolbar removeBlue" [ngClass]="{'darkMode': sharedService.darkMode}">
   <p class="title">Capcar</p>
-  <span class="sanduwish" (click)="openNav()">&#9776;</span>
+  <span *ngIf="sharedService.privacyPoliciesAccept" class="sanduwish" (click)="openNav()">&#9776;</span>
 </div>
 <div *ngIf="sideNav" class="menuBg" (click)="closeNav()"></div>
 <div (contextmenu)="false" class="sideNav removeBlue" [ngStyle]="{'width' : sideNav ? '70vw' : '0'}">
