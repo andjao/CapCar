@@ -1,7 +1,10 @@
 import {
   Injectable,
 } from '@angular/core';
-import { element } from 'protractor';
+
+import {
+  element
+} from 'protractor';
 
 @Injectable({
   providedIn: 'root'

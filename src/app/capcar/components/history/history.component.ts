@@ -8,7 +8,9 @@ import {
   LocalStorageService
 } from '../../services/';
 
-import { PlatesComponent } from '../plates';
+import {
+  PlatesComponent
+} from '../plates';
 
 @Component({
   selector: 'app-history',

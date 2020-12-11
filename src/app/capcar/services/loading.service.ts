@@ -4,17 +4,14 @@ import {
 
 import { environment } from '../../../environments/environment';
 
-import {
-  LoadingText,
-} from '..'
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoadingService {
 
-  public loading: Boolean;
-  public loadingText: LoadingText
+  public loading: boolean;
+  public loadingText: string
   public loadingOpacity: string;
 
   constructor() { }

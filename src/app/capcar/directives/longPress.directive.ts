@@ -1,6 +1,17 @@
-import { Directive, HostListener, Output, EventEmitter } from '@angular/core';
-import { event } from 'jquery';
-import { HistoryComponent } from '../components';
+import {
+  Directive,
+  HostListener,
+  Output,
+  EventEmitter
+} from '@angular/core';
+
+import {
+  event
+} from 'jquery';
+
+import {
+  HistoryComponent
+} from '../components';
 
 @Directive({
   selector: '[longPress]'

@@ -1,7 +1,6 @@
 import {
   Component,
   ElementRef,
-  HostListener,
   OnInit,
   Renderer2,
   ViewChild,
@@ -17,7 +16,9 @@ import {
   createScheduler
 } from 'tesseract.js';
 
-import { PlatesComponent } from '../plates';
+import {
+  PlatesComponent
+} from '../plates';
 
 @Component({
   selector: 'app-camera',

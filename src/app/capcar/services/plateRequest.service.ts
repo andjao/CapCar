@@ -10,14 +10,18 @@ import {
   Observable,
 } from 'rxjs/Observable';
 
+import {
+  BASE_URL
+} from '../enums';
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class RequestsService {
 
-  private readonly apicarros_URL = "https://apicarros.com/v1/consulta/";
-  private readonly fipe_URL = "https://fipeapi.appspot.com/api/1/";
+  private readonly apicarros_URL = BASE_URL.APICARROS;
+  private readonly fipe_URL = BASE_URL.FIPE;
 
   constructor(
     private http: HttpClient,

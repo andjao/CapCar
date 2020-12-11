@@ -10,7 +10,9 @@ import {
 
 import * as $ from 'jquery';
 
-import { SharedService } from '../../services';
+import {
+  SharedService
+} from '../../services';
 
 import {
   PlatesComponent

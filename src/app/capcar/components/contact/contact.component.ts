@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { SharedService } from '../../services';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+
+import {
+  SharedService
+} from '../../services';
 
 @Component({
   selector: 'app-contact',

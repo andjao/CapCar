@@ -4,9 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { CapcarModule } from './capcar';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment'
+import {
+  CapcarModule
+} from './capcar';
+
+import {
+  ServiceWorkerModule
+} from '@angular/service-worker';
+
+import {
+  environment
+} from '../environments/environment'
 
 @NgModule({
   declarations: [
