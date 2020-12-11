@@ -1,7 +1,7 @@
 <div *ngIf="sharedService.historyOpen" class="historyBg removeBlue">
   <div class="history">
     <button class="closeHistory" (click)="closeHistory()" [ngClass]="{'darkModeButtom': sharedService.darkMode}">
-      <img src="assets/images/close.svg">
+      <img src="assets/images/close.svg" alt="Fechar">
     </button>
     <table [ngClass]="{'darkModeTable': sharedService.darkMode}">
       <thead>

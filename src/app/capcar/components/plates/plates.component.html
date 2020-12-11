@@ -19,11 +19,11 @@
   </div>
   <button [hidden]="sharedService.cameraEnable" (contextmenu)="false" class="queryBtn"
     [ngClass]="{'darkModeInvert': sharedService.darkMode}" (click)="openCam()">
-    <img src="assets/images/camera.svg">
+    <img src="assets/images/camera.svg" alt="Camera">
   </button>
   <button class="queryBtn"
     [ngClass]="{'darkModeInvert': sharedService.darkMode, 'disableBtn': !sharedService.queryBtn, 'disabledDark':sharedService.darkMode && !sharedService.queryBtn}"
     [disabled]="!sharedService.queryBtn" (click)="queryPlate()" (contextmenu)="false">
-    <img src="assets/images/search.svg">
+    <img src="assets/images/search.svg" alt="Consultar">
   </button>
 </div>

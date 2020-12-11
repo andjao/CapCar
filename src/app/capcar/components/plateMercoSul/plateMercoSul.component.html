@@ -1,8 +1,8 @@
 <div class="plateMercosul">
   <div class="countryMercosul">
-    <img [src]="mercoSulIFlag" class="mercoSulIFlag">
+    <img [src]="mercoSulIFlag" class="mercoSulIFlag" alt="Mercosul">
     <p>Brasil</p>
-    <img [src]="countryFlag" class="countryFlag">
+    <img [src]="countryFlag" class="countryFlag" alt="Bandeira">
   </div>
   <div class="plateMercosul1" [ngClass]="{'darkMode': sharedService.darkMode}">
     <form #plateMercoSulForm="ngForm" ng-submit="queryPlate()">
