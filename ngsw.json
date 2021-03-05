@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1607698892823,
+  "timestamp": 1614953976782,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -74,12 +74,12 @@
     "/assets/images/capcar.svg": "36b0886eda6fc657022358d665186edcf04b5f4d",
     "/assets/images/capcarA.svg": "38bba608fdeae91e4ae5bc032985adf70965c3e7",
     "/assets/images/close.svg": "80f2d5549c58a202fba57c5db4027ef2909909a3",
-    "/assets/images/flags/ar.svg": "9fa3a59a2013d5d0e4405dbd728118af688f7c95",
+    "/assets/images/flags/ar.svg": "ac6835fbdd3a751ca86b0e25586f20cf38e92d8a",
     "/assets/images/flags/br.svg": "9745c1fa6656be47ed3f9bee75f8d1da80c89f07",
     "/assets/images/flags/mercosul.svg": "a82d1dc94e6e031f4740b49bde55332da7f54e11",
-    "/assets/images/flags/py.svg": "99bb7e6bf33accb0cedd11644f5e78379482535a",
-    "/assets/images/flags/uy.svg": "e6ad68ca34182ba93cfcb4aa204b8ac18b5f4625",
-    "/assets/images/flags/ve.svg": "77ecd01e5a58b385452723cb63bee35d17b9b99f",
+    "/assets/images/flags/py.svg": "b588f71df748010a83174bd430cbf63f120b18be",
+    "/assets/images/flags/uy.svg": "d72112c818d869acc78cdd5928389ea046b95d1e",
+    "/assets/images/flags/ve.svg": "949e0acce0aef8bd639e63bc6584922cea143a6d",
     "/assets/images/flash-off.svg": "0126e09c84ffb58cd6ff1de2d537703bda066a96",
     "/assets/images/flash-on.svg": "f87f5a88f9beeda4924f2f3c5908d22d023e544a",
     "/assets/images/history.svg": "b7b3522bc0a118879d1c557cdc44b4bc8408c5e2",
