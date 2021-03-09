@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:github-pages": "rimraf dist && ng build --prod && ngh --branch=master --cname=capcar.com.br"
+    "deploy:github-pages": "rimraf dist && ng build --prod --base-href https://andjao.github.io/capcar/ && ngh --branch=master"
+
   },
   "private": true,
   "dependencies": {
