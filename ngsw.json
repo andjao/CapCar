@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1615289262521,
+  "timestamp": 1615289491818,
   "index": "https://andjao.github.io/capcar/index.html",
   "assetGroups": [
     {
@@ -86,7 +86,7 @@
     "https://andjao.github.io/capcar/assets/images/search.svg": "a9ecbe4d50fafb195ac322a789abfe9348d40403",
     "https://andjao.github.io/capcar/assets/pt.traineddata": "f2cda77b0d8265de9bcc2ae4f9a533b47fab1117",
     "https://andjao.github.io/capcar/favicon.ico": "f1a412567746369cd777883f5bde528c37ce1a6d",
-    "https://andjao.github.io/capcar/index.html": "92f65871f084f5d798d9383ea002d6322031b8d9",
+    "https://andjao.github.io/capcar/index.html": "5e28ab045bf010b4e9c643f306913a932b980e42",
     "https://andjao.github.io/capcar/main.b23fd87e86b19540d2e6.js": "3621046619542dddfecfd76a39e5b92f2a6e5f57",
     "https://andjao.github.io/capcar/mandatory.46c8c3e76a9cf4ede8e3.ttf": "72859a746e7ed934bac1df3ca70cb9c970e4f50c",
     "https://andjao.github.io/capcar/manifest.webmanifest": "69336d8596cda07b847e77e748813ed217b6724c",
