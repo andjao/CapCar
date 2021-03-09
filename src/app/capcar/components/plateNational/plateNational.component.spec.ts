@@ -8,9 +8,9 @@ describe('PlateNationalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlateNationalComponent ]
+      declarations: [PlateNationalComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

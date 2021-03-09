@@ -9,12 +9,12 @@ describe('PlateComponent', () => {
   let component: PlatesComponent;
   let fixture: ComponentFixture<PlatesComponent>;
 
-  beforeEach(async() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         PlatesComponent
       ],
-      imports:[
+      imports: [
         FormsModule,
         HttpClientModule
       ],
@@ -22,7 +22,7 @@ describe('PlateComponent', () => {
         RequestsService
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

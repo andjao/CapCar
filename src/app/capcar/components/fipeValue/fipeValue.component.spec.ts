@@ -8,9 +8,9 @@ describe('FipeValueComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FipeValueComponent ]
+      declarations: [FipeValueComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

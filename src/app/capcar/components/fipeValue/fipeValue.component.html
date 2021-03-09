@@ -4,8 +4,7 @@
   <p class="fipeError" *ngIf="sharedService.fipeError">Veiculo não encontrado</p>
   <p class="fipeError" *ngIf="sharedService.fipeNotFound">Você selecionou o
     tipo "{{sharedService.vehicleType}}", talvez seje outro tipo de veículo.</p>
-  <div class="loadingBg"
-    *ngIf="!sharedService.fipeOK && !sharedService.fipeError && !sharedService.fipeNotFound">
+  <div class="loadingBg" *ngIf="!sharedService.fipeOK && !sharedService.fipeError && !sharedService.fipeNotFound">
     Consultando<p class="loadingText" *ngFor="let letter of letterSeparator('...')">{{letter}}</p>
   </div>
   <div class="fipeModels" *ngFor="let model of sharedService.fipeValues">

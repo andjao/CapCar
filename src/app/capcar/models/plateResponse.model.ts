@@ -17,5 +17,5 @@ export class PlateResponse {
         public placa: string,
         public situacao: string,
         public uf: string
-    ){}
+    ) { }
 }

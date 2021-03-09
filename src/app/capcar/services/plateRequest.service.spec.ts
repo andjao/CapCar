@@ -9,10 +9,10 @@ describe('PlateService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-      	RequestsService
+        RequestsService
       ],
       imports: [
-      	HttpClientModule
+        HttpClientModule
       ]
     });
   });

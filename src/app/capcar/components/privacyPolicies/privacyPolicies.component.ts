@@ -25,7 +25,7 @@ export class PrivacyPoliciesComponent implements OnInit {
   }
 
 
-  init() {    
+  init() {
     if (JSON.parse(this.localStorageService.loadLocalStorage('privacyPolicies'))) {
       this.sharedService.privacyPoliciesAccept = true;
       this.sharedService.privacyPolicies = false;

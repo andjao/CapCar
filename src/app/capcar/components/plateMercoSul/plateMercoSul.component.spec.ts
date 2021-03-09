@@ -8,9 +8,9 @@ describe('PlateMercoSulComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlateMercoSulComponent ]
+      declarations: [PlateMercoSulComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

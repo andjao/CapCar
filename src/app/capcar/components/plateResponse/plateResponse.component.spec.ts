@@ -8,9 +8,9 @@ describe('PlateReponseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlateReponseComponent ]
+      declarations: [PlateReponseComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
